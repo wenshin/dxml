@@ -1,7 +1,7 @@
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      'd-view': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & { class?: string; }, HTMLElement>; // Normal web component
+      'd-view': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & { class?: string }, HTMLElement>; // Normal web component
     }
   }
 }
@@ -14,17 +14,23 @@ export class View extends HTMLElement {
     super();
 
     if (!document.getElementById(View.id)) {
-      const style = document.createElement('style')
-      style.id = View.id
+      const style = document.createElement('style');
+      style.id = View.id;
       style.textContent = `${View.tag} {
         position: relative;
-        display: block;
         height: 100%;
         width: 100%;
-        overflow: visible;
+        display: block;
         box-sizing: border-box;
-      }`
-      document.head.appendChild(style)
+      }
+      ${View.tag}[role="col-container"] {
+        display: flex;
+      }
+      ${View.tag}[role="row-container"] {
+        display: flex;
+        flex-direction: column;
+      }`;
+      document.head.appendChild(style);
     }
   }
 }

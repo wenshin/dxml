@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <d-view className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <d-view>
+      <d-row height='equal'>
+        <d-layer>
+          <d-float class='my-class' align='top'>top</d-float>
+          <d-float align='right-top'>right-top</d-float>
+          <d-float align='right'>right</d-float>
+          <d-float align='right-bottom'>right-bottom</d-float>
+          <d-float align='bottom'>bottom</d-float>
+          <d-float align='left-bottom'>left-bottom</d-float>
+          <d-float align='left'>left</d-float>
+          <d-float align='left-top'>left-top</d-float>
+          <d-float align='center'>center</d-float>
+        </d-layer>
+      </d-row>
+      <d-row height='equal'>
+        <d-view>
+          <d-col>col1</d-col>
+          <d-col width='stretch'>
+            <d-view>
+              <d-row height='equal'>row1</d-row>
+              <d-row height='equal'>row2</d-row>
+              <d-row height='equal'>row3</d-row>
+            </d-view>
+          </d-col>
+        </d-view>
+      </d-row>
     </d-view>
   );
 }

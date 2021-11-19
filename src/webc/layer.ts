@@ -7,7 +7,9 @@ declare global {
         React.HTMLAttributes<HTMLElement> & {
           class?: string;
           mask?: Mask;
-        }, HTMLElement>; // Normal web component
+        },
+        HTMLElement
+      >; // Normal web component
     }
   }
 }
@@ -21,8 +23,8 @@ export class Layer extends HTMLElement {
     super();
 
     if (!document.getElementById(Layer.id)) {
-      const style = document.createElement('style')
-      style.id = Layer.id
+      const style = document.createElement('style');
+      style.id = Layer.id;
       style.textContent = `${Layer.tag} {
         position: absolute;
         top: 0;
@@ -32,8 +34,8 @@ export class Layer extends HTMLElement {
         height: 100%;
         width: 100%;
         overflow: visible;
-      }`
-      document.head.appendChild(style)
+      }`;
+      document.head.appendChild(style);
     }
   }
 
@@ -41,10 +43,10 @@ export class Layer extends HTMLElement {
     const mask = this.getAttribute('mask') || 'none';
     switch (mask) {
       case 'none':
-        this.setAttribute('style', 'pointer-events: none; background-color: transparent;')
+        this.setAttribute('style', 'pointer-events: none; background-color: transparent;');
         break;
       default:
-        this.setAttribute('style', `backgroun-color: ${mask};`)
+        this.setAttribute('style', `background-color: ${mask};`);
         break;
     }
   }

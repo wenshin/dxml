@@ -8,17 +8,6 @@ import './webc';
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <d-layer>
-      <d-float class='my-class' align='top'>top</d-float>
-      <d-float align='right-top'>right-top</d-float>
-      <d-float align='right'>right</d-float>
-      <d-float align='right-bottom'>right-bottom</d-float>
-      <d-float align='bottom'>bottom</d-float>
-      <d-float align='left-bottom'>left-bottom</d-float>
-      <d-float align='left'>left</d-float>
-      <d-float align='left-top'>left-top</d-float>
-      <d-float align='center'>center</d-float>
-    </d-layer>
   </React.StrictMode>,
   document.getElementById('root')
 );

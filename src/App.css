@@ -1,6 +1,7 @@
 html,body,#root {
   height: 100%;
   color: white;
+  background: #002d5c
 }
 
 .App {
