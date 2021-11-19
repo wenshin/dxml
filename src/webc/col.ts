@@ -1,4 +1,5 @@
-import { View } from './view';
+import { getFlexAlignCSS } from "./util";
+import { View } from "./view";
 
 declare global {
   namespace JSX {
@@ -6,8 +7,7 @@ declare global {
       'd-col': React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement> & {
           class?: string;
-          width?: 'equal' | 'stretch' | string;
-          'align-items'?: 'start' | 'end';
+          dimension?: 'stretch' | string;
         },
         HTMLElement
       >; // Normal web component
@@ -26,27 +26,24 @@ export class Col extends HTMLElement {
       const style = document.createElement('style');
       style.id = Col.id;
 
-      style.textContent = `${View.tag} > ${Col.tag} {
+      style.textContent = `${Col.tag} {
         position: relative;
-        display: block;
-        height: 100%;
+        display: inline-flex;
+        flex-direction: column;
         box-sizing: border-box;
         flex: none;
       }
-      ${View.tag} > ${Col.tag}[align-items="start"] {
-        display: flex;
-        align-items: start;
+      ${Col.tag} > *,
+      ${Col.tag} > ${View.tag} {
+        height: auto;
       }
-      ${View.tag} > ${Col.tag}[align-items="end"] {
-        display: flex;
-        align-items: end;
-      }
-      ${View.tag} > ${Col.tag}[width="equal"] {
-        width: 1px;
+      ${getFlexAlignCSS(Col.tag)}
+      ${Col.tag} > [dimension] {
+        overflow: auto;
         flex: 1;
       }
-      ${View.tag} > ${Col.tag}[width="stretch"] {
-        width: 0px;
+      ${Col.tag} > [dimension="stretch"] {
+        overflow: auto;
         flex: 1;
       }`;
       document.head.appendChild(style);
@@ -54,22 +51,9 @@ export class Col extends HTMLElement {
   }
 
   connectedCallback() {
-    const width = this.getAttribute('width');
-    if (width !== 'equal' && width !== 'stretch' && width) {
-      this.style.width = width;
-    }
-    const alignItems = this.getAttribute('align-items');
-    if (!alignItems) {
-      this.setAttribute('align-items', 'center');
-    }
-    if (this.parentElement) {
-      this.parentElement.setAttribute('role', 'col-container');
-    }
-  }
-
-  attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-    if (name === 'width') {
-      this.style.width = newValue;
+    const dimension = this.getAttribute('dimension');
+    if (dimension !== 'stretch' && dimension && this.parentElement) {
+      this.style.flexGrow = dimension;
     }
   }
 }

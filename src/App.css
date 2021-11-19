@@ -1,7 +1,11 @@
 html,body,#root {
   height: 100%;
-  color: white;
+  color: rgb(185, 185, 185);
   background: #002d5c
+}
+
+d-view {
+  border: solid 1px rgb(212, 212, 212);
 }
 
 .App {

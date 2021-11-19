@@ -1,11 +1,10 @@
-import { Layer } from './layer';
+import { PositionType } from "./util";
 
-type Align = 'top' | 'right-top' | 'right' | 'right-bottom' | 'bottom' | 'left-bottom' | 'left' | 'left-top' | 'center';
 declare global {
   namespace JSX {
     interface IntrinsicElements {
       'd-float': React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement> & { align?: Align; class?: string },
+        React.HTMLAttributes<HTMLElement> & { align?: PositionType; class?: string },
         HTMLElement
       >; // Normal web component
     }
