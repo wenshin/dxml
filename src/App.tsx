@@ -6,7 +6,7 @@ function App() {
     <div style={{ padding: 40 }}>
       <h1>圣杯布局</h1>
       <div style={{ height: '200px' }}>
-        <d-view role='col'>
+        <d-view layout='col'>
           <d-row align-items='center'>
             Header
           </d-row>
@@ -22,7 +22,7 @@ function App() {
       </div>
       <h1>等宽 3 列，元素水平垂直居中</h1>
       <div style={{ height: '200px' }}>
-        <d-view role='row'>
+        <d-view layout='row'>
           <d-view dimension='1' align-items='center'><div>A</div><div>A</div></d-view>
           <d-view dimension='1' align-items='center'>BB</d-view>
           <d-view dimension='1' align-items='center'>CC</d-view>
@@ -30,7 +30,7 @@ function App() {
       </div>
       <h1>不同比例列，元素水平垂直居中</h1>
       <div style={{ height: '200px' }}>
-        <d-view role='row'>
+        <d-view layout='row'>
           <d-view dimension='1' align-items='center'><div>A</div><div>A</div></d-view>
           <d-view dimension='2' align-items='center'>BB</d-view>
           <d-view dimension='2' align-items='center'>CC</d-view>
@@ -38,7 +38,7 @@ function App() {
       </div>
       <h1>水平三明治布局</h1>
       <div style={{ height: '200px' }}>
-        <d-view role='row'>
+        <d-view layout='row'>
           <d-view align-items='center'>A</d-view>
           <d-view dimension='stretch' align-items='center'>B</d-view>
           <d-view align-items='center'>C</d-view>
@@ -46,7 +46,7 @@ function App() {
       </div>
       <h1>垂直三明治布局</h1>
       <div style={{ height: '200px' }}>
-        <d-view role='col'>
+        <d-view layout='col'>
           <d-view align-items='center'>A</d-view>
           <d-view dimension='stretch' align-items='center'>B</d-view>
           <d-view align-items='center'>C</d-view>
@@ -54,7 +54,7 @@ function App() {
       </div>
       <h1>不同比例行布局</h1>
       <div style={{ height: '200px' }}>
-        <d-view role='col'>
+        <d-view layout='col'>
           <d-row dimension='1'>
             <d-view align-items='center'>A</d-view>
             <d-view dimension='stretch' align-items='center'>B</d-view>
@@ -69,7 +69,7 @@ function App() {
       </div>
       <h1>浮动元素定位</h1>
       <div style={{ height: '200px' }}>
-        <d-view role='col'>
+        <d-view layout='col'>
           <d-float class='my-class' align='top'>top</d-float>
           <d-float align='right-top'>right-top</d-float>
           <d-float align='right'>right</d-float>

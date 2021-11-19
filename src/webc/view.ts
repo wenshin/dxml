@@ -7,7 +7,7 @@ declare global {
     interface IntrinsicElements {
       'd-view': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
         class?: string;
-        role?: 'row' | 'col';
+        layout?: 'row' | 'col';
         dimension?: 'equal' | 'stretch' | string;
         'align-items'?: PositionType;
       }, HTMLElement>; // Normal web component
@@ -34,36 +34,36 @@ export class View extends HTMLElement {
         flex: none;
       }
       ${View.tag}[align-items],
-      ${View.tag}[role] {
+      ${View.tag}[layout] {
         display: flex;
       }
-      ${View.tag}[role="col"] {
+      ${View.tag}[layout="col"] {
         flex-direction: column;
       }
       ${getFlexAlignCSS(View.tag)}
-      ${View.tag}[role="row"] > *,
-      ${View.tag}[role="row"] > ${View.tag} {
+      ${View.tag}[layout="row"] > *,
+      ${View.tag}[layout="row"] > ${View.tag} {
         width: auto;
       }
-      ${View.tag}[role="row"] > [dimension] {
+      ${View.tag}[layout="row"] > [dimension] {
         width: 1px;
         min-width: 1px;
         overflow: auto;
         flex: 1;
       }
-      ${View.tag}[role="row"] > [dimension="stretch"] {
+      ${View.tag}[layout="row"] > [dimension="stretch"] {
         overflow: auto;
         flex: 1;
       }
-      ${View.tag}[role="col"] > *,
-      ${View.tag}[role="col"] > ${View.tag} {
+      ${View.tag}[layout="col"] > *,
+      ${View.tag}[layout="col"] > ${View.tag} {
         height: auto;
       }
-      ${View.tag}[role="col"] > [dimension] {
+      ${View.tag}[layout="col"] > [dimension] {
         overflow: auto;
         flex: 1;
       }
-      ${View.tag}[role="col"] > [dimension="stretch"] {
+      ${View.tag}[layout="col"] > [dimension="stretch"] {
         overflow: auto;
         flex: 1;
       }`;
