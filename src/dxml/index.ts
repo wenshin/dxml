@@ -3,6 +3,7 @@ import './view';
 import './float';
 import './col';
 import './row';
+import './text';
 import { getFlexAlignCSS } from './util';
 import { Row } from './row';
 import { Col } from './col';

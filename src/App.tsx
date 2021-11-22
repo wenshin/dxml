@@ -40,7 +40,7 @@ function App() {
         </pre>
       </section>
       <section>
-        <h1>等宽 3 列，元素水平垂直居中</h1>
+        <d-text><h1>等宽 3 列，元素水平垂直居中</h1></d-text>
         <div style={{ height: '200px' }}>
           <d-view layout='row'>
             <d-col dimension='1' align-items='center'>
@@ -188,6 +188,12 @@ function App() {
 </d-view>`}
           </code>
         </pre>
+      </section>
+      <section>
+        <h1>自动修正文本 line height 导致的边距问题</h1>
+        <div style={{ width: '200px' }}>
+          <d-text>DXML 设计了更适合设计稿直接转布局代码的一套标签</d-text>
+        </div>
       </section>
     </div>
   );

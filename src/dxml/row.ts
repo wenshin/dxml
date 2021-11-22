@@ -1,6 +1,3 @@
-import { getFlexAlignCSS } from "./util";
-import { View } from "./view";
-
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -18,10 +15,6 @@ declare global {
 export class Row extends HTMLElement {
   static tag = 'd-row';
   static id = 'd-row-id';
-  constructor() {
-    // 必须首先调用 super 方法
-    super();
-  }
 
   connectedCallback() {
     const dimension = this.getAttribute('dimension');

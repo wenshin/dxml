@@ -1,6 +1,4 @@
-import { Col } from "./col";
-import { Row } from "./row";
-import { getFlexAlignCSS, PositionType } from "./util";
+import { PositionType } from "./util";
 
 declare global {
   namespace JSX {
