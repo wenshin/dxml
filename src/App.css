@@ -1,12 +1,13 @@
 html,body,#root {
   height: 100%;
   color: rgb(185, 185, 185);
-  background: #002d5c
+  background: #0b1722
 }
 
-d-view {
+d-view, d-row, d-col {
   border: solid 1px rgb(212, 212, 212);
 }
+
 
 .App {
   text-align: center;

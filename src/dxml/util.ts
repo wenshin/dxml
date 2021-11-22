@@ -11,7 +11,10 @@ export function findAncestor(elem: HTMLElement, judge: (e: HTMLElement) => boole
 }
 
 export function getFlexAlignCSS(tag: string) {
-  return `${tag}[align-items="center"] {
+  return `${tag}[align-items] {
+    display: flex;
+  }
+  ${tag}[align-items="center"] {
     align-items: center;
     justify-content: center;
   }
