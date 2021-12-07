@@ -14,7 +14,7 @@ if (!document.getElementById(CommonStyleId)) {
   style.id = CommonStyleId;
 
   style.textContent = `
-  ${Row.tag}, ${Col.tag}, [layout="row"],[layout="col"] {
+  ${Row.tag}, ${Col.tag}, [layout="row"], [layout="col"] {
     position: relative;
     display: flex;
     box-sizing: border-box;

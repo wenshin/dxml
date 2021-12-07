@@ -6,7 +6,7 @@ declare global {
       'd-view': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
         class?: string;
         layout?: 'row' | 'col';
-        dimension?: 'equal' | 'stretch' | string;
+        gap?: string;
         'align-items'?: PositionType;
       }, HTMLElement>; // Normal web component
     }
@@ -31,13 +31,6 @@ export class View extends HTMLElement {
         box-sizing: border-box;
       }`;
       document.head.appendChild(style);
-    }
-  }
-
-  connectedCallback() {
-    const dimension = this.getAttribute('dimension');
-    if (dimension !== 'stretch' && dimension && this.parentElement) {
-      this.style.flexGrow = dimension;
     }
   }
 }

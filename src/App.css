@@ -8,6 +8,17 @@ d-view, d-row, d-col {
   border: solid 1px rgb(212, 212, 212);
 }
 
+.case-container {
+  /* width 默认设置 content 的宽度，所以整个容器的长度，将会是 640px，设置 border-box 修正该问题
+   * 子元素的 width 100% 是根据父容器的内容宽度计算
+   */
+  width: 600px;
+  height: 200px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #272822;
+}
+
 
 .App {
   text-align: center;

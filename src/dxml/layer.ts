@@ -1,4 +1,4 @@
-type Mask = 'none' | string;
+type Mask = 'none' | 'black' | 'white' | string;
 
 declare global {
   namespace JSX {
@@ -34,6 +34,16 @@ export class Layer extends HTMLElement {
         height: 100%;
         width: 100%;
         overflow: visible;
+      }
+      ${Layer.tag}[mask="none"] {
+        pointer-events: none;
+        background-color: transparent;
+      }
+      ${Layer.tag}[mask="white"] {
+        background-color: #ffffffbb;
+      }
+      ${Layer.tag}[mask="black"] {
+        background-color: #00000073;
       }`;
       document.head.appendChild(style);
     }
@@ -43,7 +53,8 @@ export class Layer extends HTMLElement {
     const mask = this.getAttribute('mask') || 'none';
     switch (mask) {
       case 'none':
-        this.setAttribute('style', 'pointer-events: none; background-color: transparent;');
+      case 'white':
+      case 'black':
         break;
       default:
         this.setAttribute('style', `background-color: ${mask};`);

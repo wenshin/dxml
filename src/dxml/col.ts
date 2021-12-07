@@ -4,7 +4,11 @@ declare global {
       'd-col': React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement> & {
           class?: string;
+          /**
+           * stretch | 1 | 2 | 3
+           */
           dimension?: 'stretch' | string;
+          gap?: string;
         },
         HTMLElement
       >; // Normal web component

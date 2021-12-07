@@ -52,11 +52,18 @@ export function getFlexAlignCSS(tag: string) {
   }`;
 }
 
+/**
+ * 这块操作很容导致 recalc style 和 layout 性能问题，严重可以达到 10ms 及以上
+ * @param elem
+ * @returns
+ */
 export function getLineHeight(elem: HTMLElement) {
   if (!elem.parentNode) return 0;
   const temp = document.createElement(elem.tagName === 'D-TEXT' ? 'span' : elem.tagName);
   const style = window.getComputedStyle(elem);
-  temp.setAttribute("style", "margin:0; padding:0; width: 0;"
+  temp.setAttribute("style", "margin:0; padding:0; width: 0; "
+      + "position: absolute; "
+      + "visbility: hidden; "
       + "line-height:" + style.lineHeight + "; "
       + "font-family:" + style.fontFamily + "; "
       + "font-size:" + style.fontSize);
