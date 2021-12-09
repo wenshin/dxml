@@ -2,6 +2,12 @@
 
 DXML is designed for more effective to change UI design into code, even automatic.
 
+# Install
+
+```bash
+npm install dxml
+yarn install dxml
+```
 # Features
 
 see [docs](https://wenshin.github.io/projects/dxml/)

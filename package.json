@@ -1,7 +1,6 @@
 {
   "name": "dxml",
   "version": "0.1.0",
-  "private": true,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/index.js",
@@ -24,7 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build-pkg": "tsc -p ./tsconfig.pkg.json",
-    "prepublish": "git tag 0.1.0 && npm run build-pkg",
+    "prepublish": "git tag -d 0.1.0 &>/dev/null && git tag 0.1.0 && npm run build-pkg",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
