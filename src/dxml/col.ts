@@ -1,3 +1,4 @@
+import { PositionType } from './util';
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -8,6 +9,7 @@ declare global {
            * stretch | 1 | 2 | 3
            */
           dimension?: 'stretch' | string;
+          'align-items'?: PositionType;
           gap?: string;
         },
         HTMLElement
@@ -28,4 +30,6 @@ export class Col extends HTMLElement {
   }
 }
 
-customElements.define(Col.tag, Col);
+if (!customElements.get(Col.tag)) {
+	customElements.define(Col.tag, Col);
+}

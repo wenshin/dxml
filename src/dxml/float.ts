@@ -1,4 +1,4 @@
-import { PositionType } from "./util";
+import { PositionType } from './util';
 
 declare global {
   namespace JSX {
@@ -86,4 +86,6 @@ export class Float extends HTMLElement {
   }
 }
 
-customElements.define(Float.tag, Float);
+if (!customElements.get(Float.tag)) {
+	customElements.define(Float.tag, Float);
+}

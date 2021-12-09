@@ -1,4 +1,4 @@
-import { getLineHeight } from "./util";
+import { getLineHeight } from './util';
 
 declare global {
   namespace JSX {
@@ -57,4 +57,6 @@ export class Text extends HTMLElement {
   }
 }
 
-customElements.define(Text.tag, Text);
+if (!customElements.get(Text.tag)) {
+	customElements.define(Text.tag, Text);
+}

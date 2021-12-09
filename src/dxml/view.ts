@@ -1,11 +1,11 @@
-import { PositionType } from "./util";
+import { PositionType } from './util';
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
       'd-view': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
         class?: string;
-        layout?: 'row' | 'col';
+        layout?: 'row' | 'col' | 'inline';
         gap?: string;
         'align-items'?: PositionType;
       }, HTMLElement>; // Normal web component
@@ -35,4 +35,6 @@ export class View extends HTMLElement {
   }
 }
 
-customElements.define(View.tag, View);
+if (!customElements.get(View.tag)) {
+	customElements.define(View.tag, View);
+}
