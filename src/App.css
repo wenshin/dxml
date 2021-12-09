@@ -8,6 +8,15 @@ d-view, d-row, d-col {
   border: solid 1px rgb(212, 212, 212);
 }
 
+pre {
+  font-size: 14px;
+}
+
+#root {
+  width: 680px;
+  margin: auto;
+}
+
 .case-container {
   /* width 默认设置 content 的宽度，所以整个容器的长度，将会是 640px，设置 border-box 修正该问题
    * 子元素的 width 100% 是根据父容器的内容宽度计算
@@ -19,35 +28,10 @@ d-view, d-row, d-col {
   background-color: #272822;
 }
 
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {

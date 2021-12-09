@@ -9,7 +9,10 @@
 /coverage
 
 # production
+# 文档
 /build
+# pkg dist
+/dist
 
 # misc
 .DS_Store

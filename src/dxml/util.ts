@@ -14,38 +14,42 @@ export function getFlexAlignCSS(tag: string) {
   return `${tag}[align-items] {
     display: flex;
   }
+  ${tag}[align-items="center"] {
+    align-items: center;
+    justify-content: center;
+  }
   ${tag}[align-items="top"] {
-		align-items: flex-start;
-		justify-content: center;
-	}
-	${tag}[align-items="bottom"] {
-		align-items: flex-end;
-		justify-content: center;
-	}
-	${tag}[align-items="left"] {
-		align-items: center;
-		justify-content: flex-start;
-	}
-	${tag}[align-items="left-top"] {
-		align-items: flex-start;
-		justify-content: flex-start;
-	}
-	${tag}[align-items="left-bottom"] {
-		align-items: flex-end;
-		justify-content: flex-start;
-	}
-	${tag}[align-items="right"] {
-		align-items: center;
-		justify-content: flex-end;
-	}
-	${tag}[align-items="right-top"] {
-		align-items: flex-start;
-		justify-content: flex-end;
-	}
-	${tag}[align-items="right-bottom"] {
-		align-items: flex-end;
-		justify-content: flex-end;
-	}`;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  ${tag}[align-items="bottom"] {
+    align-items: flex-end;
+    justify-content: center;
+  }
+  ${tag}[align-items="left"] {
+    align-items: center;
+    justify-content: flex-start;
+  }
+  ${tag}[align-items="left-top"] {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  ${tag}[align-items="left-bottom"] {
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+  ${tag}[align-items="right"] {
+    align-items: center;
+    justify-content: flex-end;
+  }
+  ${tag}[align-items="right-top"] {
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  ${tag}[align-items="right-bottom"] {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }`;
 }
 
 /**
