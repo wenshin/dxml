@@ -30,6 +30,6 @@ export class Col extends HTMLElement {
   }
 }
 
-if (!customElements.get(Col.tag)) {
+if (customElements && !customElements.get(Col.tag)) {
 	customElements.define(Col.tag, Col);
 }

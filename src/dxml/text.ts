@@ -17,20 +17,6 @@ export class Text extends HTMLElement {
   static tag = 'd-text';
   static id = 'd-text-id';
   delta: number = 0;
-  constructor() {
-    // 必须首先调用 super 方法
-    super();
-    if (!document.getElementById(Text.id)) {
-      const style = document.createElement('style');
-      style.id = Text.id;
-      style.textContent = `${Text.tag} {
-        display: inline-block;
-        box-sizing: border-box;
-        overflow: visible;
-      }`;
-      document.head.appendChild(style);
-    }
-  }
 
   connectedCallback() {
     this.updateStyle();
@@ -57,6 +43,6 @@ export class Text extends HTMLElement {
   }
 }
 
-if (!customElements.get(Text.tag)) {
+if (customElements && !customElements.get(Text.tag)) {
 	customElements.define(Text.tag, Text);
 }

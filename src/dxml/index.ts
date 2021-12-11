@@ -1,12 +1,10 @@
-import './layer';
-import './view';
-import './float';
-import './col';
-import './row';
-import './text';
 import { getFlexAlignCSS } from './util';
+import { View } from './view';
 import { Row } from './row';
 import { Col } from './col';
+import { Float } from './float';
+import { Layer } from './layer';
+import { Text } from './text';
 
 const CommonStyleId = 'd-common-id'
 if (!document.getElementById(CommonStyleId)) {
@@ -14,6 +12,13 @@ if (!document.getElementById(CommonStyleId)) {
   style.id = CommonStyleId;
 
   style.textContent = `
+  ${View.tag} {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+  }
   ${Row.tag}, ${Col.tag}, [layout="row"], [layout="col"] {
     position: relative;
     display: flex;
@@ -48,6 +53,77 @@ if (!document.getElementById(CommonStyleId)) {
     overflow: auto;
     flex: 1;
   }
-  ${getFlexAlignCSS('')}`;
+  ${getFlexAlignCSS('')}
+  ${Float.tag} {
+    position: absolute;
+    box-sizing: border-box;
+    display: block;
+    pointer-events: auto;
+    // default is left top
+    left: 0px;
+    top: 0px;
+  }
+  ${Float.tag}[align="top"] {
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  ${Float.tag}[align="right-top"] {
+    top: 0px;
+    right: 0px;
+  }
+  ${Float.tag}[align="right"] {
+    right: 0px;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+  ${Float.tag}[align="right-bottom"] {
+    bottom: 0px;
+    right: 0;
+  }
+  ${Float.tag}[align="bottom"] {
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  ${Float.tag}[align="left-bottom"] {
+    left: 0px;
+    bottom: 0px;
+  }
+  ${Float.tag}[align="left"] {
+    left: 0px;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+  ${Float.tag}[align="center"] {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  ${Layer.tag} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    width: 100%;
+    overflow: visible;
+  }
+  ${Layer.tag}[mask="none"] {
+    pointer-events: none;
+    background-color: transparent;
+  }
+  ${Layer.tag}[mask="white"] {
+    background-color: #ffffffbb;
+  }
+  ${Layer.tag}[mask="black"] {
+    background-color: #00000073;
+  }
+  ${Text.tag} {
+    display: inline-block;
+    box-sizing: border-box;
+    overflow: visible;
+  }`;
   document.head.appendChild(style);
 }

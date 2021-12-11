@@ -16,25 +16,8 @@ declare global {
 export class View extends HTMLElement {
   static tag = 'd-view';
   static id = 'd-view-id';
-  constructor() {
-    // 必须首先调用 super 方法
-    super();
-
-    if (!document.getElementById(View.id)) {
-      const style = document.createElement('style');
-      style.id = View.id;
-      style.textContent = `${View.tag} {
-        position: relative;
-        height: 100%;
-        width: 100%;
-        display: block;
-        box-sizing: border-box;
-      }`;
-      document.head.appendChild(style);
-    }
-  }
 }
 
-if (!customElements.get(View.tag)) {
+if (customElements && !customElements.get(View.tag)) {
 	customElements.define(View.tag, View);
 }
