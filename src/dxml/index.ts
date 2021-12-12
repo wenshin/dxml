@@ -57,6 +57,21 @@ ${Col.tag} > [dimension="stretch"], [layout="col"] > [dimension="stretch"] {
   overflow: auto;
   flex: 1;
 }
+${Row.tag}[gap] > *,
+[layout="row"][gap] > * {
+  margin-bottom: 0;
+}
+${Col.tag}[gap] > *,
+[layout="col"][gap] > * {
+  margin-right: 0;
+}
+[layout="row"][gap] > *:last-child, 
+${Row.tag}[gap] > *:last-child, 
+[layout="col"][gap] > *:last-child, 
+${Col.tag}[gap] > *:last-child {
+  margin-right: 0;
+  margin-bottom: 0;
+}
 ${Elem.tag}, ${Elem.tag}[layout] {
   display: inline-flex;
   width: initial;

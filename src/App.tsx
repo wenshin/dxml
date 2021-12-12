@@ -17,7 +17,7 @@ function App() {
             <d-row align-items='center'>
               Header
             </d-row>
-            <d-row dimension='stretch'>
+            <d-row dimension='stretch' gap='10px' style={{ backgroundColor: 'transparent' }}>
               <d-col align-items='center'>SideBar</d-col>
               <d-col dimension='stretch' align-items='center'>Content</d-col>
               <d-col align-items='center'>SideBar</d-col>
@@ -29,11 +29,11 @@ function App() {
         </div>
         <pre>
           <code className="language-html">{
-`<d-view layout='col'>
+`<d-view layout='col' gap='10px'>
   <d-row align-items='center'>
     Header
   </d-row>
-  <d-row dimension='stretch'>
+  <d-row dimension='stretch' gap='10px' style={{ backgroundColor: 'transparent' }}>
     <d-col align-items='center'>SideBar</d-col>
     <d-col dimension='stretch' align-items='center'>Content</d-col>
     <d-col align-items='center'>SideBar</d-col>
@@ -48,7 +48,7 @@ function App() {
       <section>
         <d-text><h1>等宽 3 列，元素水平垂直居中</h1></d-text>
         <div className='case-container'>
-          <d-view layout='row'>
+          <d-view layout='row' gap='12px'>
             <d-col dimension='1' align-items='center'>
               <d-row align-items='center'>
                 <div>A</div>
@@ -61,7 +61,7 @@ function App() {
         </div>
         <pre>
           <code className="language-html">{
-`<d-view layout='row'>
+`<d-view layout='row' gap='12px'>
   <d-col dimension='1' align-items='center'>
     <d-row align-items='center'>
       <div>A</div>
@@ -77,7 +77,7 @@ function App() {
       <section>
         <d-text><h1>不同比例列，元素水平垂直居中</h1></d-text>
         <div className='case-container'>
-          <d-view layout='row'>
+          <d-view layout='row' gap='12px'>
             <d-col dimension='1' align-items='center'><div>A</div><div>A</div></d-col>
             <d-col dimension='2' align-items='center'>BB</d-col>
             <d-col dimension='2' align-items='center'>CC</d-col>
@@ -85,7 +85,7 @@ function App() {
         </div>
         <pre>
           <code className="language-html">{
-`<d-view layout='row'>
+`<d-view layout='row' gap='12px'>
   <d-col dimension='1' align-items='center'><div>A</div><div>A</div></d-col>
   <d-col dimension='2' align-items='center'>BB</d-col>
   <d-col dimension='2' align-items='center'>CC</d-col>
@@ -96,7 +96,7 @@ function App() {
       <section>
         <d-text><h1>水平三明治布局</h1></d-text>
         <div className='case-container'>
-          <d-view layout='row'>
+          <d-view layout='row' gap='12px'>
             <d-col align-items='center'>AAA</d-col>
             <d-col dimension='stretch' align-items='center'>B</d-col>
             <d-col align-items='center'>C</d-col>
@@ -104,7 +104,7 @@ function App() {
         </div>
         <pre>
           <code className="language-html">{
-`<d-view layout='row'>
+`<d-view layout='row' gap='12px'>
   <d-col align-items='center'>AAA</d-col>
   <d-col dimension='stretch' align-items='center'>B</d-col>
   <d-col align-items='center'>C</d-col>
@@ -115,7 +115,7 @@ function App() {
       <section>
         <d-text><h1>垂直三明治布局</h1></d-text>
         <div className='case-container'>
-          <d-view layout='col'>
+          <d-view layout='col' gap='12px'>
             <d-row align-items='center'>A</d-row>
             <d-row dimension='stretch' align-items='center'>B</d-row>
             <d-row align-items='center'>C</d-row>
@@ -123,7 +123,7 @@ function App() {
         </div>
         <pre>
           <code className="language-html">{
-`<d-view layout='col'>
+`<d-view layout='col' gap='12px'>
   <d-row align-items='center'>A</d-row>
   <d-row dimension='stretch' align-items='center'>B</d-row>
   <d-row align-items='center'>C</d-row>
@@ -134,13 +134,13 @@ function App() {
       <section>
         <d-text><h1>不同比例行布局</h1></d-text>
         <div className='case-container'>
-          <d-view layout='col'>
-            <d-row dimension='1'>
+          <d-view layout='col' gap='12px'>
+            <d-row dimension='1' gap='10px' style={{backgroundColor: 'transparent'}}>
               <d-col align-items='center'>A</d-col>
               <d-col dimension='stretch' align-items='center'>B</d-col>
               <d-col align-items='center'>C</d-col>
             </d-row>
-            <d-row dimension='2'>
+            <d-row dimension='2' gap='10px' style={{backgroundColor: 'transparent'}}>
               <d-col align-items='center' style={{ width: 30 }}>A</d-col>
               <d-col dimension='stretch' align-items='center'>B</d-col>
               <d-col align-items='center'>C</d-col>
@@ -149,13 +149,13 @@ function App() {
         </div>
         <pre>
           <code className="language-html">{
-`<d-view layout='col'>
-  <d-row dimension='1'>
+`<d-view layout='col' gap='12px'>
+  <d-row dimension='1' gap='10px' style={{backgroundColor: 'transparent'}}>
     <d-col align-items='center'>A</d-col>
     <d-col dimension='stretch' align-items='center'>B</d-col>
     <d-col align-items='center'>C</d-col>
   </d-row>
-  <d-row dimension='2'>
+  <d-row dimension='2' gap='10px' style={{backgroundColor: 'transparent'}}>
     <d-col align-items='center' style={{ width: 30 }}>A</d-col>
     <d-col dimension='stretch' align-items='center'>B</d-col>
     <d-col align-items='center'>C</d-col>
@@ -198,19 +198,19 @@ function App() {
       <section>
         <d-text><h1>inline 元素布局</h1></d-text>
         <div className='case-container'>
-          <d-view layout="inline">
+          <d-view layout="inline" gap='12px 16px'>
             <d-elem className='inline-elem1'>test</d-elem>
-            <d-elem class='inline-elem2' layout='row'>
+            <d-elem class='inline-elem2' layout='row' gap='10px'>
               <d-col align-items='center'><span>A</span><span>B</span><span>C</span></d-col>
               <d-col align-items='center'>B</d-col>
               <d-col align-items='center'>C</d-col>
             </d-elem>
-            <d-elem layout='col'>
+            <d-elem layout='col' gap='10px'>
               <d-row>A</d-row>
               <d-row>B</d-row>
               <d-row>C</d-row>
             </d-elem>
-            <d-elem class='inline-elem3' layout='row'>
+            <d-elem class='inline-elem3' layout='row' gap='10px'>
               <d-col align-items='center'>A</d-col>
               <d-col align-items='center'>B</d-col>
               <d-col align-items='center'>C</d-col>
@@ -219,19 +219,19 @@ function App() {
         </div>
         <pre>
           <code className="language-html">{
-`<d-view layout="inline">
+`<d-view layout="inline" gap='12px 16px'>
   <d-elem className='inline-elem1'>test</d-elem>
-  <d-elem class='inline-elem2' layout='row'>
+  <d-elem class='inline-elem2' layout='row' gap='10px'>
     <d-col align-items='center'><span>A</span><span>B</span><span>C</span></d-col>
     <d-col align-items='center'>B</d-col>
     <d-col align-items='center'>C</d-col>
   </d-elem>
-  <d-elem layout='col'>
+  <d-elem layout='col' gap='10px'>
     <d-row>A</d-row>
     <d-row>B</d-row>
     <d-row>C</d-row>
   </d-elem>
-  <d-elem class='inline-elem3' layout='row'>
+  <d-elem class='inline-elem3' layout='row' gap='10px'>
     <d-col align-items='center'>A</d-col>
     <d-col align-items='center'>B</d-col>
     <d-col align-items='center'>C</d-col>

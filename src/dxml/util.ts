@@ -86,8 +86,13 @@ export function insertStyleElement(id: string, content: string) {
   }
 }
 
-export function insertDimensionStyle(elem: HTMLElement, dimension: string) {
+export function insertDimensionStyle(dimension: string) {
   const id = `d-dimension-${dimension}`;
-  insertStyleElement(id, `[dimension].${id} { flex-grow: ${dimension}; }`)
-  elem.classList.add(id);
+  insertStyleElement(id, `[dimension][dimension="${dimension}"] { flex-grow: ${dimension}; }`)
+}
+
+export function insertGapStyle(gap: string) {
+  const [rowGap, colGap] = gap.split(' ');
+  const id = `d-gap-${rowGap}-${colGap || rowGap}`;
+  insertStyleElement(id, `[gap="${gap}"] > * { margin-right: ${rowGap}; margin-bottom: ${colGap || rowGap}; }`)
 }

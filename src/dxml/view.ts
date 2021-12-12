@@ -1,4 +1,4 @@
-import { PositionType } from './util';
+import { insertGapStyle, PositionType } from './util';
 
 declare global {
   namespace JSX {
@@ -16,6 +16,13 @@ declare global {
 export class View extends HTMLElement {
   static tag = 'd-view';
   static id = 'd-view-id';
+
+  connectedCallback() {
+    const gap = this.getAttribute('gap');
+    if (gap) {
+      insertGapStyle(gap);
+    }
+  }
 }
 
 if (customElements && !customElements.get(View.tag)) {
