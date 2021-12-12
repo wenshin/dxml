@@ -42,3 +42,13 @@ pre {
     transform: rotate(360deg);
   }
 }
+
+.inline-elem2 > * {
+  width: 50px;
+  height: 50px;
+}
+
+.inline-elem3 > * {
+  width: 200px;
+  height: 50px;
+}

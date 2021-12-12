@@ -2,6 +2,7 @@ import { getFlexAlignCSS } from './util';
 import { View } from './view';
 import { Row } from './row';
 import { Col } from './col';
+import { Elem } from './elem';
 import { Float } from './float';
 import { Layer } from './layer';
 import { Text } from './text';
@@ -18,6 +19,13 @@ if (!document.getElementById(CommonStyleId)) {
     width: 100%;
     display: block;
     box-sizing: border-box;
+  }
+  [layout="inline"] {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: flex-start;
   }
   ${Row.tag}, ${Col.tag}, [layout="row"], [layout="col"] {
     position: relative;
@@ -53,13 +61,28 @@ if (!document.getElementById(CommonStyleId)) {
     overflow: auto;
     flex: 1;
   }
+  ${Elem.tag}, ${Elem.tag}[layout] {
+    display: inline-flex;
+    width: initial;
+    height: initial;
+  }
+  ${Elem.tag}[layout="row"] {
+    max-width: 100%;
+  }
+  ${Elem.tag}[layout="col"] {
+    max-height: 100%;
+  }
+  ${Elem.tag}[layout] > * {
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
   ${getFlexAlignCSS('')}
   ${Float.tag} {
     position: absolute;
     box-sizing: border-box;
     display: block;
     pointer-events: auto;
-    // default is left top
+    /* default is left top */
     left: 0px;
     top: 0px;
   }
@@ -71,8 +94,10 @@ if (!document.getElementById(CommonStyleId)) {
   ${Float.tag}[align="right-top"] {
     top: 0px;
     right: 0px;
+    left: initial;
   }
   ${Float.tag}[align="right"] {
+    left: initial;
     right: 0px;
     top: 50%;
     transform: translate(0, -50%);
@@ -80,14 +105,18 @@ if (!document.getElementById(CommonStyleId)) {
   ${Float.tag}[align="right-bottom"] {
     bottom: 0px;
     right: 0;
+    top: initial;
+    left: initial;
   }
   ${Float.tag}[align="bottom"] {
     bottom: 0px;
+    top: initial;
     left: 50%;
     transform: translate(-50%, 0);
   }
   ${Float.tag}[align="left-bottom"] {
     left: 0px;
+    top: initial;
     bottom: 0px;
   }
   ${Float.tag}[align="left"] {

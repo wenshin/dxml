@@ -5,6 +5,12 @@ function App() {
   return (
     <div style={{ padding: 40 }}>
       <section>
+        <h1>布局的原理</h1>
+        <p>一般的我们用树这种数据结构来管理 UI 元素。从元素树的角度看，布局有两个方向，一个是由上而下，从父节点限制子节点空间；一个是由下而上，子节点决定父节点空间。</p>
+        <p>由上而下的布局，性能好。而由下而上的布局，往往会涉及到大量的元素树的回溯计算，以及整体重新计算布局。</p>
+        <p>由下而上的布局，往往是在涉及到长度不等的文本展示时会遇到，我们会建议在这种布局上加上最大最小的限制，以提高布局性能。</p>
+      </section>
+      <section>
         <h1>圣杯布局</h1>
         <div className='case-container'>
           <d-view layout='col' gap='10px'>
@@ -185,6 +191,51 @@ function App() {
   <d-float align='left'>left</d-float>
   <d-float align='left-top'>left-top</d-float>
   <d-float align='center'>center</d-float>
+</d-view>`}
+          </code>
+        </pre>
+      </section>
+      <section>
+        <h1>inline 元素布局</h1>
+        <div className='case-container'>
+          <d-view layout="inline">
+            <d-elem className='inline-elem1'>test</d-elem>
+            <d-elem class='inline-elem2' layout='row'>
+              <d-col align-items='center'><span>A</span><span>B</span><span>C</span></d-col>
+              <d-col align-items='center'>B</d-col>
+              <d-col align-items='center'>C</d-col>
+            </d-elem>
+            <d-elem layout='col'>
+              <d-row>A</d-row>
+              <d-row>B</d-row>
+              <d-row>C</d-row>
+            </d-elem>
+            <d-elem class='inline-elem3' layout='row'>
+              <d-col align-items='center'>A</d-col>
+              <d-col align-items='center'>B</d-col>
+              <d-col align-items='center'>C</d-col>
+            </d-elem>
+          </d-view>
+        </div>
+        <pre>
+          <code className="language-html">{
+`<d-view layout="inline">
+  <d-elem className='inline-elem1'>test</d-elem>
+  <d-elem class='inline-elem2' layout='row'>
+    <d-col align-items='center'><span>A</span><span>B</span><span>C</span></d-col>
+    <d-col align-items='center'>B</d-col>
+    <d-col align-items='center'>C</d-col>
+  </d-elem>
+  <d-elem layout='col'>
+    <d-row>A</d-row>
+    <d-row>B</d-row>
+    <d-row>C</d-row>
+  </d-elem>
+  <d-elem class='inline-elem3' layout='row'>
+    <d-col align-items='center'>A</d-col>
+    <d-col align-items='center'>B</d-col>
+    <d-col align-items='center'>C</d-col>
+  </d-elem>
 </d-view>`}
           </code>
         </pre>
