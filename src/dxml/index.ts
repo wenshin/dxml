@@ -170,4 +170,11 @@ ${Text.tag}::before, ${Text.tag}::after {
   display: block;
   height: 0;
   width: 0;
+}
+${Text.tag} .text-corp-elem {
+  margin:0;
+  padding:0;
+  width: 0;
+  display: inline-block;
+  overflow: hidden;
 }`);

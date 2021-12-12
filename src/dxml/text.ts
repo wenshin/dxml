@@ -1,4 +1,4 @@
-import { getLineHeight, insertStyleElement } from './util';
+import { getLineHeight, insertCropStyle, insertStyleElement } from './util';
 
 declare global {
   namespace JSX {
@@ -6,6 +6,7 @@ declare global {
       'd-text': React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement> & {
           class?: string;
+          crop?: string; // 1px
         },
         HTMLElement
       >; // Normal web component
@@ -19,11 +20,17 @@ export class Text extends HTMLElement {
   delta: number = 0;
 
   connectedCallback() {
-    this.updateStyle();
+    const crop = this.getAttribute('crop');
+    if (crop) {
+      insertCropStyle(crop);
+    } else {
+      this.updateStyle();
+    }
   }
 
   attributeChangedCallback(name: string) {
-    if (name === 'style' || name === 'class') {
+    const crop = this.getAttribute('crop');
+    if (!crop && (name === 'style' || name === 'class')) {
       this.updateStyle();
     }
   }

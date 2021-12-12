@@ -59,20 +59,11 @@ export function getFlexAlignCSS(tag: string) {
  */
 export function getLineHeight(elem: HTMLElement) {
   if (!elem.parentNode) return 0;
-  const temp = document.createElement(elem.tagName === 'D-TEXT' ? 'span' : elem.tagName);
-  const style = window.getComputedStyle(elem);
-  temp.setAttribute("style", "margin:0; padding:0; width: 0; "
-      + "position: absolute; "
-      + "visbility: hidden; "
-      + "line-height:" + style.lineHeight + "; "
-      + "font-family:" + style.fontFamily + "; "
-      + "font-size:" + style.fontSize);
+  const temp = document.createElement('span');
+  temp.classList.add('text-corp-elem');
   temp.innerHTML = "A";
-
-  elem.parentNode.appendChild(temp);
-  const lineHeight = temp.offsetHeight;
-  elem.parentNode.removeChild(temp);
-  return lineHeight;
+  elem.appendChild(temp);
+  return temp.offsetHeight;
 }
 
 
@@ -95,4 +86,9 @@ export function insertGapStyle(gap: string) {
   const [rowGap, colGap] = gap.split(' ');
   const id = `d-gap-${rowGap}-${colGap || rowGap}`;
   insertStyleElement(id, `[gap="${gap}"] > * { margin-right: ${rowGap}; margin-bottom: ${colGap || rowGap}; }`)
+}
+
+export function insertCropStyle(crop: string) {
+  const id = `d-text-crop-${crop}`;
+  insertStyleElement(id, `[crop="${crop}"]::before, [crop="${crop}"]::after { margin-top: -${crop}; }`)
 }
