@@ -74,3 +74,20 @@ export function getLineHeight(elem: HTMLElement) {
   elem.parentNode.removeChild(temp);
   return lineHeight;
 }
+
+
+export function insertStyleElement(id: string, content: string) {
+  let style = document.getElementById(id);
+  if (!style) {
+    style = document.createElement('style');
+    style.id = id;
+    style.textContent = content;
+    document.head.appendChild(style);
+  }
+}
+
+export function insertDimensionStyle(elem: HTMLElement, dimension: string) {
+  const id = `d-dimension-${dimension}`;
+  insertStyleElement(id, `[dimension].${id} { flex-grow: ${dimension}; }`)
+  elem.classList.add(id);
+}

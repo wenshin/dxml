@@ -1,4 +1,4 @@
-import { getLineHeight } from './util';
+import { getLineHeight, insertStyleElement } from './util';
 
 declare global {
   namespace JSX {
@@ -37,7 +37,13 @@ export class Text extends HTMLElement {
       const delta = (lineHeight - fontSize) / 2;
       if (this.delta !== delta) {
         this.delta = delta;
-        this.style.margin = `-${delta}px 0`;
+        const id = `${Text.tag}-crop-${delta}`;
+        this.classList.add(id);
+        insertStyleElement(id, `
+          ${Text.tag}.${id}::before, ${Text.tag}.${id}::after {
+            margin-top: -${delta}px;
+          }
+        `);
       }
     }
   }

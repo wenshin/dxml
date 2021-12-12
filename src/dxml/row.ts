@@ -1,4 +1,4 @@
-import { PositionType } from './util';
+import { insertDimensionStyle, insertStyleElement, PositionType } from './util';
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -25,7 +25,7 @@ export class Row extends HTMLElement {
   connectedCallback() {
     const dimension = this.getAttribute('dimension');
     if (dimension !== 'stretch' && dimension && this.parentElement) {
-      this.style.flexGrow = dimension;
+      insertDimensionStyle(this, dimension);
     }
   }
 }

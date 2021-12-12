@@ -5,13 +5,13 @@ function App() {
   return (
     <div style={{ padding: 40 }}>
       <section>
-        <h1>布局的原理</h1>
+      <d-text><h1>布局的原理</h1></d-text>
         <p>一般的我们用树这种数据结构来管理 UI 元素。从元素树的角度看，布局有两个方向，一个是由上而下，从父节点限制子节点空间；一个是由下而上，子节点决定父节点空间。</p>
-        <p>由上而下的布局，性能好。而由下而上的布局，往往会涉及到大量的元素树的回溯计算，以及整体重新计算布局。</p>
+        <p>由上而下的布局，性能好。而由下而上的布局，往往会涉及到大量元素的回溯计算，以及整体重新计算布局。</p>
         <p>由下而上的布局，往往是在涉及到长度不等的文本展示时会遇到，我们会建议在这种布局上加上最大最小的限制，以提高布局性能。</p>
       </section>
       <section>
-        <h1>圣杯布局</h1>
+      <d-text><h1>圣杯布局</h1></d-text>
         <div className='case-container'>
           <d-view layout='col' gap='10px'>
             <d-row align-items='center'>
@@ -75,15 +75,15 @@ function App() {
         </pre>
       </section>
       <section>
-      <h1>不同比例列，元素水平垂直居中</h1>
-      <div className='case-container'>
-        <d-view layout='row'>
-          <d-col dimension='1' align-items='center'><div>A</div><div>A</div></d-col>
-          <d-col dimension='2' align-items='center'>BB</d-col>
-          <d-col dimension='2' align-items='center'>CC</d-col>
-        </d-view>
-      </div>
-      <pre>
+        <d-text><h1>不同比例列，元素水平垂直居中</h1></d-text>
+        <div className='case-container'>
+          <d-view layout='row'>
+            <d-col dimension='1' align-items='center'><div>A</div><div>A</div></d-col>
+            <d-col dimension='2' align-items='center'>BB</d-col>
+            <d-col dimension='2' align-items='center'>CC</d-col>
+          </d-view>
+        </div>
+        <pre>
           <code className="language-html">{
 `<d-view layout='row'>
   <d-col dimension='1' align-items='center'><div>A</div><div>A</div></d-col>
@@ -94,7 +94,7 @@ function App() {
         </pre>
       </section>
       <section>
-        <h1>水平三明治布局</h1>
+        <d-text><h1>水平三明治布局</h1></d-text>
         <div className='case-container'>
           <d-view layout='row'>
             <d-col align-items='center'>AAA</d-col>
@@ -113,7 +113,7 @@ function App() {
         </pre>
       </section>
       <section>
-        <h1>垂直三明治布局</h1>
+        <d-text><h1>垂直三明治布局</h1></d-text>
         <div className='case-container'>
           <d-view layout='col'>
             <d-row align-items='center'>A</d-row>
@@ -132,7 +132,7 @@ function App() {
         </pre>
       </section>
       <section>
-        <h1>不同比例行布局</h1>
+        <d-text><h1>不同比例行布局</h1></d-text>
         <div className='case-container'>
           <d-view layout='col'>
             <d-row dimension='1'>
@@ -165,7 +165,7 @@ function App() {
         </pre>
       </section>
       <section>
-        <h1>浮动元素定位</h1>
+        <d-text><h1>浮动元素定位</h1></d-text>
         <div className='case-container'>
           <d-view>
             <d-float class='my-class' align='top'>top</d-float>
@@ -196,7 +196,7 @@ function App() {
         </pre>
       </section>
       <section>
-        <h1>inline 元素布局</h1>
+        <d-text><h1>inline 元素布局</h1></d-text>
         <div className='case-container'>
           <d-view layout="inline">
             <d-elem className='inline-elem1'>test</d-elem>
@@ -241,10 +241,11 @@ function App() {
         </pre>
       </section>
       <section>
-        <h1>自动修正文本 line height 导致的边距问题</h1>
-        <div style={{ width: '200px' }}>
+        <d-text><h1>自动修正文本 line height 导致的边距问题</h1></d-text>
+        <d-row>
           <d-text>DXML 设计了更适合设计稿直接转布局代码的一套标签</d-text>
-        </div>
+          <d-text>DXML Design for a better layout markable language from design to developer</d-text>
+        </d-row>
       </section>
     </div>
   );
