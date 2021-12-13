@@ -34,6 +34,6 @@ export class Row extends HTMLElement {
   }
 }
 
-if (customElements && !customElements.get(Row.tag)) {
-	customElements.define(Row.tag, Row);
+if (window.customElements && !window.customElements.get(Row.tag)) {
+	window.customElements.define(Row.tag, Row);
 }

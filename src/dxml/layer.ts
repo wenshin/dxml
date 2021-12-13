@@ -33,6 +33,6 @@ export class Layer extends HTMLElement {
   }
 }
 
-if (customElements && !customElements.get(Layer.tag)) {
-	customElements.define(Layer.tag, Layer);
+if (window.customElements && !window.customElements.get(Layer.tag)) {
+	window.customElements.define(Layer.tag, Layer);
 }

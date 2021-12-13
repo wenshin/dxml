@@ -56,6 +56,6 @@ export class Text extends HTMLElement {
   }
 }
 
-if (customElements && !customElements.get(Text.tag)) {
-	customElements.define(Text.tag, Text);
+if (window.customElements && !window.customElements.get(Text.tag)) {
+	window.customElements.define(Text.tag, Text);
 }

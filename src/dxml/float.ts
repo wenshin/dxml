@@ -21,6 +21,6 @@ export class Float extends HTMLElement {
   static tag = 'd-float';
 }
 
-if (customElements && !customElements.get(Float.tag)) {
-	customElements.define(Float.tag, Float);
+if (window.customElements && !window.customElements.get(Float.tag)) {
+	window.customElements.define(Float.tag, Float);
 }

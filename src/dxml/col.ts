@@ -34,6 +34,6 @@ export class Col extends HTMLElement {
   }
 }
 
-if (customElements && !customElements.get(Col.tag)) {
-	customElements.define(Col.tag, Col);
+if (window.customElements && !window.customElements.get(Col.tag)) {
+	window.customElements.define(Col.tag, Col);
 }

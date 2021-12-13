@@ -21,6 +21,6 @@ export class Elem extends HTMLElement {
   static id = 'd-elem-id';
 }
 
-if (customElements && !customElements.get(Elem.tag)) {
-	customElements.define(Elem.tag, Elem);
+if (window.customElements && !window.customElements.get(Elem.tag)) {
+	window.customElements.define(Elem.tag, Elem);
 }
