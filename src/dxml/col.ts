@@ -17,5 +17,5 @@ export class Col extends HTMLElement {
 }
 
 if (window.customElements && !window.customElements.get(Col.tag)) {
-	window.customElements.define(Col.tag, Col);
+  window.customElements.define(Col.tag, Col);
 }

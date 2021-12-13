@@ -18,5 +18,5 @@ export class Layer extends HTMLElement {
 }
 
 if (window.customElements && !window.customElements.get(Layer.tag)) {
-	window.customElements.define(Layer.tag, Layer);
+  window.customElements.define(Layer.tag, Layer);
 }

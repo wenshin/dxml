@@ -17,5 +17,5 @@ export class Row extends HTMLElement {
 }
 
 if (window.customElements && !window.customElements.get(Row.tag)) {
-	window.customElements.define(Row.tag, Row);
+  window.customElements.define(Row.tag, Row);
 }

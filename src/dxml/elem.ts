@@ -7,5 +7,5 @@ export class Elem extends HTMLElement {
 }
 
 if (window.customElements && !window.customElements.get(Elem.tag)) {
-	window.customElements.define(Elem.tag, Elem);
+  window.customElements.define(Elem.tag, Elem);
 }

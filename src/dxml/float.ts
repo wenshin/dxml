@@ -9,5 +9,5 @@ export class Float extends HTMLElement {
 }
 
 if (window.customElements && !window.customElements.get(Float.tag)) {
-	window.customElements.define(Float.tag, Float);
+  window.customElements.define(Float.tag, Float);
 }

@@ -13,5 +13,5 @@ export class View extends HTMLElement {
 }
 
 if (window.customElements && !window.customElements.get(View.tag)) {
-	window.customElements.define(View.tag, View);
+  window.customElements.define(View.tag, View);
 }
