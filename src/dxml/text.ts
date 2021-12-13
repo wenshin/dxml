@@ -1,19 +1,5 @@
 import { getLineHeight, insertCropStyle, insertStyleElement } from './util';
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'd-text': React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement> & {
-          class?: string;
-          crop?: string; // 1px
-        },
-        HTMLElement
-      >; // Normal web component
-    }
-  }
-}
-
 export class Text extends HTMLElement {
   static tag = 'd-text';
   static id = 'd-text-id';

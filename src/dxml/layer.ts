@@ -1,19 +1,3 @@
-type Mask = 'none' | 'black' | 'white' | string;
-
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'd-layer': React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement> & {
-          class?: string;
-          mask?: Mask;
-        },
-        HTMLElement
-      >; // Normal web component
-    }
-  }
-}
-
 // layer stack management
 export class Layer extends HTMLElement {
   static id = 'd-layer-id';

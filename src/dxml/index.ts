@@ -7,8 +7,10 @@ import { Float } from './float';
 import { Layer } from './layer';
 import { Text } from './text';
 
+export * from  './types';
+
 const CommonStyleId = 'd-common-id'
-insertStyleElement(CommonStyleId, 
+insertStyleElement(CommonStyleId,
 `${View.tag} {
   position: relative;
   height: 100%;
@@ -65,9 +67,9 @@ ${Col.tag}[gap] > *,
 [layout="col"][gap] > * {
   margin-right: 0;
 }
-[layout="row"][gap] > *:last-child, 
-${Row.tag}[gap] > *:last-child, 
-[layout="col"][gap] > *:last-child, 
+[layout="row"][gap] > *:last-child,
+${Row.tag}[gap] > *:last-child,
+[layout="col"][gap] > *:last-child,
 ${Col.tag}[gap] > *:last-child {
   margin-right: 0;
   margin-bottom: 0;

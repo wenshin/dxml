@@ -1,22 +1,4 @@
-import { insertDimensionStyle, insertGapStyle, PositionType } from './util';
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'd-col': React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement> & {
-          class?: string;
-          /**
-           * stretch | 1 | 2 | 3
-           */
-          dimension?: 'stretch' | string;
-          'align-items'?: PositionType;
-          gap?: string;
-        },
-        HTMLElement
-      >; // Normal web component
-    }
-  }
-}
+import { insertDimensionStyle, insertGapStyle } from './util';
 
 export class Col extends HTMLElement {
   static tag = 'd-col';
