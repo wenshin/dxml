@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
   return (
-    <div style={{ padding: 40 }}>
+    <div style={{ padding: 20 }}>
       <h1>前言</h1>
       <section>
         <p>一直以来前端工程化领域，一直致力于在 css + js 开发上进行提质、提效，却一直忽略 html + css 的质效问题。</p>
@@ -73,7 +73,7 @@ function App() {
         </div>
         <pre>
           <code className="language-html">{
-`<d-view layout='col' gap='10px'>
+            `<d-view layout='col' gap='10px'>
   <d-row align-items='center'>
     Header
   </d-row>
@@ -105,7 +105,7 @@ function App() {
         </div>
         <pre>
           <code className="language-html">{
-`<d-view layout='row' gap='12px'>
+            `<d-view layout='row' gap='12px'>
   <d-col dimension='1' align-items='center'>
     <d-row align-items='center'>
       <div>A</div>
@@ -129,7 +129,7 @@ function App() {
         </div>
         <pre>
           <code className="language-html">{
-`<d-view layout='row' gap='12px'>
+            `<d-view layout='row' gap='12px'>
   <d-col dimension='1' align-items='center'><div>A</div><div>A</div></d-col>
   <d-col dimension='2' align-items='center'>BB</d-col>
   <d-col dimension='2' align-items='center'>CC</d-col>
@@ -148,7 +148,7 @@ function App() {
         </div>
         <pre>
           <code className="language-html">{
-`<d-view layout='row' gap='12px'>
+            `<d-view layout='row' gap='12px'>
   <d-col align-items='center'>AAA</d-col>
   <d-col dimension='stretch' align-items='center'>B</d-col>
   <d-col align-items='center'>C</d-col>
@@ -167,7 +167,7 @@ function App() {
         </div>
         <pre>
           <code className="language-html">{
-`<d-view layout='col' gap='12px'>
+            `<d-view layout='col' gap='12px'>
   <d-row align-items='center'>A</d-row>
   <d-row dimension='stretch' align-items='center'>B</d-row>
   <d-row align-items='center'>C</d-row>
@@ -179,12 +179,12 @@ function App() {
         <d-text crop="2px"><h2>不同比例行布局</h2></d-text>
         <div className='case-container'>
           <d-view layout='col' gap='12px'>
-            <d-row dimension='1' gap='10px' style={{backgroundColor: 'transparent'}}>
+            <d-row dimension='1' gap='10px' style={{ backgroundColor: 'transparent' }}>
               <d-col align-items='center'>A</d-col>
               <d-col dimension='stretch' align-items='center'>B</d-col>
               <d-col align-items='center'>C</d-col>
             </d-row>
-            <d-row dimension='2' gap='10px' style={{backgroundColor: 'transparent'}}>
+            <d-row dimension='2' gap='10px' style={{ backgroundColor: 'transparent' }}>
               <d-col align-items='center' style={{ width: 30 }}>A</d-col>
               <d-col dimension='stretch' align-items='center'>B</d-col>
               <d-col align-items='center'>C</d-col>
@@ -193,7 +193,7 @@ function App() {
         </div>
         <pre>
           <code className="language-html">{
-`<d-view layout='col' gap='12px'>
+            `<d-view layout='col' gap='12px'>
   <d-row dimension='1' gap='10px' style={{backgroundColor: 'transparent'}}>
     <d-col align-items='center'>A</d-col>
     <d-col dimension='stretch' align-items='center'>B</d-col>
@@ -225,7 +225,7 @@ function App() {
         </div>
         <pre>
           <code className="language-html">{
-`<d-view>
+            `<d-view>
   <d-float class='my-class' align='top'>top</d-float>
   <d-float align='right-top'>right-top</d-float>
   <d-float align='right'>right</d-float>
@@ -263,7 +263,7 @@ function App() {
         </div>
         <pre>
           <code className="language-html">{
-`<d-view layout="inline" gap='12px 16px'>
+            `<d-view layout="inline" gap='12px 16px'>
   <d-elem className='inline-elem1'>test</d-elem>
   <d-elem class='inline-elem2' layout='row' gap='10px'>
     <d-col align-items='center'><span>A</span><span>B</span><span>C</span></d-col>
@@ -293,11 +293,11 @@ function App() {
         </d-row>
         <pre>
           <code className="language-html">{
-`<d-row>
+            `<d-row>
   <d-text crop="1px">DXML 设计了更适合设计稿直接转布局代码的一套标签</d-text>
   <d-text crop="1px">DXML Design for a better layout markable language from design to developer</d-text>
   <d-text>DXML Design for a better layout markable language from design to developer</d-text>
-  </d-row>`}
+</d-row>`}
           </code>
         </pre>
         <p>
