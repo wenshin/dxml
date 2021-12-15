@@ -4,7 +4,9 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@types/react": ">=0.14.27"
   },
@@ -15,6 +17,10 @@
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react-dom": "^17.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -27,13 +33,29 @@
     "build-pkg": "tsc -p ./tsconfig.pkg.json",
     "prepublish": "git tag -d 0.1.5 2>/dev/null || true && git tag 0.1.5 && npm run build-pkg",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "prettier"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts?(x)"
+        ]
+      }
     ]
+  },
+  "lint-staged": {
+    "*.(js|ts|jsx|tsx)": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.(html|css|scss|less|json|vue|yaml|md)": "prettier --write"
   },
   "browserslist": {
     "production": [

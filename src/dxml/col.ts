@@ -7,7 +7,7 @@ export class Col extends HTMLElement {
   connectedCallback() {
     const dimension = this.getAttribute('dimension');
     if (dimension !== 'stretch' && dimension && this.parentElement) {
-      insertDimensionStyle(dimension)
+      insertDimensionStyle(dimension);
     }
     const gap = this.getAttribute('gap');
     if (gap) {

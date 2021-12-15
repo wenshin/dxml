@@ -7,11 +7,12 @@ import { Float } from './float';
 import { Layer } from './layer';
 import { Text } from './text';
 
-export * from  './types';
+export * from './types';
 
-const CommonStyleId = 'd-common-id'
-insertStyleElement(CommonStyleId,
-`${View.tag} {
+const CommonStyleId = 'd-common-id';
+insertStyleElement(
+  CommonStyleId,
+  `${View.tag} {
   position: relative;
   height: 100%;
   width: 100%;
@@ -179,4 +180,5 @@ ${Text.tag} .text-corp-elem {
   width: 0;
   display: inline-block;
   overflow: hidden;
-}`);
+}`
+);

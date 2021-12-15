@@ -22,7 +22,9 @@ export class Text extends HTMLElement {
   }
 
   updateStyle() {
-    const elem = this.children.length ? this.children[0] as HTMLElement : this;
+    const elem = this.children.length
+      ? (this.children[0] as HTMLElement)
+      : this;
     let lineHeight = getLineHeight(elem);
     const style = window.getComputedStyle(elem);
     const fontSize = parseFloat(style.fontSize);
@@ -32,11 +34,14 @@ export class Text extends HTMLElement {
         this.delta = delta;
         const id = `${Text.tag}-crop-${delta}`;
         this.classList.add(id);
-        insertStyleElement(id, `
+        insertStyleElement(
+          id,
+          `
           ${Text.tag}.${id}::before, ${Text.tag}.${id}::after {
             margin-top: -${delta}px;
           }
-        `);
+        `
+        );
       }
     }
   }

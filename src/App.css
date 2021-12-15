@@ -1,11 +1,14 @@
-html,body,#root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
   color: rgb(185, 185, 185);
-  background: #0b1722
+  background: #0b1722;
 }
 
-d-row, d-col {
+d-row,
+d-col {
   background-color: #403f3f;
   border-radius: 4px;
 }
