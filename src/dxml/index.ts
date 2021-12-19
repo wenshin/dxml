@@ -177,15 +177,47 @@ ${Float.tag} {
   left: 0px;
   top: 0px;
 }
+${Float.tag}[position="left-top-outside"] {
+  transform: translate(0, -100%);
+}
+${Float.tag}[position="left-top-corner-outside"] {
+  transform: translate(-100%, -100%);
+}
+${Float.tag}[position="top-left-outside"] {
+  transform: translate(-100%, 0);
+}
 ${Float.tag}[position="top"] {
   top: 0px;
   left: 50%;
   transform: translate(-50%, 0);
 }
+${Float.tag}[position="top-outside"] {
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
 ${Float.tag}[position="right-top"] {
   top: 0px;
   right: 0px;
   left: initial;
+}
+${Float.tag}[position="right-top-outside"] {
+  top: 0px;
+  right: 0px;
+  left: initial;
+  transform: translate(0, -100%);
+}
+${Float.tag}[position="right-top-corner-outside"] {
+  top: 0px;
+  right: 0px;
+  left: initial;
+  transform: translate(100%, -100%);
+}
+${Float.tag}[position="top-right-outside"] {
+  top: 0px;
+  right: 0px;
+  left: initial;
+  transform: translate(100%, 0);
 }
 ${Float.tag}[position="right"] {
   left: initial;
@@ -193,11 +225,38 @@ ${Float.tag}[position="right"] {
   top: 50%;
   transform: translate(0, -50%);
 }
+${Float.tag}[position="right-outside"] {
+  left: initial;
+  right: 0px;
+  top: 50%;
+  transform: translate(100%, -50%);
+}
 ${Float.tag}[position="right-bottom"] {
   bottom: 0px;
   right: 0;
   top: initial;
   left: initial;
+}
+${Float.tag}[position="right-bottom-outside"] {
+  bottom: 0px;
+  right: 0;
+  top: initial;
+  left: initial;
+  transform: translate(0, 100%);
+}
+${Float.tag}[position="right-bottom-corner-outside"] {
+  bottom: 0px;
+  right: 0;
+  top: initial;
+  left: initial;
+  transform: translate(100%, 100%);
+}
+${Float.tag}[position="bottom-right-outside"] {
+  bottom: 0px;
+  right: 0;
+  top: initial;
+  left: initial;
+  transform: translate(100%, 0);
 }
 ${Float.tag}[position="bottom"] {
   bottom: 0px;
@@ -205,15 +264,44 @@ ${Float.tag}[position="bottom"] {
   left: 50%;
   transform: translate(-50%, 0);
 }
+${Float.tag}[position="bottom-outside"] {
+  bottom: 0px;
+  top: initial;
+  left: 50%;
+  transform: translate(-50%, 100%);
+}
 ${Float.tag}[position="left-bottom"] {
   left: 0px;
   top: initial;
   bottom: 0px;
 }
+${Float.tag}[position="left-bottom-outside"] {
+  left: 0px;
+  top: initial;
+  bottom: 0px;
+  transform: translate(0, 100%);
+}
+${Float.tag}[position="left-bottom-corner-outside"] {
+  left: 0px;
+  top: initial;
+  bottom: 0px;
+  transform: translate(-100%, 100%);
+}
+${Float.tag}[position="bottom-left-outside"] {
+  left: 0px;
+  top: initial;
+  bottom: 0px;
+  transform: translate(-100%, 0);
+}
 ${Float.tag}[position="left"] {
   left: 0px;
   top: 50%;
   transform: translate(0, -50%);
+}
+${Float.tag}[position="left-outside"] {
+  left: 0px;
+  top: 50%;
+  transform: translate(-100%, -50%);
 }
 ${Float.tag}[position="center"] {
   left: 50%;

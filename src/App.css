@@ -67,3 +67,10 @@ pre {
   border: solid 1px #858585;
   border-radius: 4px;
 }
+
+.float-square {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: #403f3f;
+}

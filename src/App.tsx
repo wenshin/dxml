@@ -476,33 +476,93 @@ function App() {
         <d-text crop="2px">
           <h2>浮动元素定位</h2>
         </d-text>
-        <div className="case-container">
-          <d-view>
-            <d-float class="my-class" position="top">
-              top
-            </d-float>
-            <d-float position="right-top">right-top</d-float>
-            <d-float position="right">right</d-float>
-            <d-float position="right-bottom">right-bottom</d-float>
-            <d-float position="bottom">bottom</d-float>
-            <d-float position="left-bottom">left-bottom</d-float>
-            <d-float position="left">left</d-float>
-            <d-float position="left-top">left-top</d-float>
-            <d-float position="center">center</d-float>
+        <div className="case-container" style={{ padding: '40px 60px' }}>
+          <d-view style={{ background: '#565656' }}>
+            <d-float class="float-square" position="top"></d-float>
+            <d-float class="float-square" position="top-outside"></d-float>
+            <d-float class="float-square" position="right-top"></d-float>
+            <d-float
+              class="float-square"
+              position="right-top-outside"
+            ></d-float>
+            <d-float
+              class="float-square"
+              position="right-top-corner-outside"
+            ></d-float>
+            <d-float
+              class="float-square"
+              position="top-right-outside"
+            ></d-float>
+            <d-float class="float-square" position="right"></d-float>
+            <d-float class="float-square" position="right-outside"></d-float>
+            <d-float class="float-square" position="right-bottom"></d-float>
+            <d-float
+              class="float-square"
+              position="bottom-right-outside"
+            ></d-float>
+            <d-float
+              class="float-square"
+              position="right-bottom-outside"
+            ></d-float>
+            <d-float
+              class="float-square"
+              position="right-bottom-corner-outside"
+            ></d-float>
+            <d-float class="float-square" position="bottom"></d-float>
+            <d-float class="float-square" position="bottom-outside"></d-float>
+            <d-float class="float-square" position="left-bottom"></d-float>
+            <d-float
+              class="float-square"
+              position="left-bottom-outside"
+            ></d-float>
+            <d-float
+              class="float-square"
+              position="left-bottom-corner-outside"
+            ></d-float>
+            <d-float
+              class="float-square"
+              position="bottom-left-outside"
+            ></d-float>
+            <d-float class="float-square" position="left"></d-float>
+            <d-float class="float-square" position="left-outside"></d-float>
+            <d-float class="float-square" position="top-left"></d-float>
+            <d-float class="float-square" position="top-left-outside"></d-float>
+            <d-float class="float-square" position="left-top-outside"></d-float>
+            <d-float
+              class="float-square"
+              position="left-top-corner-outside"
+            ></d-float>
+            <d-float class="float-square" position="center"></d-float>
           </d-view>
         </div>
         <pre>
           <code className="language-html">
-            {`<d-view>
-  <d-float class='my-class' position='top'>top</d-float>
-  <d-float position='right-top'>right-top</d-float>
-  <d-float position='right'>right</d-float>
-  <d-float position='right-bottom'>right-bottom</d-float>
-  <d-float position='bottom'>bottom</d-float>
-  <d-float position='left-bottom'>left-bottom</d-float>
-  <d-float position='left'>left</d-float>
-  <d-float position='left-top'>left-top</d-float>
-  <d-float position='center'>center</d-float>
+            {`<d-view style={{ border: 'solid 1px #403f3f' }}>
+  <d-float class="float-square" position="top"></d-float>
+  <d-float class="float-square" position="top-outside"></d-float>
+  <d-float class="float-square" position="right-top"></d-float>
+  <d-float class="float-square" position="right-top-outside"></d-float>
+  <d-float class="float-square" position="right-top-corner-outside" ></d-float>
+  <d-float class="float-square" position="top-right-outside"></d-float>
+  <d-float class="float-square" position="right"></d-float>
+  <d-float class="float-square" position="right-outside"></d-float>
+  <d-float class="float-square" position="right-bottom"></d-float>
+  <d-float class="float-square" position="bottom-right-outside" ></d-float>
+  <d-float class="float-square" position="right-bottom-outside" ></d-float>
+  <d-float class="float-square" position="right-bottom-corner-outside" ></d-float>
+  <d-float class="float-square" position="bottom"></d-float>
+  <d-float class="float-square" position="bottom-outside"></d-float>
+  <d-float class="float-square" position="left-bottom"></d-float>
+  <d-float class="float-square" position="left-bottom-outside"></d-float>
+  <d-float class="float-square" position="left-bottom-corner-outside" ></d-float>
+  <d-float class="float-square" position="bottom-left-outside"></d-float>
+  <d-float class="float-square" position="left"></d-float>
+  <d-float class="float-square" position="left-outside"></d-float>
+  <d-float class="float-square" position="top-left"></d-float>
+  <d-float class="float-square" position="top-left-outside"></d-float>
+  <d-float class="float-square" position="left-top-outside"></d-float>
+  <d-float class="float-square" position="left-top-corner-outside" ></d-float>
+  <d-float class="float-square" position="center"></d-float>
 </d-view>`}
           </code>
         </pre>
