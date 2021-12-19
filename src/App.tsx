@@ -56,11 +56,12 @@ function App() {
       <section>
         <p>
           DXML 的核心理念是设计更符合设计语言的 DSL。 html + css
-          设计之初是为了服务好图文内容的展示，而现代 Web 应用结构化布局更多。
+          设计之初是为了服务好图文内容的展示，而现代 Web
+          应用结构化布局更多。DXML 把标签分为布局类和元素类两大类。
         </p>
       </section>
       <h2>
-        <d-text crop="2px">标签介绍</d-text>
+        <d-text crop="2px">布局类标签介绍</d-text>
       </h2>
       <ul>
         <li>
@@ -78,6 +79,12 @@ function App() {
           <span className="inline-code">layer</span>
           ：始终占满父元素空间，并且漂浮在其他元素之上，支持鼠标事件穿透和背景色设置
         </li>
+      </ul>
+      <p>布局类标签</p>
+      <h2>
+        <d-text crop="2px">元素类标签介绍</d-text>
+      </h2>
+      <ul>
         <li>
           <span className="inline-code">elem</span>
           ：默认适应内部视觉元素尺寸，如：文本、图片等
