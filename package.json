@@ -1,6 +1,6 @@
 {
   "name": "dxml",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/index.js",
@@ -31,7 +31,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build-pkg": "tsc -p ./tsconfig.pkg.json",
-    "prepublish": "git tag -d 0.1.5 2>/dev/null || true && git tag 0.1.5 && npm run build-pkg",
+    "prepublish": "git tag -d 0.1.6 2>/dev/null || true && git tag 0.1.6 && npm run build-pkg",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install"

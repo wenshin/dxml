@@ -8,9 +8,14 @@ DXML is designed for more effective to change UI design into code, even automati
 npm install dxml
 yarn install dxml
 ```
+
 # Features
 
 see [docs](https://wenshin.github.io/projects/dxml/)
+
+# Release Notes
+
+- `2021-12-22 0.1.6`: fix cloumn layout aling-items bug
 
 # Development
 
@@ -23,6 +28,7 @@ In the project directory, you can run:
 `yarn start`
 
 ### DXML package Build
+
 `yarn build-pkg`
 
 ### Doc build
