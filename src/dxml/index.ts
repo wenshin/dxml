@@ -1,4 +1,4 @@
-import { getFlexAlignCSS, insertStyleElement } from './util';
+import { insertStyleElement } from './util';
 import { View } from './view';
 import { Row } from './row';
 import { Col } from './col';
@@ -90,7 +90,84 @@ ${Elem.tag}[layout] > * {
   flex-grow: 0;
   flex-shrink: 1;
 }
-${getFlexAlignCSS('')}
+
+[align-items] {
+  display: flex;
+}
+[align-items="center"] {
+  align-items: center;
+  justify-content: center;
+}
+[align-items="left-top"] {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+[align-items="right-bottom"] {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+${Row.tag}[align-items="top"],
+[layout="row"][align-items="top"] {
+  align-items: flex-start;
+  justify-content: center;
+}
+${Row.tag}[align-items="bottom"],
+[layout="row"][align-items="bottom"] {
+  align-items: flex-end;
+  justify-content: center;
+}
+${Row.tag}[align-items="left"],
+[layout="row"][align-items="left"] {
+  align-items: center;
+  justify-content: flex-start;
+}
+${Row.tag}[align-items="left-bottom"],
+[layout="row"][align-items="left-bottom"] {
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+${Row.tag}[align-items="right"],
+[layout="row"][align-items="right"] {
+  align-items: center;
+  justify-content: flex-end;
+}
+${Row.tag}[align-items="right-top"],
+[layout="row"][align-items="right-top"] {
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+${Col.tag}[align-items="top"],
+[layout="row"][align-items="top"] {
+  align-items: center;
+  justify-content: flex-start;
+}
+${Col.tag}[align-items="bottom"],
+[layout="row"][align-items="bottom"] {
+  align-items: center;
+  justify-content: flex-end;
+}
+${Col.tag}[align-items="left"],
+[layout="row"][align-items="left"] {
+  align-items: flex-start;
+  justify-content: center;
+}
+${Col.tag}[align-items="left-bottom"],
+[layout="row"][align-items="left-bottom"] {
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+${Col.tag}[align-items="right"],
+[layout="row"][align-items="right"] {
+  align-items: flex-end;
+  justify-content: center;
+}
+${Col.tag}[align-items="right-top"],
+[layout="row"][align-items="right-top"] {
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
 ${Float.tag} {
   position: absolute;
   box-sizing: border-box;

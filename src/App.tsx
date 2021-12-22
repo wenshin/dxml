@@ -134,6 +134,204 @@ function App() {
       </section>
       <section>
         <d-text crop="2px">
+          <h2>row 布局子元素位置</h2>
+        </d-text>
+        <div className="case-container row-col-align-case">
+          <d-view layout="row" gap="12px">
+            <d-col dimension="1" gap="8px">
+              <d-row dimension="1" class="row-col-container" align-items="top">
+                top
+              </d-row>
+              <d-row
+                dimension="1"
+                class="row-col-container"
+                align-items="bottom"
+              >
+                bottom
+              </d-row>
+            </d-col>
+            <d-col dimension="1" gap="8px">
+              <d-row dimension="1" class="row-col-container" align-items="left">
+                left
+              </d-row>
+              <d-row
+                dimension="1"
+                class="row-col-container"
+                align-items="right"
+              >
+                right
+              </d-row>
+            </d-col>
+            <d-col dimension="1" gap="8px">
+              <d-row
+                dimension="1"
+                class="row-col-container"
+                align-items="right-top"
+              >
+                <div>right-top</div>
+              </d-row>
+              <d-row
+                dimension="1"
+                class="row-col-container"
+                align-items="right-bottom"
+              >
+                <div>right-bottom</div>
+              </d-row>
+            </d-col>
+            <d-col dimension="1" gap="8px">
+              <d-row
+                dimension="1"
+                class="row-col-container"
+                align-items="left-bottom"
+              >
+                <div>left-bottom</div>
+              </d-row>
+              <d-row
+                dimension="1"
+                class="row-col-container"
+                align-items="left-top"
+              >
+                <div>left-top</div>
+              </d-row>
+            </d-col>
+          </d-view>
+        </div>
+        <pre>
+          <code className="language-html">
+            {`<d-view layout="row" gap="12px">
+  <d-col dimension='1'gap="8px">
+    <d-row dimension="1" class="row-col-container" align-items="top">
+      top
+    </d-row>
+    <d-row dimension="1" class="row-col-container" align-items="bottom">
+      bottom
+    </d-row>
+  </d-col>
+  <d-col dimension='1'gap="8px">
+    <d-row dimension="1" class="row-col-container" align-items="left">
+      left
+    </d-row>
+    <d-row dimension="1" class="row-col-container" align-items="right">
+      right
+    </d-row>
+  </d-col>
+  <d-col dimension='1'gap="8px">
+    <d-row dimension="1" class="row-col-container" align-items="right-top">
+      <div>right-top</div>
+    </d-row>
+    <d-row dimension="1" class="row-col-container" align-items="right-bottom">
+      <div>right-bottom</div>
+    </d-row>
+  </d-col>
+  <d-col dimension='1'gap="8px">
+    <d-row dimension="1" class="row-col-container" align-items="left-bottom">
+      <div>left-bottom</div>
+    </d-row>
+    <d-row dimension="1" class="row-col-container" align-items="left-top">
+      <div>left-top</div>
+    </d-row>
+  </d-col>
+</d-view>`}
+          </code>
+        </pre>
+      </section>
+      <section>
+        <d-text crop="2px">
+          <h2>column 布局子元素位置</h2>
+        </d-text>
+        <div className="case-container row-col-align-case">
+          <d-view layout="col" gap="12px">
+            <d-row dimension="1" gap="8px">
+              <d-col dimension="1" class="row-col-container" align-items="top">
+                top
+              </d-col>
+              <d-col
+                dimension="1"
+                class="row-col-container"
+                align-items="right-top"
+              >
+                right-top
+              </d-col>
+              <d-col
+                dimension="1"
+                class="row-col-container"
+                align-items="right"
+              >
+                <div>right</div>
+              </d-col>
+              <d-col
+                dimension="1"
+                class="row-col-container"
+                align-items="right-bottom"
+              >
+                <div>right-bottom</div>
+              </d-col>
+            </d-row>
+            <d-row dimension="1" gap="8px">
+              <d-col
+                dimension="1"
+                class="row-col-container"
+                align-items="left-top"
+              >
+                <div>left-top</div>
+              </d-col>
+              <d-col dimension="1" class="row-col-container" align-items="left">
+                <div>left</div>
+              </d-col>
+              <d-col
+                dimension="1"
+                class="row-col-container"
+                align-items="left-bottom"
+              >
+                <div>left-bottom</div>
+              </d-col>
+              <d-col
+                dimension="1"
+                class="row-col-container"
+                align-items="bottom"
+              >
+                <div>bottom</div>
+              </d-col>
+            </d-row>
+          </d-view>
+        </div>
+        <pre>
+          <code className="language-html">
+            {`<d-view layout="col" gap="12px">
+  <d-row dimension='1' gap="8px">
+    <d-col dimension="1" class="row-col-container" align-items="top">
+      top
+    </d-col>
+    <d-col dimension="1" class="row-col-container" align-items="right-top">
+      right-top
+    </d-col>
+    <d-col dimension="1" class="row-col-container" align-items="right">
+      <div>right</div>
+    </d-col>
+    <d-col dimension="1" class="row-col-container" align-items="right-bottom">
+      <div>right-bottom</div>
+    </d-col>
+  </d-row>
+  <d-row dimension='1' gap="8px">
+    <d-col dimension="1" class="row-col-container" align-items="left-top">
+      <div>left-top</div>
+    </d-col>
+    <d-col dimension="1" class="row-col-container" align-items="left">
+      <div>left</div>
+    </d-col>
+    <d-col dimension="1" class="row-col-container" align-items="left-bottom">
+      <div>left-bottom</div>
+    </d-col>
+    <d-col dimension="1" class="row-col-container" align-items="bottom">
+      <div>bottom</div>
+    </d-col>
+  </d-row>
+</d-view>`}
+          </code>
+        </pre>
+      </section>
+      <section>
+        <d-text crop="2px">
           <h2>等宽 3 列，元素水平垂直居中</h2>
         </d-text>
         <div className="case-container">

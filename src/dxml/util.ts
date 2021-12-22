@@ -1,55 +1,25 @@
-export type PositionType = 'top' | 'right-top' | 'right' | 'right-bottom' | 'bottom' | 'left-bottom' | 'left' | 'left-top' | 'center';
+export type PositionType =
+  | 'top'
+  | 'right-top'
+  | 'right'
+  | 'right-bottom'
+  | 'bottom'
+  | 'left-bottom'
+  | 'left'
+  | 'left-top'
+  | 'center';
 
-export function findAncestor(elem: HTMLElement, judge: (e: HTMLElement) => boolean): HTMLElement | null {
+export function findAncestor(
+  elem: HTMLElement,
+  judge: (e: HTMLElement) => boolean
+): HTMLElement | null {
   if (elem.parentElement && judge(elem.parentElement)) {
-    return elem.parentElement
+    return elem.parentElement;
   }
   if (elem.parentElement) {
-    return findAncestor(elem.parentElement, judge)
+    return findAncestor(elem.parentElement, judge);
   }
   return null;
-}
-
-export function getFlexAlignCSS(tag: string) {
-  return `${tag}[align-items] {
-    display: flex;
-  }
-  ${tag}[align-items="center"] {
-    align-items: center;
-    justify-content: center;
-  }
-  ${tag}[align-items="top"] {
-    align-items: flex-start;
-    justify-content: center;
-  }
-  ${tag}[align-items="bottom"] {
-    align-items: flex-end;
-    justify-content: center;
-  }
-  ${tag}[align-items="left"] {
-    align-items: center;
-    justify-content: flex-start;
-  }
-  ${tag}[align-items="left-top"] {
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-  ${tag}[align-items="left-bottom"] {
-    align-items: flex-end;
-    justify-content: flex-start;
-  }
-  ${tag}[align-items="right"] {
-    align-items: center;
-    justify-content: flex-end;
-  }
-  ${tag}[align-items="right-top"] {
-    align-items: flex-start;
-    justify-content: flex-end;
-  }
-  ${tag}[align-items="right-bottom"] {
-    align-items: flex-end;
-    justify-content: flex-end;
-  }`;
 }
 
 /**
@@ -61,11 +31,10 @@ export function getLineHeight(elem: HTMLElement) {
   if (!elem.parentNode) return 0;
   const temp = document.createElement('span');
   temp.classList.add('text-corp-elem');
-  temp.innerHTML = "A";
+  temp.innerHTML = 'A';
   elem.appendChild(temp);
   return temp.offsetHeight;
 }
-
 
 export function insertStyleElement(id: string, content: string) {
   let style = document.getElementById(id);
@@ -79,16 +48,27 @@ export function insertStyleElement(id: string, content: string) {
 
 export function insertDimensionStyle(dimension: string) {
   const id = `d-dimension-${dimension}`;
-  insertStyleElement(id, `[dimension][dimension="${dimension}"] { flex-grow: ${dimension}; }`)
+  insertStyleElement(
+    id,
+    `[dimension][dimension="${dimension}"] { flex-grow: ${dimension}; }`
+  );
 }
 
 export function insertGapStyle(gap: string) {
   const [rowGap, colGap] = gap.split(' ');
   const id = `d-gap-${rowGap}-${colGap || rowGap}`;
-  insertStyleElement(id, `[gap="${gap}"] > * { margin-right: ${rowGap}; margin-bottom: ${colGap || rowGap}; }`)
+  insertStyleElement(
+    id,
+    `[gap="${gap}"] > * { margin-right: ${rowGap}; margin-bottom: ${
+      colGap || rowGap
+    }; }`
+  );
 }
 
 export function insertCropStyle(crop: string) {
   const id = `d-text-crop-${crop}`;
-  insertStyleElement(id, `[crop="${crop}"]::before, [crop="${crop}"]::after { margin-top: -${crop}; }`)
+  insertStyleElement(
+    id,
+    `[crop="${crop}"]::before, [crop="${crop}"]::after { margin-top: -${crop}; }`
+  );
 }
