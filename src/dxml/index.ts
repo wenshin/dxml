@@ -138,32 +138,32 @@ ${Row.tag}[align-items="right-top"],
 }
 
 ${Col.tag}[align-items="top"],
-[layout="row"][align-items="top"] {
+[layout="col"][align-items="top"] {
   align-items: center;
   justify-content: flex-start;
 }
 ${Col.tag}[align-items="bottom"],
-[layout="row"][align-items="bottom"] {
+[layout="col"][align-items="bottom"] {
   align-items: center;
   justify-content: flex-end;
 }
 ${Col.tag}[align-items="left"],
-[layout="row"][align-items="left"] {
+[layout="col"][align-items="left"] {
   align-items: flex-start;
   justify-content: center;
 }
 ${Col.tag}[align-items="left-bottom"],
-[layout="row"][align-items="left-bottom"] {
+[layout="col"][align-items="left-bottom"] {
   align-items: flex-start;
   justify-content: flex-end;
 }
 ${Col.tag}[align-items="right"],
-[layout="row"][align-items="right"] {
+[layout="col"][align-items="right"] {
   align-items: flex-end;
   justify-content: center;
 }
 ${Col.tag}[align-items="right-top"],
-[layout="row"][align-items="right-top"] {
+[layout="col"][align-items="right-top"] {
   align-items: flex-end;
   justify-content: flex-start;
 }
