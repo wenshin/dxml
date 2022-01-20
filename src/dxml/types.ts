@@ -5,12 +5,15 @@ type Mask = 'none' | 'black' | 'white' | string;
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      'd-view': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
-        class?: string;
-        layout?: 'row' | 'col' | 'inline';
-        gap?: string;
-        'align-items'?: PositionType;
-      }, HTMLElement>; // Normal web component
+      'd-view': React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement> & {
+          class?: string;
+          layout?: 'row' | 'col' | 'inline';
+          gap?: string;
+          position?: PositionType;
+        },
+        HTMLElement
+      >; // Normal web component
       'd-layer': React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement> & {
           class?: string;
@@ -25,7 +28,7 @@ declare global {
            * stretch | 1 | 2 | 3
            */
           dimension?: 'stretch' | string;
-          'align-items'?: PositionType;
+          position?: PositionType;
           gap?: string;
         },
         HTMLElement
@@ -37,17 +40,20 @@ declare global {
            * stretch | 1 | 2 | 3
            */
           dimension?: 'stretch' | string;
-          'align-items'?: PositionType;
+          position?: PositionType;
           gap?: string;
         },
         HTMLElement
       >; // Normal web component
-      'd-elem': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
-        class?: string;
-        layout?: 'row' | 'col';
-        gap?: string;
-        'align-items'?: PositionType;
-      }, HTMLElement>; // Normal web component
+      'd-elem': React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement> & {
+          class?: string;
+          layout?: 'row' | 'col';
+          gap?: string;
+          position?: PositionType;
+        },
+        HTMLElement
+      >; // Normal web component
       'd-text': React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement> & {
           class?: string;
@@ -56,7 +62,10 @@ declare global {
         HTMLElement
       >; // Normal web component
       'd-float': React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement> & { align?: PositionType; class?: string },
+        React.HTMLAttributes<HTMLElement> & {
+          align?: PositionType;
+          class?: string;
+        },
         HTMLElement
       >; // Normal web component
     }
