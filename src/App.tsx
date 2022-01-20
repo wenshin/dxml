@@ -478,31 +478,31 @@ function App() {
         </d-text>
         <div className="case-container">
           <d-view>
-            <d-float class="my-class" align="top">
+            <d-float class="my-class" position="top">
               top
             </d-float>
-            <d-float align="right-top">right-top</d-float>
-            <d-float align="right">right</d-float>
-            <d-float align="right-bottom">right-bottom</d-float>
-            <d-float align="bottom">bottom</d-float>
-            <d-float align="left-bottom">left-bottom</d-float>
-            <d-float align="left">left</d-float>
-            <d-float align="left-top">left-top</d-float>
-            <d-float align="center">center</d-float>
+            <d-float position="right-top">right-top</d-float>
+            <d-float position="right">right</d-float>
+            <d-float position="right-bottom">right-bottom</d-float>
+            <d-float position="bottom">bottom</d-float>
+            <d-float position="left-bottom">left-bottom</d-float>
+            <d-float position="left">left</d-float>
+            <d-float position="left-top">left-top</d-float>
+            <d-float position="center">center</d-float>
           </d-view>
         </div>
         <pre>
           <code className="language-html">
             {`<d-view>
-  <d-float class='my-class' align='top'>top</d-float>
-  <d-float align='right-top'>right-top</d-float>
-  <d-float align='right'>right</d-float>
-  <d-float align='right-bottom'>right-bottom</d-float>
-  <d-float align='bottom'>bottom</d-float>
-  <d-float align='left-bottom'>left-bottom</d-float>
-  <d-float align='left'>left</d-float>
-  <d-float align='left-top'>left-top</d-float>
-  <d-float align='center'>center</d-float>
+  <d-float class='my-class' position='top'>top</d-float>
+  <d-float position='right-top'>right-top</d-float>
+  <d-float position='right'>right</d-float>
+  <d-float position='right-bottom'>right-bottom</d-float>
+  <d-float position='bottom'>bottom</d-float>
+  <d-float position='left-bottom'>left-bottom</d-float>
+  <d-float position='left'>left</d-float>
+  <d-float position='left-top'>left-top</d-float>
+  <d-float position='center'>center</d-float>
 </d-view>`}
           </code>
         </pre>

@@ -177,45 +177,45 @@ ${Float.tag} {
   left: 0px;
   top: 0px;
 }
-${Float.tag}[align="top"] {
+${Float.tag}[position="top"] {
   top: 0px;
   left: 50%;
   transform: translate(-50%, 0);
 }
-${Float.tag}[align="right-top"] {
+${Float.tag}[position="right-top"] {
   top: 0px;
   right: 0px;
   left: initial;
 }
-${Float.tag}[align="right"] {
+${Float.tag}[position="right"] {
   left: initial;
   right: 0px;
   top: 50%;
   transform: translate(0, -50%);
 }
-${Float.tag}[align="right-bottom"] {
+${Float.tag}[position="right-bottom"] {
   bottom: 0px;
   right: 0;
   top: initial;
   left: initial;
 }
-${Float.tag}[align="bottom"] {
+${Float.tag}[position="bottom"] {
   bottom: 0px;
   top: initial;
   left: 50%;
   transform: translate(-50%, 0);
 }
-${Float.tag}[align="left-bottom"] {
+${Float.tag}[position="left-bottom"] {
   left: 0px;
   top: initial;
   bottom: 0px;
 }
-${Float.tag}[align="left"] {
+${Float.tag}[position="left"] {
   left: 0px;
   top: 50%;
   transform: translate(0, -50%);
 }
-${Float.tag}[align="center"] {
+${Float.tag}[position="center"] {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);

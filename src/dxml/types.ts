@@ -63,7 +63,7 @@ declare global {
       >; // Normal web component
       'd-float': React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement> & {
-          align?: PositionType;
+          position?: PositionType;
           class?: string;
         },
         HTMLElement
