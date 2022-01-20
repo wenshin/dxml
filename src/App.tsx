@@ -8,7 +8,7 @@ function App() {
       <section>
         <p>
           一直以来前端工程化领域，一直致力于在 css + js
-          开发上进行提质、提效，却一直忽略 html + css 的质效问题。
+          开发上进行提质、提效，却忽略 html + css 的质效问题。
         </p>
         <p>
           最近几年虽然我已经能解决前端几乎所有的布局，尤其是 flex、grid
@@ -63,40 +63,49 @@ function App() {
       <h2>
         <d-text crop="2px">布局类标签介绍</d-text>
       </h2>
+      <p>布局类标签用来控制子元素的</p>
       <ul>
         <li>
-          <span className="inline-code">view</span>：始终占满父元素空间
-        </li>
-        <li>
-          <span className="inline-code">row</span>
-          ：始终占满父元素宽度，高度自适应，子元素始终在一行内进行布局
-        </li>
-        <li>
-          <span className="inline-code">col</span>
-          ：始终占满父元素高度，宽度自适应，子元素始终在一行内进行布局
+          <span className="inline-code">view</span>
+          ：始终占满父元素空间，默认布局为子元素可换行布局
         </li>
         <li>
           <span className="inline-code">layer</span>
-          ：始终占满父元素空间，并且漂浮在其他元素之上，支持鼠标事件穿透和背景色设置
+          ：支持漂浮在其它兄弟元素之上的 view
+          标签，默认占满整个空间，支持鼠标事件穿透和背景色设置
+        </li>
+        <li>
+          <span className="inline-code">row</span>
+          ：始终占满父元素宽度，高度自适应子元素，或者通过 height
+          设置，或者由父元素控制，子元素始终在一行内进行布局
+        </li>
+        <li>
+          <span className="inline-code">col</span>
+          ：始终占满父元素高度，宽度自适应子元素，或者通过 width
+          设置，或者由父元素控制，子元素始终在一列内进行布局
+        </li>
+        <li>
+          <span className="inline-code">elem</span>
+          ：宽度和高度自适应子元素，或者通过 width 和 height 设置，类似
+          inline-block
+        </li>
+        <li>
+          <span className="inline-code">float</span>
+          ：支持漂浮在父元素的上、下、左、右、中、左上、左下、右上、右下 9
+          个位置，其它特性同 elem
         </li>
       </ul>
-      <p>布局类标签</p>
       <h2>
         <d-text crop="2px">元素类标签介绍</d-text>
       </h2>
+      <p>
+        元素类标签没有布局能力，宽度和高度自适应子元素，或者通过 width 和 height
+        设置，类似 inline-block
+      </p>
       <ul>
         <li>
-          <span className="inline-code">elem</span>
-          ：默认适应内部视觉元素尺寸，如：文本、图片等
-        </li>
-        <li>
-          <span className="inline-code">text</span>：elem
-          派生的一个元素，支持处理文本 line-height 导致的空间溢出
-        </li>
-        <li>
-          <span className="inline-code">float</span>：elem
-          派生的一个元素，支持漂浮在父元素的上、下、左、右、中、左上、左下、右上、右下
-          9 个位置
+          <span className="inline-code">text</span>： 支持处理文本 line-height
+          导致的空间溢出
         </li>
       </ul>
       <h1>实例</h1>
@@ -106,33 +115,33 @@ function App() {
         </d-text>
         <div className="case-container">
           <d-view layout="col" gap="10px">
-            <d-row position="center">Header</d-row>
+            <d-row place-items="center">Header</d-row>
             <d-row
               dimension="stretch"
               gap="10px"
               style={{ backgroundColor: 'transparent' }}
             >
-              <d-col position="center">SideBar</d-col>
-              <d-col dimension="stretch" position="center">
+              <d-col place-items="center">SideBar</d-col>
+              <d-col dimension="stretch" place-items="center">
                 Content
               </d-col>
-              <d-col position="center">SideBar</d-col>
+              <d-col place-items="center">SideBar</d-col>
             </d-row>
-            <d-row position="center">Footer</d-row>
+            <d-row place-items="center">Footer</d-row>
           </d-view>
         </div>
         <pre>
           <code className="language-html">
             {`<d-view layout='col' gap='10px'>
-  <d-row position='center'>
+  <d-row place-items='center'>
     Header
   </d-row>
   <d-row dimension='stretch' gap='10px' style={{ backgroundColor: 'transparent' }}>
-    <d-col position='center'>SideBar</d-col>
-    <d-col dimension='stretch' position='center'>Content</d-col>
-    <d-col position='center'>SideBar</d-col>
+    <d-col place-items='center'>SideBar</d-col>
+    <d-col dimension='stretch' place-items='center'>Content</d-col>
+    <d-col place-items='center'>SideBar</d-col>
   </d-row>
-  <d-row position='center'>
+  <d-row place-items='center'>
     Footer
   </d-row>
 </d-view>`}
@@ -146,18 +155,26 @@ function App() {
         <div className="case-container row-col-align-case">
           <d-view layout="row" gap="12px">
             <d-col dimension="1" gap="8px">
-              <d-row dimension="1" class="row-col-container" position="top">
+              <d-row dimension="1" class="row-col-container" place-items="top">
                 top
               </d-row>
-              <d-row dimension="1" class="row-col-container" position="bottom">
+              <d-row
+                dimension="1"
+                class="row-col-container"
+                place-items="bottom"
+              >
                 bottom
               </d-row>
             </d-col>
             <d-col dimension="1" gap="8px">
-              <d-row dimension="1" class="row-col-container" position="left">
+              <d-row dimension="1" class="row-col-container" place-items="left">
                 left
               </d-row>
-              <d-row dimension="1" class="row-col-container" position="right">
+              <d-row
+                dimension="1"
+                class="row-col-container"
+                place-items="right"
+              >
                 right
               </d-row>
             </d-col>
@@ -165,14 +182,14 @@ function App() {
               <d-row
                 dimension="1"
                 class="row-col-container"
-                position="right-top"
+                place-items="right-top"
               >
                 <div>right-top</div>
               </d-row>
               <d-row
                 dimension="1"
                 class="row-col-container"
-                position="right-bottom"
+                place-items="right-bottom"
               >
                 <div>right-bottom</div>
               </d-row>
@@ -181,14 +198,14 @@ function App() {
               <d-row
                 dimension="1"
                 class="row-col-container"
-                position="left-bottom"
+                place-items="left-bottom"
               >
                 <div>left-bottom</div>
               </d-row>
               <d-row
                 dimension="1"
                 class="row-col-container"
-                position="left-top"
+                place-items="left-top"
               >
                 <div>left-top</div>
               </d-row>
@@ -199,34 +216,34 @@ function App() {
           <code className="language-html">
             {`<d-view layout="row" gap="12px">
   <d-col dimension='1'gap="8px">
-    <d-row dimension="1" class="row-col-container" position="top">
+    <d-row dimension="1" class="row-col-container" place-items="top">
       top
     </d-row>
-    <d-row dimension="1" class="row-col-container" position="bottom">
+    <d-row dimension="1" class="row-col-container" place-items="bottom">
       bottom
     </d-row>
   </d-col>
   <d-col dimension='1'gap="8px">
-    <d-row dimension="1" class="row-col-container" position="left">
+    <d-row dimension="1" class="row-col-container" place-items="left">
       left
     </d-row>
-    <d-row dimension="1" class="row-col-container" position="right">
+    <d-row dimension="1" class="row-col-container" place-items="right">
       right
     </d-row>
   </d-col>
   <d-col dimension='1'gap="8px">
-    <d-row dimension="1" class="row-col-container" position="right-top">
+    <d-row dimension="1" class="row-col-container" place-items="right-top">
       <div>right-top</div>
     </d-row>
-    <d-row dimension="1" class="row-col-container" position="right-bottom">
+    <d-row dimension="1" class="row-col-container" place-items="right-bottom">
       <div>right-bottom</div>
     </d-row>
   </d-col>
   <d-col dimension='1'gap="8px">
-    <d-row dimension="1" class="row-col-container" position="left-bottom">
+    <d-row dimension="1" class="row-col-container" place-items="left-bottom">
       <div>left-bottom</div>
     </d-row>
-    <d-row dimension="1" class="row-col-container" position="left-top">
+    <d-row dimension="1" class="row-col-container" place-items="left-top">
       <div>left-top</div>
     </d-row>
   </d-col>
@@ -241,23 +258,27 @@ function App() {
         <div className="case-container row-col-align-case">
           <d-view layout="col" gap="12px">
             <d-row dimension="1" gap="8px">
-              <d-col dimension="1" class="row-col-container" position="top">
+              <d-col dimension="1" class="row-col-container" place-items="top">
                 top
               </d-col>
               <d-col
                 dimension="1"
                 class="row-col-container"
-                position="right-top"
+                place-items="right-top"
               >
                 right-top
               </d-col>
-              <d-col dimension="1" class="row-col-container" position="right">
+              <d-col
+                dimension="1"
+                class="row-col-container"
+                place-items="right"
+              >
                 <div>right</div>
               </d-col>
               <d-col
                 dimension="1"
                 class="row-col-container"
-                position="right-bottom"
+                place-items="right-bottom"
               >
                 <div>right-bottom</div>
               </d-col>
@@ -266,21 +287,25 @@ function App() {
               <d-col
                 dimension="1"
                 class="row-col-container"
-                position="left-top"
+                place-items="left-top"
               >
                 <div>left-top</div>
               </d-col>
-              <d-col dimension="1" class="row-col-container" position="left">
+              <d-col dimension="1" class="row-col-container" place-items="left">
                 <div>left</div>
               </d-col>
               <d-col
                 dimension="1"
                 class="row-col-container"
-                position="left-bottom"
+                place-items="left-bottom"
               >
                 <div>left-bottom</div>
               </d-col>
-              <d-col dimension="1" class="row-col-container" position="bottom">
+              <d-col
+                dimension="1"
+                class="row-col-container"
+                place-items="bottom"
+              >
                 <div>bottom</div>
               </d-col>
             </d-row>
@@ -290,30 +315,30 @@ function App() {
           <code className="language-html">
             {`<d-view layout="col" gap="12px">
   <d-row dimension='1' gap="8px">
-    <d-col dimension="1" class="row-col-container" position="top">
+    <d-col dimension="1" class="row-col-container" place-items="top">
       top
     </d-col>
-    <d-col dimension="1" class="row-col-container" position="right-top">
+    <d-col dimension="1" class="row-col-container" place-items="right-top">
       right-top
     </d-col>
-    <d-col dimension="1" class="row-col-container" position="right">
+    <d-col dimension="1" class="row-col-container" place-items="right">
       <div>right</div>
     </d-col>
-    <d-col dimension="1" class="row-col-container" position="right-bottom">
+    <d-col dimension="1" class="row-col-container" place-items="right-bottom">
       <div>right-bottom</div>
     </d-col>
   </d-row>
   <d-row dimension='1' gap="8px">
-    <d-col dimension="1" class="row-col-container" position="left-top">
+    <d-col dimension="1" class="row-col-container" place-items="left-top">
       <div>left-top</div>
     </d-col>
-    <d-col dimension="1" class="row-col-container" position="left">
+    <d-col dimension="1" class="row-col-container" place-items="left">
       <div>left</div>
     </d-col>
-    <d-col dimension="1" class="row-col-container" position="left-bottom">
+    <d-col dimension="1" class="row-col-container" place-items="left-bottom">
       <div>left-bottom</div>
     </d-col>
-    <d-col dimension="1" class="row-col-container" position="bottom">
+    <d-col dimension="1" class="row-col-container" place-items="bottom">
       <div>bottom</div>
     </d-col>
   </d-row>
@@ -327,16 +352,16 @@ function App() {
         </d-text>
         <div className="case-container">
           <d-view layout="row" gap="12px">
-            <d-col dimension="1" position="center">
-              <d-row position="center">
+            <d-col dimension="1" place-items="center">
+              <d-row place-items="center">
                 <div>A</div>
                 <div>A</div>
               </d-row>
             </d-col>
-            <d-col dimension="1" position="center">
+            <d-col dimension="1" place-items="center">
               BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
             </d-col>
-            <d-col dimension="1" position="center">
+            <d-col dimension="1" place-items="center">
               CC
             </d-col>
           </d-view>
@@ -344,14 +369,14 @@ function App() {
         <pre>
           <code className="language-html">
             {`<d-view layout='row' gap='12px'>
-  <d-col dimension='1' position='center'>
-    <d-row position='center'>
+  <d-col dimension='1' place-items='center'>
+    <d-row place-items='center'>
       <div>A</div>
       <div>A</div>
     </d-row>
   </d-col>
-  <d-col dimension='1' position='center'>BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</d-col>
-  <d-col dimension='1' position='center'>CC</d-col>
+  <d-col dimension='1' place-items='center'>BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</d-col>
+  <d-col dimension='1' place-items='center'>CC</d-col>
 </d-view>`}
           </code>
         </pre>
@@ -362,24 +387,31 @@ function App() {
         </d-text>
         <div className="case-container">
           <d-view layout="row" gap="12px">
-            <d-col dimension="1" position="center">
-              <div>A</div>
-              <div>A</div>
+            <d-col dimension="1" place-items="center">
+              <d-text>AAAA</d-text>
+              <d-text>A</d-text>
             </d-col>
-            <d-col dimension="2" position="center">
+            <d-col dimension="2" place-items="center">
               BB
             </d-col>
-            <d-col dimension="2" position="center">
+            <d-col dimension="2" place-items="center">
               CC
             </d-col>
           </d-view>
         </div>
         <pre>
           <code className="language-html">
-            {`<d-view layout='row' gap='12px'>
-  <d-col dimension='1' position='center'><div>A</div><div>A</div></d-col>
-  <d-col dimension='2' position='center'>BB</d-col>
-  <d-col dimension='2' position='center'>CC</d-col>
+            {`<d-view layout="row" gap="12px">
+  <d-col dimension="1" place-items="center">
+    <d-text>AAAA</d-text>
+    <d-text>A</d-text>
+  </d-col>
+  <d-col dimension="2" place-items="center">
+    BB
+  </d-col>
+  <d-col dimension="2" place-items="center">
+    CC
+  </d-col>
 </d-view>`}
           </code>
         </pre>
@@ -390,19 +422,19 @@ function App() {
         </d-text>
         <div className="case-container">
           <d-view layout="row" gap="12px">
-            <d-col position="center">AAA</d-col>
-            <d-col dimension="stretch" position="center">
+            <d-col place-items="center">AAA</d-col>
+            <d-col dimension="stretch" place-items="center">
               B
             </d-col>
-            <d-col position="center">C</d-col>
+            <d-col place-items="center">C</d-col>
           </d-view>
         </div>
         <pre>
           <code className="language-html">
             {`<d-view layout='row' gap='12px'>
-  <d-col position='center'>AAA</d-col>
-  <d-col dimension='stretch' position='center'>B</d-col>
-  <d-col position='center'>C</d-col>
+  <d-col place-items='center'>AAA</d-col>
+  <d-col dimension='stretch' place-items='center'>B</d-col>
+  <d-col place-items='center'>C</d-col>
 </d-view>`}
           </code>
         </pre>
@@ -413,26 +445,26 @@ function App() {
         </d-text>
         <div className="case-container">
           <d-view layout="col" gap="12px">
-            <d-row position="center">A</d-row>
-            <d-row dimension="stretch" position="center">
+            <d-row place-items="center">A</d-row>
+            <d-row dimension="stretch" place-items="center">
               B
             </d-row>
-            <d-row position="center">C</d-row>
+            <d-row place-items="center">C</d-row>
           </d-view>
         </div>
         <pre>
           <code className="language-html">
             {`<d-view layout='col' gap='12px'>
-  <d-row position='center'>A</d-row>
-  <d-row dimension='stretch' position='center'>B</d-row>
-  <d-row position='center'>C</d-row>
+  <d-row place-items='center'>A</d-row>
+  <d-row dimension='stretch' place-items='center'>B</d-row>
+  <d-row place-items='center'>C</d-row>
 </d-view>`}
           </code>
         </pre>
       </section>
       <section>
         <d-text crop="2px">
-          <h2>不同比例行布局</h2>
+          <h2>多行多比例布局</h2>
         </d-text>
         <div className="case-container">
           <d-view layout="col" gap="12px">
@@ -441,24 +473,24 @@ function App() {
               gap="10px"
               style={{ backgroundColor: 'transparent' }}
             >
-              <d-col position="center">A</d-col>
-              <d-col dimension="stretch" position="center">
+              <d-col place-items="center">A</d-col>
+              <d-col dimension="stretch" place-items="center">
                 B
               </d-col>
-              <d-col position="center">C</d-col>
+              <d-col place-items="center">C</d-col>
             </d-row>
             <d-row
               dimension="2"
               gap="10px"
               style={{ backgroundColor: 'transparent' }}
             >
-              <d-col position="center" style={{ width: 30 }}>
+              <d-col place-items="center" style={{ width: 30 }}>
                 A
               </d-col>
-              <d-col dimension="stretch" position="center">
+              <d-col dimension="stretch" place-items="center">
                 B
               </d-col>
-              <d-col position="center">C</d-col>
+              <d-col place-items="center">C</d-col>
             </d-row>
           </d-view>
         </div>
@@ -466,14 +498,14 @@ function App() {
           <code className="language-html">
             {`<d-view layout='col' gap='12px'>
   <d-row dimension='1' gap='10px' style={{backgroundColor: 'transparent'}}>
-    <d-col position='center'>A</d-col>
-    <d-col dimension='stretch' position='center'>B</d-col>
-    <d-col position='center'>C</d-col>
+    <d-col place-items='center'>A</d-col>
+    <d-col dimension='stretch' place-items='center'>B</d-col>
+    <d-col place-items='center'>C</d-col>
   </d-row>
   <d-row dimension='2' gap='10px' style={{backgroundColor: 'transparent'}}>
-    <d-col position='center' style={{ width: 30 }}>A</d-col>
-    <d-col dimension='stretch' position='center'>B</d-col>
-    <d-col position='center'>C</d-col>
+    <d-col place-items='center' style={{ width: 30 }}>A</d-col>
+    <d-col dimension='stretch' place-items='center'>B</d-col>
+    <d-col place-items='center'>C</d-col>
   </d-row>
 </d-view>`}
           </code>
@@ -532,7 +564,7 @@ function App() {
             ></d-float>
             <d-float class="float-square" position="left"></d-float>
             <d-float class="float-square" position="left-outside"></d-float>
-            <d-float class="float-square" position="top-left"></d-float>
+            <d-float class="float-square" position="left-top"></d-float>
             <d-float class="float-square" position="top-left-outside"></d-float>
             <d-float class="float-square" position="left-top-outside"></d-float>
             <d-float
@@ -544,13 +576,13 @@ function App() {
         </div>
         <pre>
           <code className="language-html">
-            {`<d-view style={{ border: 'solid 1px #403f3f' }}>
+            {`<d-view style={{ background: '#565656' }}>
   <d-float class="float-square" position="top"></d-float>
   <d-float class="float-square" position="top-outside"></d-float>
   <d-float class="float-square" position="right-top"></d-float>
-  <d-float class="float-square" position="right-top-outside"></d-float>
+  <d-float class="float-square" position="right-top-outside" ></d-float>
   <d-float class="float-square" position="right-top-corner-outside" ></d-float>
-  <d-float class="float-square" position="top-right-outside"></d-float>
+  <d-float class="float-square" position="top-right-outside" ></d-float>
   <d-float class="float-square" position="right"></d-float>
   <d-float class="float-square" position="right-outside"></d-float>
   <d-float class="float-square" position="right-bottom"></d-float>
@@ -560,12 +592,12 @@ function App() {
   <d-float class="float-square" position="bottom"></d-float>
   <d-float class="float-square" position="bottom-outside"></d-float>
   <d-float class="float-square" position="left-bottom"></d-float>
-  <d-float class="float-square" position="left-bottom-outside"></d-float>
+  <d-float class="float-square" position="left-bottom-outside" ></d-float>
   <d-float class="float-square" position="left-bottom-corner-outside" ></d-float>
-  <d-float class="float-square" position="bottom-left-outside"></d-float>
+  <d-float class="float-square" position="bottom-left-outside" ></d-float>
   <d-float class="float-square" position="left"></d-float>
   <d-float class="float-square" position="left-outside"></d-float>
-  <d-float class="float-square" position="top-left"></d-float>
+  <d-float class="float-square" position="left-top"></d-float>
   <d-float class="float-square" position="top-left-outside"></d-float>
   <d-float class="float-square" position="left-top-outside"></d-float>
   <d-float class="float-square" position="left-top-corner-outside" ></d-float>
@@ -576,29 +608,29 @@ function App() {
       </section>
       <section>
         <d-text crop="2px">
-          <h2>inline 元素布局</h2>
+          <h2>内连元素布局</h2>
         </d-text>
         <div className="case-container">
-          <d-view layout="inline" gap="12px 16px">
-            <d-elem className="inline-elem1">test</d-elem>
+          <d-view gap="12px 16px">
+            <d-text className="inline-elem1">test</d-text>
             <d-elem class="inline-elem2" layout="row" gap="10px">
-              <d-col position="center">
-                <span>A</span>
-                <span>B</span>
-                <span>C</span>
+              <d-col place-items="center" align-elems="start">
+                <d-elem>AAA</d-elem>
+                <d-elem>B</d-elem>
+                <d-elem>C</d-elem>
               </d-col>
-              <d-col position="center">B</d-col>
-              <d-col position="center">C</d-col>
+              <d-col place-items="center">B</d-col>
+              <d-col place-items="center">C</d-col>
             </d-elem>
             <d-elem layout="col" gap="10px">
-              <d-row>A</d-row>
-              <d-row>B</d-row>
-              <d-row>C</d-row>
+              <d-text>A</d-text>
+              <d-text>B</d-text>
+              <d-text>C</d-text>
             </d-elem>
             <d-elem class="inline-elem3" layout="row" gap="10px">
-              <d-col position="center">A</d-col>
-              <d-col position="center">B</d-col>
-              <d-col position="center">C</d-col>
+              <d-col place-items="center">A</d-col>
+              <d-col place-items="center">B</d-col>
+              <d-col place-items="center">C</d-col>
             </d-elem>
           </d-view>
         </div>
@@ -607,9 +639,9 @@ function App() {
             {`<d-view layout="inline" gap='12px 16px'>
   <d-elem className='inline-elem1'>test</d-elem>
   <d-elem class='inline-elem2' layout='row' gap='10px'>
-    <d-col position='center'><span>A</span><span>B</span><span>C</span></d-col>
-    <d-col position='center'>B</d-col>
-    <d-col position='center'>C</d-col>
+    <d-col place-items='center'><span>A</span><span>B</span><span>C</span></d-col>
+    <d-col place-items='center'>B</d-col>
+    <d-col place-items='center'>C</d-col>
   </d-elem>
   <d-elem layout='col' gap='10px'>
     <d-row>A</d-row>
@@ -617,9 +649,9 @@ function App() {
     <d-row>C</d-row>
   </d-elem>
   <d-elem class='inline-elem3' layout='row' gap='10px'>
-    <d-col position='center'>A</d-col>
-    <d-col position='center'>B</d-col>
-    <d-col position='center'>C</d-col>
+    <d-col place-items='center'>A</d-col>
+    <d-col place-items='center'>B</d-col>
+    <d-col place-items='center'>C</d-col>
   </d-elem>
 </d-view>`}
           </code>

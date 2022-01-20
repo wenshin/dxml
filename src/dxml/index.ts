@@ -16,10 +16,7 @@ insertStyleElement(
   position: relative;
   height: 100%;
   width: 100%;
-  display: block;
   box-sizing: border-box;
-}
-[layout="inline"] {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -75,6 +72,7 @@ ${Col.tag}[gap] > *:last-child {
   margin-right: 0;
   margin-bottom: 0;
 }
+
 ${Elem.tag}, ${Elem.tag}[layout] {
   display: inline-flex;
   width: initial;
@@ -91,79 +89,79 @@ ${Elem.tag}[layout] > * {
   flex-shrink: 1;
 }
 
-[position] {
+[place-items] {
   display: flex;
 }
-[position="center"] {
+[place-items="center"] {
   align-items: center;
   justify-content: center;
 }
-[position="left-top"] {
+[place-items="left-top"] {
   align-items: flex-start;
   justify-content: flex-start;
 }
-[position="right-bottom"] {
+[place-items="right-bottom"] {
   align-items: flex-end;
   justify-content: flex-end;
 }
-${Row.tag}[position="top"],
-[layout="row"][position="top"] {
+${Row.tag}[place-items="top"],
+[layout="row"][place-items="top"] {
   align-items: flex-start;
   justify-content: center;
 }
-${Row.tag}[position="bottom"],
-[layout="row"][position="bottom"] {
+${Row.tag}[place-items="bottom"],
+[layout="row"][place-items="bottom"] {
   align-items: flex-end;
   justify-content: center;
 }
-${Row.tag}[position="left"],
-[layout="row"][position="left"] {
+${Row.tag}[place-items="left"],
+[layout="row"][place-items="left"] {
   align-items: center;
   justify-content: flex-start;
 }
-${Row.tag}[position="left-bottom"],
-[layout="row"][position="left-bottom"] {
+${Row.tag}[place-items="left-bottom"],
+[layout="row"][place-items="left-bottom"] {
   align-items: flex-end;
   justify-content: flex-start;
 }
-${Row.tag}[position="right"],
-[layout="row"][position="right"] {
+${Row.tag}[place-items="right"],
+[layout="row"][place-items="right"] {
   align-items: center;
   justify-content: flex-end;
 }
-${Row.tag}[position="right-top"],
-[layout="row"][position="right-top"] {
+${Row.tag}[place-items="right-top"],
+[layout="row"][place-items="right-top"] {
   align-items: flex-start;
   justify-content: flex-end;
 }
 
-${Col.tag}[position="top"],
-[layout="col"][position="top"] {
+${Col.tag}[place-items="top"],
+[layout="col"][place-items="top"] {
   align-items: center;
   justify-content: flex-start;
 }
-${Col.tag}[position="bottom"],
-[layout="col"][position="bottom"] {
+${Col.tag}[place-items="bottom"],
+[layout="col"][place-items="bottom"] {
   align-items: center;
   justify-content: flex-end;
 }
-${Col.tag}[position="left"],
-[layout="col"][position="left"] {
+${Col.tag}[place-items="left"],
+[layout="col"][place-items="left"] {
   align-items: flex-start;
   justify-content: center;
 }
-${Col.tag}[position="left-bottom"],
-[layout="col"][position="left-bottom"] {
+${Col.tag}[place-items="left-bottom"],
+[layout="col"][place-items="left-bottom"] {
   align-items: flex-start;
   justify-content: flex-end;
 }
-${Col.tag}[position="right"],
-[layout="col"][position="right"] {
+${Col.tag}[place-items="right"],
+[layout="col"][place-items="right"] {
   align-items: flex-end;
   justify-content: center;
 }
-${Col.tag}[position="right-top"],
-[layout="col"][position="right-top"] {
+${Col.tag}[place-items="right-top"],
+[layout="col"][place-items="right-top"] {
   align-items: flex-end;
   justify-content: flex-start;
 }
@@ -308,6 +306,7 @@ ${Float.tag}[position="center"] {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
 ${Layer.tag} {
   position: absolute;
   top: 0;
@@ -328,6 +327,7 @@ ${Layer.tag}[mask="white"] {
 ${Layer.tag}[mask="black"] {
   background-color: #00000073;
 }
+
 ${Text.tag} {
   display: inline-block;
   box-sizing: border-box;

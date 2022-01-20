@@ -1,31 +1,3 @@
-export type PositionType =
-  | 'top'
-  | 'right-top'
-  | 'right'
-  | 'right-bottom'
-  | 'bottom'
-  | 'left-bottom'
-  | 'left'
-  | 'left-top'
-  | 'center'
-  | 'top-outside'
-  | 'right-top-outside'
-  | 'right-top-corner-outside'
-  | 'top-right-outside'
-  | 'right-outside'
-  | 'right-bottom-outside'
-  | 'right-bottom-corner-outside'
-  | 'bottom-right-outside'
-  | 'bottom-outside'
-  | 'bottom-left-outside'
-  | 'left-bottom-outside'
-  | 'left-bottom-corner-outside'
-  | 'left-outside'
-  | 'top-left'
-  | 'top-left-outside'
-  | 'left-top-outside'
-  | 'left-top-corner-outside';
-
 export function findAncestor(
   elem: HTMLElement,
   judge: (e: HTMLElement) => boolean
