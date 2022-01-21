@@ -7,17 +7,19 @@ export class Text extends HTMLElement {
 
   connectedCallback() {
     const crop = this.getAttribute('crop');
-    if (crop) {
+    if (crop === 'auto') {
+      // 性能太差，暂时不实现
+      // this.updateStyle();
+    } else if (crop) {
       insertCropStyle(crop);
-    } else {
-      this.updateStyle();
     }
   }
 
   attributeChangedCallback(name: string) {
     const crop = this.getAttribute('crop');
-    if (!crop && (name === 'style' || name === 'class')) {
-      this.updateStyle();
+    if (crop === 'auto' && (name === 'style' || name === 'class')) {
+      // 性能太差，暂时不实现
+      // this.updateStyle();
     }
   }
 

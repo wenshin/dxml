@@ -4,125 +4,25 @@ import './App.css';
 function App() {
   return (
     <div style={{ padding: 20 }}>
-      <h1>前言</h1>
-      <section>
-        <p>
-          一直以来前端工程化领域，一直致力于在 css + js
-          开发上进行提质、提效，却忽略 html + css 的质效问题。
-        </p>
-        <p>
-          最近几年虽然我已经能解决前端几乎所有的布局，尤其是 flex、grid
-          布局出现后，让复杂结构布局能力更加完美和高效。 但是我发现复杂的布局用
-          html + css 或者 wxml + css 来处理仍然是很低效的，
-          一个复杂的页面布局如果没有现成的组件可用，需要耗时半天到一天不等。
-        </p>
-        <p>
-          并且我觉得设计领域和技术领域没有统一的布局
-          DSL，也是阻碍设计稿自动代码化的关键点之一。 当然业内阿里的 imgcook
-          非常厉害，它靠复杂的智能技术对设计稿图片或者源文件进行分析，提取出元素树，并且适配了
-          React、Vue、小程序、Flutter、Android 等多种 DSL。 这项技术也有缺点，
-          首先，技术成本很高，从 2017 年开始，2019 年 1
-          月发布体验版，目前保持每月迭代，整个网站易用性还是比较差，loading
-          时间长，阻塞问题比较多，明显维护投入不是很充足。
-          其次，设计和研发规范迭代维护成本如何，以及如何保持和适配 DSL
-          兼容并保证可靠性，都还没有得到很好验证。
-          因此如果有一套设计和技术都遵循的 DSL，相信 imgcook
-          的成本和不确定性将大大降低。
-        </p>
-        <p>
-          在深入学习 flex
-          的过程中，我发现它是一个功能强大，底层抽象极致的布局体系。
-          但是缺点也很明显，首先概念复杂，理解和熟练应用成本很高；其次和常见的
-          UI 设计工具概念差异很大。
-          说的直白点，是这个设计太技术化，是一个更亲近技术的设计。
-        </p>
-        <p>
-          举个例子：在子元素布局和对齐上就有四种属性
-          align-items、align-content、justify-content 和 align-self。 而对于 UI
-          设计工具来说，只关注两种，
-          一个是子元素和父元素位置，如：左右、上下、中间、左上、左下、右上、右下
-          9 个位置；
-          一个是子元素之间对齐，如：居中对齐最多、然后是顶部对齐和底部对齐。
-        </p>
-        <p>
-          为了更好的让 UI 设计概念与技术方案进行融合，甚至实现自动化。
-          我尝试设计一套新的 XML 语言，命名为 Design XML 缩写 DXML。
-        </p>
+      <section className="text-center">
+        <h1>DXML (Design XML) </h1>
+        <p>用符合设计直觉、简洁、高效的布局描述语言定义布局</p>
       </section>
-      <h1>DXML 介绍</h1>
-      <h2>
-        <d-text crop="2px">核心理念</d-text>
-      </h2>
-      <section>
-        <p>
-          DXML 的核心理念是设计更符合设计语言的 DSL。 html + css
-          设计之初是为了服务好图文内容的展示，而现代 Web
-          应用结构化布局更多。DXML 把标签分为布局类和元素类两大类。
-        </p>
-      </section>
-      <h2>
-        <d-text crop="2px">布局类标签介绍</d-text>
-      </h2>
-      <p>布局类标签用来控制子元素的</p>
-      <ul>
-        <li>
-          <span className="inline-code">view</span>
-          ：始终占满父元素空间，默认布局为子元素可换行布局
-        </li>
-        <li>
-          <span className="inline-code">layer</span>
-          ：支持漂浮在其它兄弟元素之上的 view
-          标签，默认占满整个空间，支持鼠标事件穿透和背景色设置
-        </li>
-        <li>
-          <span className="inline-code">row</span>
-          ：始终占满父元素宽度，高度自适应子元素，或者通过 height
-          设置，或者由父元素控制，子元素始终在一行内进行布局
-        </li>
-        <li>
-          <span className="inline-code">col</span>
-          ：始终占满父元素高度，宽度自适应子元素，或者通过 width
-          设置，或者由父元素控制，子元素始终在一列内进行布局
-        </li>
-        <li>
-          <span className="inline-code">elem</span>
-          ：宽度和高度自适应子元素，或者通过 width 和 height 设置，类似
-          inline-block
-        </li>
-        <li>
-          <span className="inline-code">float</span>
-          ：支持漂浮在父元素的上、下、左、右、中、左上、左下、右上、右下 9
-          个位置，其它特性同 elem
-        </li>
-      </ul>
-      <h2>
-        <d-text crop="2px">元素类标签介绍</d-text>
-      </h2>
-      <p>
-        元素类标签没有布局能力，宽度和高度自适应子元素，或者通过 width 和 height
-        设置，类似 inline-block
-      </p>
-      <ul>
-        <li>
-          <span className="inline-code">text</span>： 支持处理文本 line-height
-          导致的空间溢出
-        </li>
-      </ul>
       <h1>实例</h1>
       <section>
-        <d-text crop="2px">
-          <h2>圣杯布局</h2>
-        </d-text>
+        <h2>
+          <d-text crop="2px">圣杯布局</d-text>
+        </h2>
         <div className="case-container">
           <d-view layout="col" gap="10px">
             <d-row place-items="center">Header</d-row>
             <d-row
-              dimension="stretch"
+              fraction="stretch"
               gap="10px"
               style={{ backgroundColor: 'transparent' }}
             >
               <d-col place-items="center">SideBar</d-col>
-              <d-col dimension="stretch" place-items="center">
+              <d-col fraction="stretch" place-items="center">
                 Content
               </d-col>
               <d-col place-items="center">SideBar</d-col>
@@ -136,9 +36,9 @@ function App() {
   <d-row place-items='center'>
     Header
   </d-row>
-  <d-row dimension='stretch' gap='10px' style={{ backgroundColor: 'transparent' }}>
+  <d-row fraction='stretch' gap='10px' style={{ backgroundColor: 'transparent' }}>
     <d-col place-items='center'>SideBar</d-col>
-    <d-col dimension='stretch' place-items='center'>Content</d-col>
+    <d-col fraction='stretch' place-items='center'>Content</d-col>
     <d-col place-items='center'>SideBar</d-col>
   </d-row>
   <d-row place-items='center'>
@@ -149,219 +49,21 @@ function App() {
         </pre>
       </section>
       <section>
-        <d-text crop="2px">
-          <h2>row 布局子元素位置</h2>
-        </d-text>
-        <div className="case-container row-col-align-case">
-          <d-view layout="row" gap="12px">
-            <d-col dimension="1" gap="8px">
-              <d-row dimension="1" class="row-col-container" place-items="top">
-                top
-              </d-row>
-              <d-row
-                dimension="1"
-                class="row-col-container"
-                place-items="bottom"
-              >
-                bottom
-              </d-row>
-            </d-col>
-            <d-col dimension="1" gap="8px">
-              <d-row dimension="1" class="row-col-container" place-items="left">
-                left
-              </d-row>
-              <d-row
-                dimension="1"
-                class="row-col-container"
-                place-items="right"
-              >
-                right
-              </d-row>
-            </d-col>
-            <d-col dimension="1" gap="8px">
-              <d-row
-                dimension="1"
-                class="row-col-container"
-                place-items="right-top"
-              >
-                <div>right-top</div>
-              </d-row>
-              <d-row
-                dimension="1"
-                class="row-col-container"
-                place-items="right-bottom"
-              >
-                <div>right-bottom</div>
-              </d-row>
-            </d-col>
-            <d-col dimension="1" gap="8px">
-              <d-row
-                dimension="1"
-                class="row-col-container"
-                place-items="left-bottom"
-              >
-                <div>left-bottom</div>
-              </d-row>
-              <d-row
-                dimension="1"
-                class="row-col-container"
-                place-items="left-top"
-              >
-                <div>left-top</div>
-              </d-row>
-            </d-col>
-          </d-view>
-        </div>
-        <pre>
-          <code className="language-html">
-            {`<d-view layout="row" gap="12px">
-  <d-col dimension='1'gap="8px">
-    <d-row dimension="1" class="row-col-container" place-items="top">
-      top
-    </d-row>
-    <d-row dimension="1" class="row-col-container" place-items="bottom">
-      bottom
-    </d-row>
-  </d-col>
-  <d-col dimension='1'gap="8px">
-    <d-row dimension="1" class="row-col-container" place-items="left">
-      left
-    </d-row>
-    <d-row dimension="1" class="row-col-container" place-items="right">
-      right
-    </d-row>
-  </d-col>
-  <d-col dimension='1'gap="8px">
-    <d-row dimension="1" class="row-col-container" place-items="right-top">
-      <div>right-top</div>
-    </d-row>
-    <d-row dimension="1" class="row-col-container" place-items="right-bottom">
-      <div>right-bottom</div>
-    </d-row>
-  </d-col>
-  <d-col dimension='1'gap="8px">
-    <d-row dimension="1" class="row-col-container" place-items="left-bottom">
-      <div>left-bottom</div>
-    </d-row>
-    <d-row dimension="1" class="row-col-container" place-items="left-top">
-      <div>left-top</div>
-    </d-row>
-  </d-col>
-</d-view>`}
-          </code>
-        </pre>
-      </section>
-      <section>
-        <d-text crop="2px">
-          <h2>column 布局子元素位置</h2>
-        </d-text>
-        <div className="case-container row-col-align-case">
-          <d-view layout="col" gap="12px">
-            <d-row dimension="1" gap="8px">
-              <d-col dimension="1" class="row-col-container" place-items="top">
-                top
-              </d-col>
-              <d-col
-                dimension="1"
-                class="row-col-container"
-                place-items="right-top"
-              >
-                right-top
-              </d-col>
-              <d-col
-                dimension="1"
-                class="row-col-container"
-                place-items="right"
-              >
-                <div>right</div>
-              </d-col>
-              <d-col
-                dimension="1"
-                class="row-col-container"
-                place-items="right-bottom"
-              >
-                <div>right-bottom</div>
-              </d-col>
-            </d-row>
-            <d-row dimension="1" gap="8px">
-              <d-col
-                dimension="1"
-                class="row-col-container"
-                place-items="left-top"
-              >
-                <div>left-top</div>
-              </d-col>
-              <d-col dimension="1" class="row-col-container" place-items="left">
-                <div>left</div>
-              </d-col>
-              <d-col
-                dimension="1"
-                class="row-col-container"
-                place-items="left-bottom"
-              >
-                <div>left-bottom</div>
-              </d-col>
-              <d-col
-                dimension="1"
-                class="row-col-container"
-                place-items="bottom"
-              >
-                <div>bottom</div>
-              </d-col>
-            </d-row>
-          </d-view>
-        </div>
-        <pre>
-          <code className="language-html">
-            {`<d-view layout="col" gap="12px">
-  <d-row dimension='1' gap="8px">
-    <d-col dimension="1" class="row-col-container" place-items="top">
-      top
-    </d-col>
-    <d-col dimension="1" class="row-col-container" place-items="right-top">
-      right-top
-    </d-col>
-    <d-col dimension="1" class="row-col-container" place-items="right">
-      <div>right</div>
-    </d-col>
-    <d-col dimension="1" class="row-col-container" place-items="right-bottom">
-      <div>right-bottom</div>
-    </d-col>
-  </d-row>
-  <d-row dimension='1' gap="8px">
-    <d-col dimension="1" class="row-col-container" place-items="left-top">
-      <div>left-top</div>
-    </d-col>
-    <d-col dimension="1" class="row-col-container" place-items="left">
-      <div>left</div>
-    </d-col>
-    <d-col dimension="1" class="row-col-container" place-items="left-bottom">
-      <div>left-bottom</div>
-    </d-col>
-    <d-col dimension="1" class="row-col-container" place-items="bottom">
-      <div>bottom</div>
-    </d-col>
-  </d-row>
-</d-view>`}
-          </code>
-        </pre>
-      </section>
-      <section>
-        <d-text crop="2px">
-          <h2>等宽 3 列，元素水平垂直居中</h2>
-        </d-text>
+        <h2>
+          <d-text crop="2px">等宽 3 列，元素水平垂直居中</d-text>
+        </h2>
         <div className="case-container">
           <d-view layout="row" gap="12px">
-            <d-col dimension="1" place-items="center">
+            <d-col fraction="1" place-items="center">
               <d-row place-items="center">
                 <div>A</div>
                 <div>A</div>
               </d-row>
             </d-col>
-            <d-col dimension="1" place-items="center">
+            <d-col fraction="1" place-items="center">
               BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
             </d-col>
-            <d-col dimension="1" place-items="center">
+            <d-col fraction="1" place-items="center">
               CC
             </d-col>
           </d-view>
@@ -369,32 +71,32 @@ function App() {
         <pre>
           <code className="language-html">
             {`<d-view layout='row' gap='12px'>
-  <d-col dimension='1' place-items='center'>
+  <d-col fraction='1' place-items='center'>
     <d-row place-items='center'>
       <div>A</div>
       <div>A</div>
     </d-row>
   </d-col>
-  <d-col dimension='1' place-items='center'>BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</d-col>
-  <d-col dimension='1' place-items='center'>CC</d-col>
+  <d-col fraction='1' place-items='center'>BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</d-col>
+  <d-col fraction='1' place-items='center'>CC</d-col>
 </d-view>`}
           </code>
         </pre>
       </section>
       <section>
-        <d-text crop="2px">
-          <h2>不同比例列，元素水平垂直居中</h2>
-        </d-text>
+        <h2>
+          <d-text crop="2px">不同比例列，元素水平垂直居中</d-text>
+        </h2>
         <div className="case-container">
           <d-view layout="row" gap="12px">
-            <d-col dimension="1" place-items="center">
+            <d-col fraction="1" place-items="center">
               <d-text>AAAA</d-text>
               <d-text>A</d-text>
             </d-col>
-            <d-col dimension="2" place-items="center">
+            <d-col fraction="2" place-items="center">
               BB
             </d-col>
-            <d-col dimension="2" place-items="center">
+            <d-col fraction="2" place-items="center">
               CC
             </d-col>
           </d-view>
@@ -402,14 +104,14 @@ function App() {
         <pre>
           <code className="language-html">
             {`<d-view layout="row" gap="12px">
-  <d-col dimension="1" place-items="center">
+  <d-col fraction="1" place-items="center">
     <d-text>AAAA</d-text>
     <d-text>A</d-text>
   </d-col>
-  <d-col dimension="2" place-items="center">
+  <d-col fraction="2" place-items="center">
     BB
   </d-col>
-  <d-col dimension="2" place-items="center">
+  <d-col fraction="2" place-items="center">
     CC
   </d-col>
 </d-view>`}
@@ -417,13 +119,13 @@ function App() {
         </pre>
       </section>
       <section>
-        <d-text crop="2px">
-          <h2>水平三明治布局</h2>
-        </d-text>
+        <h2>
+          <d-text crop="2px">水平三明治布局</d-text>
+        </h2>
         <div className="case-container">
           <d-view layout="row" gap="12px">
             <d-col place-items="center">AAA</d-col>
-            <d-col dimension="stretch" place-items="center">
+            <d-col fraction="stretch" place-items="center">
               B
             </d-col>
             <d-col place-items="center">C</d-col>
@@ -433,20 +135,20 @@ function App() {
           <code className="language-html">
             {`<d-view layout='row' gap='12px'>
   <d-col place-items='center'>AAA</d-col>
-  <d-col dimension='stretch' place-items='center'>B</d-col>
+  <d-col fraction='stretch' place-items='center'>B</d-col>
   <d-col place-items='center'>C</d-col>
 </d-view>`}
           </code>
         </pre>
       </section>
       <section>
-        <d-text crop="2px">
-          <h2>垂直三明治布局</h2>
-        </d-text>
+        <h2>
+          <d-text crop="2px">垂直三明治布局</d-text>
+        </h2>
         <div className="case-container">
           <d-view layout="col" gap="12px">
             <d-row place-items="center">A</d-row>
-            <d-row dimension="stretch" place-items="center">
+            <d-row fraction="stretch" place-items="center">
               B
             </d-row>
             <d-row place-items="center">C</d-row>
@@ -456,38 +158,38 @@ function App() {
           <code className="language-html">
             {`<d-view layout='col' gap='12px'>
   <d-row place-items='center'>A</d-row>
-  <d-row dimension='stretch' place-items='center'>B</d-row>
+  <d-row fraction='stretch' place-items='center'>B</d-row>
   <d-row place-items='center'>C</d-row>
 </d-view>`}
           </code>
         </pre>
       </section>
       <section>
-        <d-text crop="2px">
-          <h2>多行多比例布局</h2>
-        </d-text>
+        <h2>
+          <d-text crop="2px">多行多比例布局</d-text>
+        </h2>
         <div className="case-container">
           <d-view layout="col" gap="12px">
             <d-row
-              dimension="1"
+              fraction="1"
               gap="10px"
               style={{ backgroundColor: 'transparent' }}
             >
               <d-col place-items="center">A</d-col>
-              <d-col dimension="stretch" place-items="center">
+              <d-col fraction="stretch" place-items="center">
                 B
               </d-col>
               <d-col place-items="center">C</d-col>
             </d-row>
             <d-row
-              dimension="2"
+              fraction="2"
               gap="10px"
               style={{ backgroundColor: 'transparent' }}
             >
               <d-col place-items="center" style={{ width: 30 }}>
                 A
               </d-col>
-              <d-col dimension="stretch" place-items="center">
+              <d-col fraction="stretch" place-items="center">
                 B
               </d-col>
               <d-col place-items="center">C</d-col>
@@ -497,14 +199,14 @@ function App() {
         <pre>
           <code className="language-html">
             {`<d-view layout='col' gap='12px'>
-  <d-row dimension='1' gap='10px' style={{backgroundColor: 'transparent'}}>
+  <d-row fraction='1' gap='10px' style={{backgroundColor: 'transparent'}}>
     <d-col place-items='center'>A</d-col>
-    <d-col dimension='stretch' place-items='center'>B</d-col>
+    <d-col fraction='stretch' place-items='center'>B</d-col>
     <d-col place-items='center'>C</d-col>
   </d-row>
-  <d-row dimension='2' gap='10px' style={{backgroundColor: 'transparent'}}>
+  <d-row fraction='2' gap='10px' style={{backgroundColor: 'transparent'}}>
     <d-col place-items='center' style={{ width: 30 }}>A</d-col>
-    <d-col dimension='stretch' place-items='center'>B</d-col>
+    <d-col fraction='stretch' place-items='center'>B</d-col>
     <d-col place-items='center'>C</d-col>
   </d-row>
 </d-view>`}
@@ -512,9 +214,269 @@ function App() {
         </pre>
       </section>
       <section>
-        <d-text crop="2px">
-          <h2>浮动元素定位</h2>
-        </d-text>
+        <h2>
+          <d-text crop="2px">行布局设置子元素位置</d-text>
+        </h2>
+        <div className="case-container row-col-align-case">
+          <d-view layout="row" gap="12px">
+            <d-col fraction="1" gap="8px">
+              <d-row fraction="1" class="border" place-items="top">
+                top
+              </d-row>
+              <d-row fraction="1" class="border" place-items="bottom">
+                bottom
+              </d-row>
+            </d-col>
+            <d-col fraction="1" gap="8px">
+              <d-row fraction="1" class="border" place-items="left">
+                left
+              </d-row>
+              <d-row fraction="1" class="border" place-items="right">
+                right
+              </d-row>
+            </d-col>
+            <d-col fraction="1" gap="8px">
+              <d-row fraction="1" class="border" place-items="right-top">
+                <div>right-top</div>
+              </d-row>
+              <d-row fraction="1" class="border" place-items="right-bottom">
+                <div>right-bottom</div>
+              </d-row>
+            </d-col>
+            <d-col fraction="1" gap="8px">
+              <d-row fraction="1" class="border" place-items="left-bottom">
+                <div>left-bottom</div>
+              </d-row>
+              <d-row fraction="1" class="border" place-items="left-top">
+                <div>left-top</div>
+              </d-row>
+            </d-col>
+          </d-view>
+        </div>
+        <pre>
+          <code className="language-html">
+            {`<d-view layout="row" gap="12px">
+  <d-col fraction='1'gap="8px">
+    <d-row fraction="1" class="border" place-items="top">
+      top
+    </d-row>
+    <d-row fraction="1" class="border" place-items="bottom">
+      bottom
+    </d-row>
+  </d-col>
+  <d-col fraction='1'gap="8px">
+    <d-row fraction="1" class="border" place-items="left">
+      left
+    </d-row>
+    <d-row fraction="1" class="border" place-items="right">
+      right
+    </d-row>
+  </d-col>
+  <d-col fraction='1'gap="8px">
+    <d-row fraction="1" class="border" place-items="right-top">
+      <div>right-top</div>
+    </d-row>
+    <d-row fraction="1" class="border" place-items="right-bottom">
+      <div>right-bottom</div>
+    </d-row>
+  </d-col>
+  <d-col fraction='1'gap="8px">
+    <d-row fraction="1" class="border" place-items="left-bottom">
+      <div>left-bottom</div>
+    </d-row>
+    <d-row fraction="1" class="border" place-items="left-top">
+      <div>left-top</div>
+    </d-row>
+  </d-col>
+</d-view>`}
+          </code>
+        </pre>
+      </section>
+      <section>
+        <h2>
+          <d-text crop="2px">列布局设置子元素位置</d-text>
+        </h2>
+        <div className="case-container row-col-align-case">
+          <d-view layout="col" gap="12px">
+            <d-row fraction="1" gap="8px">
+              <d-col fraction="1" class="border" place-items="top">
+                top
+              </d-col>
+              <d-col fraction="1" class="border" place-items="right-top">
+                right-top
+              </d-col>
+              <d-col fraction="1" class="border" place-items="right">
+                <div>right</div>
+              </d-col>
+              <d-col fraction="1" class="border" place-items="right-bottom">
+                <div>right-bottom</div>
+              </d-col>
+            </d-row>
+            <d-row fraction="1" gap="8px">
+              <d-col fraction="1" class="border" place-items="left-top">
+                <div>left-top</div>
+              </d-col>
+              <d-col fraction="1" class="border" place-items="left">
+                <div>left</div>
+              </d-col>
+              <d-col fraction="1" class="border" place-items="left-bottom">
+                <div>left-bottom</div>
+              </d-col>
+              <d-col fraction="1" class="border" place-items="bottom">
+                <div>bottom</div>
+              </d-col>
+            </d-row>
+          </d-view>
+        </div>
+        <pre>
+          <code className="language-html">
+            {`<d-view layout="col" gap="12px">
+  <d-row fraction='1' gap="8px">
+    <d-col fraction="1" class="border" place-items="top">
+      top
+    </d-col>
+    <d-col fraction="1" class="border" place-items="right-top">
+      right-top
+    </d-col>
+    <d-col fraction="1" class="border" place-items="right">
+      <div>right</div>
+    </d-col>
+    <d-col fraction="1" class="border" place-items="right-bottom">
+      <div>right-bottom</div>
+    </d-col>
+  </d-row>
+  <d-row fraction='1' gap="8px">
+    <d-col fraction="1" class="border" place-items="left-top">
+      <div>left-top</div>
+    </d-col>
+    <d-col fraction="1" class="border" place-items="left">
+      <div>left</div>
+    </d-col>
+    <d-col fraction="1" class="border" place-items="left-bottom">
+      <div>left-bottom</div>
+    </d-col>
+    <d-col fraction="1" class="border" place-items="bottom">
+      <div>bottom</div>
+    </d-col>
+  </d-row>
+</d-view>`}
+          </code>
+        </pre>
+      </section>
+      <section>
+        <h2>
+          <d-text crop="2px">子元素对齐</d-text>
+        </h2>
+        <div
+          className="case-container row-col-align-case"
+          style={{ height: 300 }}
+        >
+          <d-view layout="col" gap="12px">
+            <d-row fraction="1" gap="8px">
+              <d-col fraction="1" class="border" place-items="center">
+                <d-content class="bg-color" layout="col" align-items="start">
+                  <d-text>AA</d-text>
+                  <d-text>A</d-text>
+                </d-content>
+              </d-col>
+              <d-col fraction="1" class="border" place-items="center">
+                <d-content class="bg-color" layout="col" align-items="middle">
+                  <d-text>AA</d-text>
+                  <d-text>A</d-text>
+                </d-content>
+              </d-col>
+              <d-col fraction="1" class="border" place-items="center">
+                <d-content class="bg-color" layout="col" align-items="end">
+                  <d-text>AA</d-text>
+                  <d-text>A</d-text>
+                </d-content>
+              </d-col>
+            </d-row>
+            <d-row fraction="1" gap="8px">
+              <d-col fraction="1" class="border" place-items="left">
+                <d-content class="bg-color" layout="col" align-items="start">
+                  <d-text>AA</d-text>
+                  <d-text>A</d-text>
+                </d-content>
+              </d-col>
+              <d-col fraction="1" class="border" place-items="left">
+                <d-content class="bg-color" layout="col" align-items="middle">
+                  <d-text>AA</d-text>
+                  <d-text>A</d-text>
+                </d-content>
+              </d-col>
+              <d-col fraction="1" class="border" place-items="left">
+                <d-content class="bg-color" layout="col" align-items="end">
+                  <d-text>AA</d-text>
+                  <d-text>A</d-text>
+                </d-content>
+              </d-col>
+            </d-row>
+            <d-row fraction="1" gap="8px">
+              <d-col fraction="1" class="border" place-items="right">
+                <d-content class="bg-color" layout="col" align-items="start">
+                  <d-text>AA</d-text>
+                  <d-text>A</d-text>
+                </d-content>
+              </d-col>
+              <d-col fraction="1" class="border" place-items="right">
+                <d-content class="bg-color" layout="col" align-items="middle">
+                  <d-text>AA</d-text>
+                  <d-text>A</d-text>
+                </d-content>
+              </d-col>
+              <d-col fraction="1" class="border" place-items="right">
+                <d-content class="bg-color" layout="col" align-items="end">
+                  <d-text>AA</d-text>
+                  <d-text>A</d-text>
+                </d-content>
+              </d-col>
+            </d-row>
+          </d-view>
+        </div>
+        <pre>
+          <code className="language-html">
+            {`<d-view layout="col" gap="12px">
+  <d-row fraction="1" gap="8px">
+    <d-col
+      fraction="1"
+      class="border"
+      place-items="center"
+    >
+      <d-content layout="col" align-items="start">
+        <d-text>AA</d-text>
+        <d-text>A</d-text>
+      </d-content>
+    </d-col>
+    <d-col
+      fraction="1"
+      class="border"
+      place-items="center"
+    >
+      <d-content layout="col" align-items="middle">
+        <d-text>AA</d-text>
+        <d-text>A</d-text>
+      </d-content>
+    </d-col>
+    <d-col
+      fraction="1"
+      class="border"
+      place-items="center"
+    >
+      <d-content layout="col" align-items="end">
+        <d-text>AA</d-text>
+        <d-text>A</d-text>
+      </d-content>
+    </d-col>
+  </d-row>
+</d-view>`}
+          </code>
+        </pre>
+      </section>
+      <section>
+        <h2>
+          <d-text crop="2px">浮动元素定位</d-text>
+        </h2>
         <div className="case-container" style={{ padding: '40px 60px' }}>
           <d-view style={{ background: '#565656' }}>
             <d-float class="float-square" position="top"></d-float>
@@ -607,60 +569,60 @@ function App() {
         </pre>
       </section>
       <section>
-        <d-text crop="2px">
-          <h2>内连元素布局</h2>
-        </d-text>
+        <h2>
+          <d-text crop="2px">内连元素布局</d-text>
+        </h2>
         <div className="case-container">
           <d-view gap="12px 16px">
             <d-text className="inline-elem1">test</d-text>
-            <d-elem class="inline-elem2" layout="row" gap="10px">
-              <d-col place-items="center" align-elems="start">
-                <d-elem>AAA</d-elem>
-                <d-elem>B</d-elem>
-                <d-elem>C</d-elem>
+            <d-content class="inline-elem2" layout="row" gap="10px">
+              <d-col place-items="center" align-items="start">
+                <d-content>AAA</d-content>
+                <d-content>B</d-content>
+                <d-content>C</d-content>
               </d-col>
               <d-col place-items="center">B</d-col>
               <d-col place-items="center">C</d-col>
-            </d-elem>
-            <d-elem layout="col" gap="10px">
+            </d-content>
+            <d-content layout="col" gap="10px">
               <d-text>A</d-text>
               <d-text>B</d-text>
               <d-text>C</d-text>
-            </d-elem>
-            <d-elem class="inline-elem3" layout="row" gap="10px">
+            </d-content>
+            <d-content class="inline-elem3" layout="row" gap="10px">
               <d-col place-items="center">A</d-col>
               <d-col place-items="center">B</d-col>
               <d-col place-items="center">C</d-col>
-            </d-elem>
+            </d-content>
           </d-view>
         </div>
         <pre>
           <code className="language-html">
-            {`<d-view layout="inline" gap='12px 16px'>
-  <d-elem className='inline-elem1'>test</d-elem>
-  <d-elem class='inline-elem2' layout='row' gap='10px'>
+            {`<d-view gap='12px 16px'>
+  <d-content className='inline-elem1'>test</d-content>
+  <d-content class='inline-elem2' layout='row' gap='10px'>
     <d-col place-items='center'><span>A</span><span>B</span><span>C</span></d-col>
     <d-col place-items='center'>B</d-col>
     <d-col place-items='center'>C</d-col>
-  </d-elem>
-  <d-elem layout='col' gap='10px'>
+  </d-content>
+  <d-content layout='col' gap='10px'>
     <d-row>A</d-row>
     <d-row>B</d-row>
     <d-row>C</d-row>
-  </d-elem>
-  <d-elem class='inline-elem3' layout='row' gap='10px'>
+  </d-content>
+  <d-content class='inline-elem3' layout='row' gap='10px'>
     <d-col place-items='center'>A</d-col>
     <d-col place-items='center'>B</d-col>
     <d-col place-items='center'>C</d-col>
-  </d-elem>
+  </d-content>
 </d-view>`}
           </code>
         </pre>
       </section>
       <section>
-        <d-text crop="2px">
-          <h2>自动修正文本 line height 导致的边距问题</h2>
-        </d-text>
+        <h2>
+          <d-text crop="2px">自动修正文本 line height 导致的边距问题</d-text>
+        </h2>
         <d-row gap="12px">
           <d-text crop="1px">
             DXML 设计了更适合设计稿直接转布局代码的一套标签
@@ -669,7 +631,7 @@ function App() {
             DXML Design for a better layout markable language from design to
             developer
           </d-text>
-          <d-text>
+          <d-text crop="auto">
             DXML Design for a better layout markable language from design to
             developer
           </d-text>
@@ -679,16 +641,186 @@ function App() {
             {`<d-row>
   <d-text crop="1px">DXML 设计了更适合设计稿直接转布局代码的一套标签</d-text>
   <d-text crop="1px">DXML Design for a better layout markable language from design to developer</d-text>
-  <d-text>DXML Design for a better layout markable language from design to developer</d-text>
+  <d-text crop="auto">DXML Design for a better layout markable language from design to developer</d-text>
 </d-row>`}
           </code>
         </pre>
         <p>
-          提示⚠️⚠️⚠️：d-text 标签不设置 crop
-          标签时，会通过插入新的节点来获得文本行高，这会对首屏渲染有 10ms
+          提示⚠️⚠️⚠️：d-text 标签设置 crop 为 auto
+          时，会通过插入新的节点来获得文本行高。由于该功能会对首屏渲染有 10ms
           以上的性能影响，如果把本页面中的标题都去掉 crop 属性，影响在 30ms
-          左右。
+          左右，所以暂时未实现。
         </p>
+      </section>
+      <h1>
+        <d-text crop="2px">标签</d-text>
+      </h1>
+      <div className="table-container">
+        <table className="bg-color">
+          <thead>
+            <tr>
+              <th>标签</th>
+              <th style={{ width: 200 }}>子元素行列布局</th>
+              <th>子元素位置</th>
+              <th>子元素对齐</th>
+              <th style={{ width: 200 }}>宽高</th>
+              <th>浮动</th>
+              <th style={{ width: 200 }}>其它功能</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>view</td>
+              <td className="text-left">
+                <ol>
+                  <li>行布局，layout='row'</li>
+                  <li>列布局，layout='col'</li>
+                </ol>
+              </td>
+              <td>✅</td>
+              <td>❌</td>
+              <td className="text-left">
+                <ol>
+                  <li>宽度，占满父容器</li>
+                  <li>高度，占满父容器</li>
+                </ol>
+              </td>
+              <td>❌</td>
+              <td>❌</td>
+            </tr>
+            <tr>
+              <td>layer</td>
+              <td className="text-left">
+                <ol>
+                  <li>行布局，layout='row'</li>
+                  <li>列布局，layout='col'</li>
+                </ol>
+              </td>
+              <td>✅</td>
+              <td>❌</td>
+              <td className="text-left">
+                <ol>
+                  <li>宽度，占满父容器</li>
+                  <li>高度，占满父容器</li>
+                </ol>
+              </td>
+              <td>✅</td>
+              <td>mask 设置遮罩</td>
+            </tr>
+            <tr>
+              <td>row</td>
+              <td className="text-left">
+                <ol>
+                  <li>行布局</li>
+                </ol>
+              </td>
+              <td>✅</td>
+              <td>❌</td>
+              <td className="text-left">
+                <ol>
+                  <li>宽度，占满父容器</li>
+                  <li>
+                    高度，可以
+                    <ol>
+                      <li>使用内容高度</li>
+                      <li>fraction 设置占父容器比例</li>
+                      <li>height 属性设置高度</li>
+                    </ol>
+                  </li>
+                </ol>
+              </td>
+              <td>❌</td>
+              <td>❌</td>
+            </tr>
+            <tr>
+              <td>col</td>
+              <td className="text-left">
+                <ol>
+                  <li>列布局</li>
+                </ol>
+              </td>
+              <td>✅</td>
+              <td>❌</td>
+              <td className="text-left">
+                <ol>
+                  <li>
+                    宽度，可以
+                    <ol>
+                      <li>使用内容宽度</li>
+                      <li>fraction 设置占父容器比例</li>
+                      <li>width 属性设置宽度</li>
+                    </ol>
+                  </li>
+                  <li>高度，占满父容器</li>
+                </ol>
+              </td>
+              <td>❌</td>
+              <td>❌</td>
+            </tr>
+            <tr>
+              <td>content</td>
+              <td className="text-left">
+                <ol>
+                  <li>行布局，layout='row'</li>
+                  <li>列布局，layout='col'</li>
+                </ol>
+              </td>
+              <td>❌</td>
+              <td>✅</td>
+              <td className="text-left">
+                <ol>
+                  <li>宽度，通过 width 指定或者由子元素宽度决定</li>
+                  <li>高度，通过 height 指定或者由子元素高度决定</li>
+                </ol>
+              </td>
+              <td>❌</td>
+              <td>❌</td>
+            </tr>
+            <tr>
+              <td>float</td>
+              <td className="text-left">
+                <ol>
+                  <li>行布局，layout='row'</li>
+                  <li>列布局，layout='col'</li>
+                </ol>
+              </td>
+              <td>❌</td>
+              <td>✅</td>
+              <td className="text-left">
+                <ol>
+                  <li>宽度，通过 width 指定或者由子元素宽度决定</li>
+                  <li>高度，通过 height 指定或者由子元素高度决定</li>
+                </ol>
+              </td>
+              <td>✅</td>
+              <td>❌</td>
+            </tr>
+            <tr>
+              <td>text</td>
+              <td>❌</td>
+              <td>❌</td>
+              <td>❌</td>
+              <td className="text-left">
+                <ol>
+                  <li>宽度，通过 width 指定或者由文本字体和行高决定</li>
+                  <li>高度，通过 height 指定或者由文本字体和行高决定</li>
+                </ol>
+              </td>
+              <td>❌</td>
+              <td>通过设置 crop 属性可以裁剪文本上下行高产生的多余空间</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h1>构建工具</h1>
+      <section>
+        <h2>构建工具的作用</h2>
+      </section>
+      <section>
+        <h2>Webpack 插件</h2>
+      </section>
+      <section>
+        <h2>Vite 插件</h2>
       </section>
     </div>
   );

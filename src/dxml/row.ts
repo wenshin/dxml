@@ -1,13 +1,13 @@
-import { insertDimensionStyle, insertGapStyle } from './util';
+import { insertFractionStyle, insertGapStyle } from './util';
 
 export class Row extends HTMLElement {
   static tag = 'd-row';
   static id = 'd-row-id';
 
   connectedCallback() {
-    const dimension = this.getAttribute('dimension');
-    if (dimension !== 'stretch' && dimension && this.parentElement) {
-      insertDimensionStyle(dimension);
+    const fraction = this.getAttribute('fraction');
+    if (fraction !== 'stretch' && fraction && this.parentElement) {
+      insertFractionStyle(fraction);
     }
     const gap = this.getAttribute('gap');
     if (gap) {

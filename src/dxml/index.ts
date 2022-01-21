@@ -2,7 +2,7 @@ import { insertStyleElement } from './util';
 import { View } from './view';
 import { Row } from './row';
 import { Col } from './col';
-import { Elem } from './elem';
+import { Content } from './content';
 import { Float } from './float';
 import { Layer } from './layer';
 import { Text } from './text';
@@ -23,23 +23,46 @@ insertStyleElement(
   justify-content: flex-start;
   align-content: flex-start;
 }
+
+${Layer.tag} {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: visible;
+}
+${Layer.tag}[mask="none"] {
+  pointer-events: none;
+  background-color: transparent;
+}
+${Layer.tag}[mask="white"] {
+  background-color: #ffffffbb;
+}
+${Layer.tag}[mask="black"] {
+  background-color: #00000073;
+}
+
 ${Row.tag}, ${Col.tag}, [layout="row"], [layout="col"] {
   position: relative;
   display: flex;
   box-sizing: border-box;
   flex: none;
+  flex-wrap: nowrap;
 }
 ${Row.tag}, [layout="row"] {
   flex-direction: row;
   width: 100%;
 }
-${Row.tag} > [dimension], [layout="row"] > [dimension] {
+${Row.tag} > [fraction], [layout="row"] > [fraction] {
   width: 1px;
   min-width: 1px;
   overflow: auto;
   flex: 1;
 }
-${Row.tag} > [dimension="stretch"], [layout="row"] > [dimension="stretch"] {
+${Row.tag} > [fraction="stretch"], [layout="row"] > [fraction="stretch"] {
   overflow: auto;
   flex: 1;
 }
@@ -47,13 +70,13 @@ ${Col.tag}, [layout="col"] {
   flex-direction: column;
   height: 100%;
 }
-${Col.tag} > [dimension], [layout="col"] > [dimension] {
+${Col.tag} > [fraction], [layout="col"] > [fraction] {
   height: 1px;
   min-height: 1px;
   overflow: auto;
   flex: 1;
 }
-${Col.tag} > [dimension="stretch"], [layout="col"] > [dimension="stretch"] {
+${Col.tag} > [fraction="stretch"], [layout="col"] > [fraction="stretch"] {
   overflow: auto;
   flex: 1;
 }
@@ -71,22 +94,6 @@ ${Row.tag}[gap] > *:last-child,
 ${Col.tag}[gap] > *:last-child {
   margin-right: 0;
   margin-bottom: 0;
-}
-
-${Elem.tag}, ${Elem.tag}[layout] {
-  display: inline-flex;
-  width: initial;
-  height: initial;
-}
-${Elem.tag}[layout="row"] {
-  max-width: 100%;
-}
-${Elem.tag}[layout="col"] {
-  max-height: 100%;
-}
-${Elem.tag}[layout] > * {
-  flex-grow: 0;
-  flex-shrink: 1;
 }
 
 [place-items] {
@@ -164,6 +171,22 @@ ${Col.tag}[place-items="right-top"],
 [layout="col"][place-items="right-top"] {
   align-items: flex-end;
   justify-content: flex-start;
+}
+
+${Content.tag}, ${Content.tag}[layout] {
+  display: inline-flex;
+  width: initial;
+  height: initial;
+}
+${Content.tag}[layout="row"] {
+  max-width: 100%;
+}
+${Content.tag}[layout="col"] {
+  max-height: 100%;
+}
+${Content.tag}[layout] > * {
+  flex-grow: 0;
+  flex-shrink: 1;
 }
 
 ${Float.tag} {
@@ -307,25 +330,17 @@ ${Float.tag}[position="center"] {
   transform: translate(-50%, -50%);
 }
 
-${Layer.tag} {
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-  display: block;
-  height: 100%;
-  width: 100%;
-  overflow: visible;
+${Content.tag}[align-items="middle"],
+${Float.tag}[align-items="middle"] {
+  align-items: center;
 }
-${Layer.tag}[mask="none"] {
-  pointer-events: none;
-  background-color: transparent;
+${Content.tag}[align-items="start"],
+${Float.tag}[align-items="start"] {
+  align-items: flex-start;
 }
-${Layer.tag}[mask="white"] {
-  background-color: #ffffffbb;
-}
-${Layer.tag}[mask="black"] {
-  background-color: #00000073;
+${Content.tag}[align-items="end"],
+${Float.tag}[align-items="end"] {
+  align-items: flex-end;
 }
 
 ${Text.tag} {

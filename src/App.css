@@ -15,16 +15,12 @@ d-col {
 
 .row-col-align-case d-row,
 .row-col-align-case d-col {
-  background-color: transparent;
+  padding: 8px;
+  background-color: #403f3f;
 }
 
 pre {
   font-size: 14px;
-}
-
-#root {
-  max-width: 680px;
-  margin: auto;
 }
 
 .case-container {
@@ -63,8 +59,13 @@ pre {
   height: 50px;
 }
 
-.row-col-container {
+.border {
   border: solid 1px #858585;
+  border-radius: 4px;
+}
+
+.bg-color {
+  background-color: #403f3f;
   border-radius: 4px;
 }
 
@@ -73,4 +74,39 @@ pre {
   height: 20px;
   border-radius: 10px;
   background: #403f3f;
+}
+
+.table-container {
+  overflow: scroll;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: max-content;
+  min-width: 100%;
+}
+
+th,
+td {
+  min-width: 50px;
+  text-align: center;
+  border-bottom: solid 1px #0b1722;
+  border-right: solid 1px #0b1722;
+  padding: 4px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+h1,
+h2,
+.text-center {
+  text-align: center;
+}
+
+section {
+  max-width: 680px;
+  margin: auto;
 }

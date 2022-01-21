@@ -35,11 +35,11 @@ export function insertStyleElement(id: string, content: string) {
   }
 }
 
-export function insertDimensionStyle(dimension: string) {
-  const id = `d-dimension-${dimension}`;
+export function insertFractionStyle(fraction: string) {
+  const id = `d-fraction-${fraction}`;
   insertStyleElement(
     id,
-    `[dimension][dimension="${dimension}"] { flex-grow: ${dimension}; }`
+    `[fraction][fraction="${fraction}"] { flex-grow: ${fraction}; }`
   );
 }
 
