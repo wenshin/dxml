@@ -1,5 +1,5 @@
 export type Mask = 'none' | 'black' | 'white' | string;
-export type AlignItemsType = 'start' | 'middle' | 'end';
+export type AlignItemsType = 'start' | 'center' | 'end';
 
 export type PositionType =
   | 'top'
@@ -41,6 +41,10 @@ interface LayoutElementAtrributes {
    * 子元素在父元素的位置
    */
   'place-items'?: PositionType;
+  /**
+   * 子元素布局类型
+   */
+  layout?: 'row' | 'col';
 }
 
 interface InlineLayoutElementAtrributes {
@@ -54,26 +58,71 @@ interface InlineLayoutElementAtrributes {
    */
   'align-items'?: AlignItemsType;
   /**
+   * 子元素在父元素的位置
+   */
+  'place-items'?: PositionType;
+  /**
    * 子元素布局类型
    */
   layout?: 'row' | 'col';
+  /**
+   * 设置元素和兄弟元素的比例 stretch | 1 | 2 | 3
+   */
+  fraction?: 'stretch' | string;
 }
 
 interface FloatAttributes {
   'z-index'?: string;
 }
 
+export interface ShapeAttributes {
+  /**
+   * default is retangle
+   */
+  type?:
+    | 'triangle'
+    // | 'rectangle'
+    | 'pentagon'
+    | 'polygon'
+    | 'pentagram'
+    | 'ellipse';
+  /**
+   * sides of polygons, great than 2.
+   */
+  sides?: number;
+  /**
+   * 描边，格式: "size color style"
+   * 设备像素 px；物理像素 pt；密度独立像素 dp；
+   *
+   * 1. style: solid | dash
+   * 2. size: 支持 px 和不带单位，web 平台 px 即 dp，不带单位则严格的 1 物理像素
+   * 3. color: 颜色
+   */
+  stroke?: string;
+  /**
+   * 填充内容
+   * 1. color
+   * 2. gradient
+   * 3. image url or image base64Url
+   * 4. blur
+   */
+  fill?: string;
+  /**
+   * 1. width: width equal to height, if shape is polygon, it means equilateral sides;
+   * 2. width height
+   */
+  size?: string;
+  /**
+   * 阴影
+   */
+  shadow?: string;
+}
+
 declare global {
   namespace JSX {
     interface IntrinsicElements {
       'd-view': React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement> &
-          LayoutElementAtrributes & {
-            /**
-             * 子元素布局类型
-             */
-            layout?: 'row' | 'col';
-          },
+        React.HTMLAttributes<HTMLElement> & LayoutElementAtrributes,
         HTMLElement
       >; // Normal web component
       'd-layer': React.DetailedHTMLProps<
@@ -107,6 +156,12 @@ declare global {
       >; // Normal web component
       'd-content': React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement> & InlineLayoutElementAtrributes,
+        HTMLElement
+      >; // Normal web component
+      'd-shape': React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement> &
+          InlineLayoutElementAtrributes &
+          ShapeAttributes,
         HTMLElement
       >; // Normal web component
       'd-float': React.DetailedHTMLProps<

@@ -6,6 +6,7 @@ import { Content } from './content';
 import { Float } from './float';
 import { Layer } from './layer';
 import { Text } from './text';
+import { Shape } from './shape';
 
 export * from './types';
 
@@ -52,9 +53,11 @@ ${Row.tag}, ${Col.tag}, [layout="row"], [layout="col"] {
   flex: none;
   flex-wrap: nowrap;
 }
+${Row.tag} {
+  width: 100%;
+}
 ${Row.tag}, [layout="row"] {
   flex-direction: row;
-  width: 100%;
 }
 ${Row.tag} > [fraction], [layout="row"] > [fraction] {
   width: 1px;
@@ -66,9 +69,11 @@ ${Row.tag} > [fraction="stretch"], [layout="row"] > [fraction="stretch"] {
   overflow: auto;
   flex: 1;
 }
+${Col.tag} {
+  height: 100%;
+}
 ${Col.tag}, [layout="col"] {
   flex-direction: column;
-  height: 100%;
 }
 ${Col.tag} > [fraction], [layout="col"] > [fraction] {
   height: 1px;
@@ -173,17 +178,24 @@ ${Col.tag}[place-items="right-top"],
   justify-content: flex-start;
 }
 
-${Content.tag}, ${Content.tag}[layout] {
-  display: inline-flex;
+${Content.tag}, ${Shape.tag} {
+  display: inline-block;
+  box-sizing: border-box;
   width: initial;
   height: initial;
 }
-${Content.tag}[layout="row"] {
+${Content.tag}[layout], ${Shape.tag}[layout] {
+  display: inline-flex;
+}
+${Shape.tag}[layout="row"],
+  ${Content.tag}[layout="row"] {
   max-width: 100%;
 }
+${Shape.tag}[layout="col"],
 ${Content.tag}[layout="col"] {
   max-height: 100%;
 }
+${Shape.tag}[layout] > *,
 ${Content.tag}[layout] > * {
   flex-grow: 0;
   flex-shrink: 1;
@@ -330,8 +342,8 @@ ${Float.tag}[position="center"] {
   transform: translate(-50%, -50%);
 }
 
-${Content.tag}[align-items="middle"],
-${Float.tag}[align-items="middle"] {
+${Content.tag}[align-items="center"],
+${Float.tag}[align-items="center"] {
   align-items: center;
 }
 ${Content.tag}[align-items="start"],

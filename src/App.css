@@ -13,14 +13,10 @@ d-col {
   border-radius: 4px;
 }
 
-.row-col-align-case d-row,
-.row-col-align-case d-col {
-  padding: 8px;
-  background-color: #403f3f;
-}
-
 pre {
   font-size: 14px;
+  max-height: 300px;
+  overflow: scroll;
 }
 
 .case-container {
@@ -32,6 +28,17 @@ pre {
   padding: 20px;
   box-sizing: border-box;
   background-color: #272822;
+}
+
+.case-container.row-col-align-case,
+.case-container.row-col-align-case {
+  height: 300px;
+}
+.row-col-align-case d-row,
+.row-col-align-case d-col {
+  font-size: 12px;
+  padding: 2px;
+  background-color: #403f3f;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -85,6 +92,7 @@ table {
   table-layout: fixed;
   width: max-content;
   min-width: 100%;
+  background-color: #272822;
 }
 
 th,
