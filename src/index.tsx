@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './dxml';
+import './gdml';
 
 const rootElement = document.getElementById('root');
 if (rootElement && rootElement.hasChildNodes()) {
