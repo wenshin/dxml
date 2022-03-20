@@ -7,12 +7,6 @@ body,
   background: #0b1722;
 }
 
-d-row,
-d-col {
-  background-color: #403f3f;
-  border-radius: 4px;
-}
-
 pre {
   font-size: 14px;
   max-height: 300px;
@@ -34,10 +28,8 @@ pre {
 .case-container.row-col-align-case {
   height: 300px;
 }
-.row-col-align-case d-row,
-.row-col-align-case d-col {
-  font-size: 12px;
-  padding: 2px;
+
+.row-col-align-case .border {
   background-color: #403f3f;
 }
 
@@ -56,14 +48,31 @@ pre {
   }
 }
 
+#inline > d-view {
+  background-color: initial;
+}
+
+.inline-elem1 {
+  background-color: #403f3f;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+d-view.inline-elem2,
+d-view.inline-elem3 {
+  background-color: initial;
+}
+
 .inline-elem2 > * {
   width: 50px;
   height: 50px;
+  background-color: #403f3f;
 }
 
 .inline-elem3 > * {
   width: 200px;
   height: 50px;
+  background-color: #403f3f;
 }
 
 .border {
@@ -117,4 +126,9 @@ h2,
 section {
   max-width: 680px;
   margin: auto;
+}
+
+.case-desc .hljs-tag,
+.case-desc .hljs-string {
+  margin: 0 0.2em;
 }

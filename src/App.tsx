@@ -6,8 +6,8 @@ function App() {
   return (
     <div style={{ padding: 20 }}>
       <section className="text-center">
-        <h1>DXML (Design XML) </h1>
-        <p>一种简洁、高效、符合设计直觉的布局描述语言</p>
+        <h1>Graphic Design Markup Language (GDML) </h1>
+        <p>一种符合平面设计直觉的标记语言</p>
       </section>
       <h1>实例</h1>
       <section>
@@ -15,21 +15,41 @@ function App() {
           <d-text crop="2px">等比例列布局</d-text>
         </h2>
         <div className="case-container" id="equal-col">
-          <d-view layout="row" gap="12px">
-            <d-col fraction="1" place-items="center">
-              <d-row place-items="center">
-                <div>A</div>
-                <div>A</div>
-              </d-row>
-            </d-col>
-            <d-col fraction="1" place-items="center">
+          <d-view layout-items="col" gap="12px" align-items="justify">
+            <d-view
+              class="bg-color"
+              span="1"
+              layout-items="row"
+              place-items="center"
+            >
+              <d-text>A</d-text>
+              <d-text>A</d-text>
+            </d-view>
+            <d-view class="bg-color" span="1" place-items="center">
               BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-            </d-col>
-            <d-col fraction="1" place-items="center">
+            </d-view>
+            <d-view class="bg-color" span="1" place-items="center">
               CC
-            </d-col>
+            </d-view>
           </d-view>
         </div>
+        <p className="case-desc">
+          1.<span className="hljs-string">d-view</span>
+          标签默认占满父元素所有空间，当设置
+          <span className="hljs-tag">layout-items="col"</span>
+          时，会让子元素都在一行内布局，从而形成列布局，同时会重置
+          <span className="hljs-string">d-view</span>的宽高为内容宽高。
+        </p>
+        <p className="case-desc">
+          2. 设置<span className="hljs-string">d-view</span>标签子元素
+          <span className="hljs-tag">span="1"</span>
+          可以实现等比例列布局。
+        </p>
+        <p className="case-desc">
+          3. 设置<span className="hljs-string">d-view</span>标签
+          <span className="hljs-tag">align-items="justify"</span>
+          可以实现子元素自动占满父元素分配的空间。
+        </p>
         <Code targetId="equal-col" />
       </section>
       <section>
@@ -37,19 +57,28 @@ function App() {
           <d-text crop="2px">不同比例列布局</d-text>
         </h2>
         <div className="case-container" id="unequal-col">
-          <d-view layout="row" gap="12px">
-            <d-col fraction="1" place-items="center">
-              <span>AAAA</span>
-              <span>A</span>
-            </d-col>
-            <d-col fraction="2" place-items="center">
+          <d-view layout-items="col" gap="12px" align-items="justify">
+            <d-view
+              class="bg-color"
+              span="1"
+              layout-items="row"
+              place-items="center"
+            >
+              <d-text>AAAA</d-text>
+              <d-text>A</d-text>
+            </d-view>
+            <d-view class="bg-color" span="2" place-items="center">
               BB
-            </d-col>
-            <d-col fraction="2" place-items="center">
+            </d-view>
+            <d-view class="bg-color" span="2" place-items="center">
               CC
-            </d-col>
+            </d-view>
           </d-view>
         </div>
+        <p className="case-desc">
+          设置<span className="hljs-string">d-view</span>标签子元素不同的
+          <span className="hljs-tag">span</span>属性值，可以实现不同比例列布局。
+        </p>
         <Code targetId="unequal-col" />
       </section>
       <section>
@@ -57,8 +86,8 @@ function App() {
           <d-text crop="2px">等比例行布局</d-text>
         </h2>
         <div className="case-container" id="equal-row">
-          <d-view layout="col" gap="12px">
-            <d-row fraction="1" place-items="left">
+          <d-view layout-items="row" gap="12px" align-items="justify">
+            <d-view class="bg-color" span="1" place-items="left">
               <d-shape
                 type="ellipse"
                 size="16px 32px"
@@ -74,15 +103,20 @@ function App() {
               >
                 A
               </d-shape>
-            </d-row>
-            <d-row fraction="1" place-items="left">
+            </d-view>
+            <d-view class="bg-color" span="1">
               BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-            </d-row>
-            <d-row fraction="1" place-items="left">
+            </d-view>
+            <d-view class="bg-color" span="1" place-items="left-bottom">
               CC
-            </d-row>
+            </d-view>
           </d-view>
         </div>
+        <p className="case-desc">
+          当设置<span className="hljs-string">d-view</span>标签
+          <span className="hljs-tag">layout-items="row"</span>
+          时，会让子元素都在一列内布局，从而形成行布局。
+        </p>
         <Code targetId="equal-row" />
       </section>
       <section>
@@ -90,21 +124,21 @@ function App() {
           <d-text crop="2px">不同比例行布局</d-text>
         </h2>
         <div className="case-container" id="unequal-row">
-          <d-view layout="col" gap="12px">
-            <d-row fraction="2" place-items="center">
-              <d-row place-items="center">
+          <d-view layout-items="row" gap="12px" align-items="justify">
+            <d-view class="bg-color" span="2" place-items="center">
+              <d-view place-items="center">
                 <d-text>A</d-text>
                 <d-text>A</d-text>
-              </d-row>
-            </d-row>
-            <d-row fraction="1" place-items="center">
+              </d-view>
+            </d-view>
+            <d-view class="bg-color" span="1" place-items="center">
               BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
               BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
               BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-            </d-row>
-            <d-row fraction="2" place-items="center">
+            </d-view>
+            <d-view class="bg-color" span="2" place-items="center">
               CC
-            </d-row>
+            </d-view>
           </d-view>
         </div>
         <Code targetId="unequal-row" />
@@ -114,12 +148,16 @@ function App() {
           <d-text crop="2px">水平三明治布局</d-text>
         </h2>
         <div className="case-container" id="hsandwich">
-          <d-view layout="row" gap="12px">
-            <d-col place-items="center">AAA</d-col>
-            <d-col fraction="stretch" place-items="center">
+          <d-view layout-items="col" gap="12px" align-items="justify">
+            <d-view class="bg-color" place-items="center">
+              AAA
+            </d-view>
+            <d-view class="bg-color" span="stretch" place-items="center">
               B
-            </d-col>
-            <d-col place-items="center">C</d-col>
+            </d-view>
+            <d-view class="bg-color" place-items="center">
+              C
+            </d-view>
           </d-view>
         </div>
         <Code targetId="hsandwich" />
@@ -129,12 +167,16 @@ function App() {
           <d-text crop="2px">垂直三明治布局</d-text>
         </h2>
         <div className="case-container" id="vsandwich">
-          <d-view layout="col" gap="12px">
-            <d-row place-items="center">A</d-row>
-            <d-row fraction="stretch" place-items="center">
+          <d-view layout-items="row" gap="12px" align-items="justify">
+            <d-view class="bg-color" place-items="center">
+              A
+            </d-view>
+            <d-view class="bg-color" span="stretch" place-items="center">
               B
-            </d-row>
-            <d-row place-items="center">C</d-row>
+            </d-view>
+            <d-view class="bg-color" place-items="center">
+              C
+            </d-view>
           </d-view>
         </div>
         <Code targetId="vsandwich" />
@@ -144,106 +186,165 @@ function App() {
           <d-text crop="2px">圣杯布局</d-text>
         </h2>
         <div className="case-container" id="holy-grail">
-          <d-view layout="col" gap="10px">
-            <d-row place-items="center">Header</d-row>
-            <d-row
-              fraction="stretch"
+          <d-view layout-items="row" gap="10px" align-items="justify">
+            <d-view class="bg-color" place-items="center">
+              Header
+            </d-view>
+            <d-view
+              span="stretch"
               gap="10px"
-              style={{ backgroundColor: 'transparent' }}
+              layout-items="col"
+              align-items="justify"
             >
-              <d-col place-items="center">SideBar</d-col>
-              <d-col fraction="stretch" place-items="center">
+              <d-view class="bg-color" place-items="center">
+                SideBar
+              </d-view>
+              <d-view class="bg-color" span="stretch" place-items="center">
                 Content
-              </d-col>
-              <d-col place-items="center">SideBar</d-col>
-            </d-row>
-            <d-row place-items="center">Footer</d-row>
+              </d-view>
+              <d-view class="bg-color" place-items="center">
+                SideBar
+              </d-view>
+            </d-view>
+            <d-view class="bg-color" place-items="center">
+              Footer
+            </d-view>
           </d-view>
         </div>
         <Code targetId="holy-grail" />
       </section>
       <section>
         <h2>
-          <d-text crop="2px">行布局设置子元素位置</d-text>
+          <d-text crop="2px">列布局使用 place-items 设置子元素位置</d-text>
         </h2>
         <div className="case-container row-col-align-case" id="row-place-items">
-          <d-view layout="row" gap="12px">
-            <d-col fraction="1" gap="8px">
-              <d-row fraction="1" class="border" place-items="left-top">
+          <d-view layout-items="col" gap="12px" align-items="justify">
+            <d-view layout-items="row" align-items="justify" span="1" gap="8px">
+              <d-view
+                layout-items="col"
+                span="1"
+                class="bg-color"
+                place-items="left-top"
+              >
                 <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
                 <d-shape stroke="solid 1px #a6e22e" place-items="center">
                   left-top
                 </d-shape>
-              </d-row>
-              <d-row fraction="1" class="border" place-items="left">
+              </d-view>
+              <d-view
+                layout-items="col"
+                span="1"
+                class="bg-color"
+                place-items="left"
+              >
                 <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
                 <d-shape stroke="solid 1px #a6e22e" place-items="center">
                   left
                 </d-shape>
-              </d-row>
-              <d-row fraction="1" class="border" place-items="left-bottom">
+              </d-view>
+              <d-view
+                layout-items="col"
+                span="1"
+                class="bg-color"
+                place-items="left-bottom"
+              >
                 <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
                 <d-shape stroke="solid 1px #a6e22e" place-items="center">
                   left-bottom
                 </d-shape>
-              </d-row>
-            </d-col>
-            <d-col fraction="1" gap="8px">
-              <d-row fraction="1" class="border" place-items="top">
+              </d-view>
+            </d-view>
+            <d-view layout-items="row" align-items="justify" span="1" gap="8px">
+              <d-view
+                layout-items="col"
+                span="1"
+                class="bg-color"
+                place-items="top"
+              >
                 <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
                 <d-shape stroke="solid 1px #a6e22e" place-items="center">
                   top
                 </d-shape>
-              </d-row>
-              <d-row fraction="1" class="border" place-items="center">
+              </d-view>
+              <d-view
+                layout-items="col"
+                span="1"
+                class="bg-color"
+                place-items="center"
+              >
                 <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
                 <d-shape stroke="solid 1px #a6e22e" place-items="center">
                   center
                 </d-shape>
-              </d-row>
-              <d-row fraction="1" class="border" place-items="bottom">
+              </d-view>
+              <d-view
+                layout-items="col"
+                span="1"
+                class="bg-color"
+                place-items="bottom"
+              >
                 <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
                 <d-shape stroke="solid 1px #a6e22e" place-items="center">
-                  right
+                  bottom
                 </d-shape>
-              </d-row>
-            </d-col>
-            <d-col fraction="1" gap="8px">
-              <d-row fraction="1" class="border" place-items="right-top">
+              </d-view>
+            </d-view>
+            <d-view layout-items="row" align-items="justify" span="1" gap="8px">
+              <d-view
+                layout-items="col"
+                span="1"
+                class="bg-color"
+                place-items="right-top"
+              >
                 <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
                 <d-shape stroke="solid 1px #a6e22e" place-items="center">
                   right-top
                 </d-shape>
-              </d-row>
-              <d-row fraction="1" class="border" place-items="right">
+              </d-view>
+              <d-view
+                layout-items="col"
+                span="1"
+                class="bg-color"
+                place-items="right"
+              >
                 <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
                 <d-shape stroke="solid 1px #a6e22e" place-items="center">
                   right
                 </d-shape>
-              </d-row>
-              <d-row fraction="1" class="border" place-items="right-bottom">
+              </d-view>
+              <d-view
+                layout-items="col"
+                span="1"
+                class="bg-color"
+                place-items="right-bottom"
+              >
                 <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
                 <d-shape stroke="solid 1px #a6e22e" place-items="center">
                   right-bottom
                 </d-shape>
-              </d-row>
-            </d-col>
+              </d-view>
+            </d-view>
           </d-view>
         </div>
         <Code targetId="row-place-items" />
       </section>
       <section>
         <h2>
-          <d-text crop="2px">列布局设置子元素位置</d-text>
+          <d-text crop="2px">行布局使用 place-items 设置子元素位置</d-text>
         </h2>
         <div
           className="case-container row-col-align-case"
           id="col-place-items"
           style={{ height: '300px' }}
         >
-          <d-view layout="col" gap="12px">
-            <d-row fraction="1" gap="8px">
-              <d-col fraction="1" class="border" place-items="left-top">
+          <d-view layout-items="row" gap="12px" align-items="justify">
+            <d-view layout-items="col" span="1" gap="8px" align-items="justify">
+              <d-view
+                layout-items="row"
+                span="1"
+                class="bg-color"
+                place-items="left-top"
+              >
                 <d-shape
                   type="ellipse"
                   stroke="solid 1px #a6e22e"
@@ -261,8 +362,13 @@ function App() {
                 >
                   left-top
                 </d-shape>
-              </d-col>
-              <d-col fraction="1" class="border" place-items="top">
+              </d-view>
+              <d-view
+                layout-items="row"
+                span="1"
+                class="bg-color"
+                place-items="top"
+              >
                 <d-shape
                   type="ellipse"
                   stroke="solid 1px #a6e22e"
@@ -280,8 +386,13 @@ function App() {
                 >
                   top
                 </d-shape>
-              </d-col>
-              <d-col fraction="1" class="border" place-items="right-top">
+              </d-view>
+              <d-view
+                layout-items="row"
+                span="1"
+                class="bg-color"
+                place-items="right-top"
+              >
                 <d-shape
                   type="ellipse"
                   stroke="solid 1px #a6e22e"
@@ -299,10 +410,15 @@ function App() {
                 >
                   right-top
                 </d-shape>
-              </d-col>
-            </d-row>
-            <d-row fraction="1" gap="8px">
-              <d-col fraction="1" class="border" place-items="left">
+              </d-view>
+            </d-view>
+            <d-view layout-items="col" span="1" gap="8px" align-items="justify">
+              <d-view
+                layout-items="row"
+                span="1"
+                class="bg-color"
+                place-items="left"
+              >
                 <d-shape
                   type="ellipse"
                   stroke="solid 1px #a6e22e"
@@ -320,8 +436,13 @@ function App() {
                 >
                   left
                 </d-shape>
-              </d-col>
-              <d-col fraction="1" class="border" place-items="center">
+              </d-view>
+              <d-view
+                layout-items="row"
+                span="1"
+                class="bg-color"
+                place-items="center"
+              >
                 <d-shape
                   type="ellipse"
                   stroke="solid 1px #a6e22e"
@@ -339,8 +460,13 @@ function App() {
                 >
                   center
                 </d-shape>
-              </d-col>
-              <d-col fraction="1" class="border" place-items="right">
+              </d-view>
+              <d-view
+                layout-items="row"
+                span="1"
+                class="bg-color"
+                place-items="right"
+              >
                 <d-shape
                   type="ellipse"
                   stroke="solid 1px #a6e22e"
@@ -358,10 +484,15 @@ function App() {
                 >
                   right
                 </d-shape>
-              </d-col>
-            </d-row>
-            <d-row fraction="1" gap="8px">
-              <d-col fraction="1" class="border" place-items="left-bottom">
+              </d-view>
+            </d-view>
+            <d-view layout-items="col" span="1" gap="8px" align-items="justify">
+              <d-view
+                layout-items="row"
+                span="1"
+                class="bg-color"
+                place-items="left-bottom"
+              >
                 <d-shape
                   type="ellipse"
                   stroke="solid 1px #a6e22e"
@@ -379,8 +510,13 @@ function App() {
                 >
                   left-bottom
                 </d-shape>
-              </d-col>
-              <d-col fraction="1" class="border" place-items="bottom">
+              </d-view>
+              <d-view
+                layout-items="row"
+                span="1"
+                class="bg-color"
+                place-items="bottom"
+              >
                 <d-shape
                   type="ellipse"
                   stroke="solid 1px #a6e22e"
@@ -398,8 +534,13 @@ function App() {
                 >
                   bottom
                 </d-shape>
-              </d-col>
-              <d-col fraction="1" class="border" place-items="right-bottom">
+              </d-view>
+              <d-view
+                layout-items="row"
+                span="1"
+                class="bg-color"
+                place-items="right-bottom"
+              >
                 <d-shape
                   type="ellipse"
                   stroke="solid 1px #a6e22e"
@@ -417,108 +558,952 @@ function App() {
                 >
                   right-bottom
                 </d-shape>
-              </d-col>
-            </d-row>
+              </d-view>
+            </d-view>
           </d-view>
         </div>
         <Code targetId="col-place-items" />
       </section>
       <section>
         <h2>
-          <d-text crop="2px">子元素对齐</d-text>
+          <d-text crop="2px">列布局使用 align-items 设置子元素对齐</d-text>
         </h2>
-        <div className="case-container row-col-align-case" id="align-items">
-          <d-view layout="col" gap="12px">
-            <d-row fraction="1" gap="8px">
-              <d-col fraction="1" class="border" place-items="top">
-                <d-content class="bg-color" layout="col" align-items="start">
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+        <div className="case-container row-col-align-case" id="align-items-row">
+          <d-view layout-items="row" align-items="justify" gap="12px">
+            <d-view layout-items="col" align-items="justify" span="1" gap="8px">
+              <d-view
+                layout-items="col"
+                span="1"
+                align-items="justify"
+                gap="4px"
+              >
+                <d-view
+                  place-items="left-top"
+                  align-items="start"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
                   <d-shape
                     size="24px 12px"
                     stroke="solid 1px #ffe22e"
                   ></d-shape>
-                </d-content>
-              </d-col>
-              <d-col fraction="1" class="border" place-items="top">
-                <d-content class="bg-color" layout="col" align-items="center">
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                </d-view>
+                <d-view
+                  place-items="left-top"
+                  align-items="center"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
                   <d-shape
                     size="24px 12px"
                     stroke="solid 1px #ffe22e"
                   ></d-shape>
-                </d-content>
-              </d-col>
-              <d-col fraction="1" class="border" place-items="top">
-                <d-content class="bg-color" layout="col" align-items="end">
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                </d-view>
+                <d-view
+                  place-items="left-top"
+                  align-items="end"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
                   <d-shape
                     size="24px 12px"
                     stroke="solid 1px #ffe22e"
                   ></d-shape>
-                </d-content>
-              </d-col>
-            </d-row>
-            <d-row fraction="1" gap="8px">
-              <d-col fraction="1" class="border" place-items="left">
-                <d-content class="bg-color" layout="col" align-items="start">
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                </d-view>
+              </d-view>
+              <d-view
+                layout-items="col"
+                align-items="justify"
+                span="1"
+                gap="4px"
+              >
+                <d-view
+                  place-items="top"
+                  align-items="start"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
                   <d-shape
                     size="24px 12px"
                     stroke="solid 1px #ffe22e"
                   ></d-shape>
-                </d-content>
-              </d-col>
-              <d-col fraction="1" class="border" place-items="left">
-                <d-content class="bg-color" layout="col" align-items="center">
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                </d-view>
+                <d-view
+                  place-items="top"
+                  align-items="center"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
                   <d-shape
                     size="24px 12px"
                     stroke="solid 1px #ffe22e"
                   ></d-shape>
-                </d-content>
-              </d-col>
-              <d-col fraction="1" class="border" place-items="left">
-                <d-content class="bg-color" layout="col" align-items="end">
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                </d-view>
+                <d-view
+                  place-items="top"
+                  align-items="end"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
                   <d-shape
                     size="24px 12px"
                     stroke="solid 1px #ffe22e"
                   ></d-shape>
-                </d-content>
-              </d-col>
-            </d-row>
-            <d-row fraction="1" gap="8px">
-              <d-col fraction="1" class="border" place-items="right">
-                <d-content class="bg-color" layout="col" align-items="start">
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                </d-view>
+              </d-view>
+              <d-view
+                layout-items="col"
+                align-items="justify"
+                span="1"
+                gap="4px"
+              >
+                <d-view
+                  place-items="right-top"
+                  align-items="start"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
                   <d-shape
                     size="24px 12px"
                     stroke="solid 1px #ffe22e"
                   ></d-shape>
-                </d-content>
-              </d-col>
-              <d-col fraction="1" class="border" place-items="right">
-                <d-content class="bg-color" layout="col" align-items="center">
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                </d-view>
+                <d-view
+                  place-items="right-top"
+                  align-items="center"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
                   <d-shape
                     size="24px 12px"
                     stroke="solid 1px #ffe22e"
                   ></d-shape>
-                </d-content>
-              </d-col>
-              <d-col fraction="1" class="border" place-items="right">
-                <d-content class="bg-color" layout="col" align-items="end">
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                </d-view>
+                <d-view
+                  place-items="right-top"
+                  align-items="end"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
                   <d-shape
                     size="24px 12px"
                     stroke="solid 1px #ffe22e"
                   ></d-shape>
-                </d-content>
-              </d-col>
-            </d-row>
+                </d-view>
+              </d-view>
+            </d-view>
+            <d-view layout-items="col" align-items="justify" span="1" gap="8px">
+              <d-view
+                layout-items="col"
+                align-items="justify"
+                span="1"
+                gap="4px"
+              >
+                <d-view
+                  place-items="left"
+                  align-items="start"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="left"
+                  align-items="center"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="left"
+                  align-items="end"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+              </d-view>
+              <d-view
+                layout-items="col"
+                span="1"
+                align-items="justify"
+                gap="4px"
+              >
+                <d-view
+                  place-items="center"
+                  align-items="start"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="center"
+                  align-items="center"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="center"
+                  align-items="end"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+              </d-view>
+              <d-view
+                layout-items="col"
+                span="1"
+                align-items="justify"
+                gap="4px"
+              >
+                <d-view
+                  place-items="right"
+                  align-items="start"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="right"
+                  align-items="center"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="right"
+                  align-items="end"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+              </d-view>
+            </d-view>
+            <d-view layout-items="col" align-items="justify" span="1" gap="8px">
+              <d-view
+                layout-items="col"
+                align-items="justify"
+                span="1"
+                gap="4px"
+              >
+                <d-view
+                  layout-items="col"
+                  place-items="left-bottom"
+                  align-items="start"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="left-bottom"
+                  align-items="center"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  layout-items="col"
+                  span="1"
+                  place-items="left-bottom"
+                  align-items="end"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+              </d-view>
+              <d-view
+                layout-items="col"
+                align-items="justify"
+                span="1"
+                gap="4px"
+              >
+                <d-view
+                  layout-items="col"
+                  place-items="bottom"
+                  align-items="start"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="bottom"
+                  align-items="center"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  layout-items="col"
+                  span="1"
+                  place-items="bottom"
+                  align-items="end"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+              </d-view>
+              <d-view
+                layout-items="col"
+                align-items="justify"
+                span="1"
+                gap="4px"
+              >
+                <d-view
+                  layout-items="col"
+                  place-items="right-bottom"
+                  align-items="start"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="right-bottom"
+                  align-items="center"
+                  layout-items="col"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  layout-items="col"
+                  span="1"
+                  place-items="right-bottom"
+                  align-items="end"
+                  class="bg-color"
+                >
+                  <d-shape
+                    size="12px 24px"
+                    stroke="solid 1px #a6e22e"
+                  ></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+              </d-view>
+            </d-view>
           </d-view>
         </div>
-        <Code targetId="align-items" />
+        <Code targetId="align-items-row" />
+      </section>
+      <section>
+        <h2>
+          <d-text crop="2px">行布局使用 align-items 设置子元素对齐</d-text>
+        </h2>
+        <div className="case-container row-col-align-case" id="align-items-col">
+          <d-view layout-items="row" align-items="justify" gap="12px">
+            <d-view layout-items="col" align-items="justify" span="1" gap="8px">
+              <d-view
+                layout-items="col"
+                span="1"
+                align-items="justify"
+                gap="4px"
+              >
+                <d-view
+                  place-items="left-top"
+                  align-items="start"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="left-top"
+                  align-items="center"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="left-top"
+                  align-items="end"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+              </d-view>
+              <d-view
+                layout-items="col"
+                align-items="justify"
+                span="1"
+                gap="4px"
+              >
+                <d-view
+                  place-items="top"
+                  align-items="start"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="top"
+                  align-items="center"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="top"
+                  align-items="end"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+              </d-view>
+              <d-view
+                layout-items="col"
+                align-items="justify"
+                span="1"
+                gap="4px"
+              >
+                <d-view
+                  place-items="right-top"
+                  align-items="start"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="right-top"
+                  align-items="center"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="right-top"
+                  align-items="end"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+              </d-view>
+            </d-view>
+            <d-view layout-items="col" align-items="justify" span="1" gap="8px">
+              <d-view
+                layout-items="col"
+                align-items="justify"
+                span="1"
+                gap="4px"
+              >
+                <d-view
+                  place-items="left"
+                  align-items="start"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="left"
+                  align-items="center"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="left"
+                  align-items="end"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+              </d-view>
+              <d-view
+                layout-items="col"
+                span="1"
+                align-items="justify"
+                gap="4px"
+              >
+                <d-view
+                  place-items="center"
+                  align-items="start"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="center"
+                  align-items="center"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="center"
+                  align-items="end"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+              </d-view>
+              <d-view
+                layout-items="col"
+                span="1"
+                align-items="justify"
+                gap="4px"
+              >
+                <d-view
+                  place-items="right"
+                  align-items="start"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="right"
+                  align-items="center"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="right"
+                  align-items="end"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+              </d-view>
+            </d-view>
+            <d-view layout-items="col" align-items="justify" span="1" gap="8px">
+              <d-view
+                layout-items="col"
+                align-items="justify"
+                span="1"
+                gap="4px"
+              >
+                <d-view
+                  layout-items="row"
+                  place-items="left-bottom"
+                  align-items="start"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="left-bottom"
+                  align-items="center"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  layout-items="row"
+                  span="1"
+                  place-items="left-bottom"
+                  align-items="end"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+              </d-view>
+              <d-view
+                layout-items="col"
+                align-items="justify"
+                span="1"
+                gap="4px"
+              >
+                <d-view
+                  layout-items="row"
+                  place-items="bottom"
+                  align-items="start"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="bottom"
+                  align-items="center"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  layout-items="row"
+                  span="1"
+                  place-items="bottom"
+                  align-items="end"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+              </d-view>
+              <d-view
+                layout-items="col"
+                align-items="justify"
+                span="1"
+                gap="4px"
+              >
+                <d-view
+                  layout-items="row"
+                  place-items="right-bottom"
+                  align-items="start"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  place-items="right-bottom"
+                  align-items="center"
+                  layout-items="row"
+                  span="1"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+                <d-view
+                  layout-items="row"
+                  span="1"
+                  place-items="right-bottom"
+                  align-items="end"
+                  class="bg-color"
+                >
+                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
+                  <d-shape
+                    size="24px 12px"
+                    stroke="solid 1px #ffe22e"
+                  ></d-shape>
+                </d-view>
+              </d-view>
+            </d-view>
+          </d-view>
+        </div>
+        <Code targetId="align-items-col" />
       </section>
       <section>
         <h2>
@@ -594,27 +1579,33 @@ function App() {
           <d-text crop="2px">内连元素布局</d-text>
         </h2>
         <div className="case-container" id="inline">
-          <d-view gap="12px 16px">
-            <d-text className="inline-elem1">test</d-text>
-            <d-content class="inline-elem2" layout="row" gap="10px">
-              <d-col place-items="center" align-items="start">
-                <d-content>AAA</d-content>
-                <d-content>B</d-content>
-                <d-content>C</d-content>
-              </d-col>
-              <d-col place-items="center">B</d-col>
-              <d-col place-items="center">C</d-col>
-            </d-content>
-            <d-content layout="col" gap="10px">
-              <d-text>A</d-text>
-              <d-text>B</d-text>
-              <d-text>C</d-text>
-            </d-content>
-            <d-content class="inline-elem3" layout="row" gap="10px">
-              <d-col place-items="center">A</d-col>
-              <d-col place-items="center">B</d-col>
-              <d-col place-items="center">C</d-col>
-            </d-content>
+          <d-view layout-items="inline" gap="12px 16px">
+            {new Array(20).fill('').map((_, idx) => {
+              return (
+                <d-view
+                  key={idx}
+                  class="inline-elem1"
+                  layout-items="col"
+                  gap="8px"
+                  align-items="center"
+                >
+                  <d-shape
+                    type="ellipse"
+                    size="24px"
+                    stroke="solid 1px #a6e22e"
+                    place-items="center"
+                  >
+                    W
+                  </d-shape>
+                  <d-text>Wenshin</d-text>
+                  <d-shape
+                    size="12px"
+                    stroke="solid 1px #a6e22e"
+                    place-items="center"
+                  ></d-shape>
+                </d-view>
+              );
+            })}
           </d-view>
         </div>
         <Code targetId="inline" />
@@ -624,7 +1615,7 @@ function App() {
           <d-text crop="2px">自动修正文本 line height 导致的边距问题</d-text>
         </h2>
         <div id="text">
-          <d-row gap="12px">
+          <d-view layout-items="inline" gap="12px">
             <d-text crop="1px">
               DXML 设计了更适合设计稿直接转布局代码的一套标签
             </d-text>
@@ -636,7 +1627,7 @@ function App() {
               DXML Design for a better layout markable language from design to
               developer
             </d-text>
-          </d-row>
+          </d-view>
         </div>
         <Code targetId="text" />
         <p>
@@ -657,7 +1648,7 @@ function App() {
               <th>
                 子元素行列布局
                 <br />
-                layout
+                layout-items
               </th>
               <th>
                 子元素位置
@@ -669,7 +1660,11 @@ function App() {
                 <br />
                 align-items
               </th>
-              <th style={{ width: 200 }}>宽高</th>
+              <th style={{ width: 200 }}>
+                宽高
+                <br />
+                size
+              </th>
               <th>浮动</th>
               <th style={{ width: 200 }}>其它功能</th>
             </tr>
@@ -679,6 +1674,7 @@ function App() {
               <td>view</td>
               <td className="text-left">
                 <ol>
+                  <li>内联布局</li>
                   <li>行布局</li>
                   <li>列布局</li>
                 </ol>
@@ -687,8 +1683,28 @@ function App() {
               <td>❌</td>
               <td className="text-left">
                 <ol>
-                  <li>宽度，占满父容器</li>
-                  <li>高度，占满父容器</li>
+                  <li>viewport: 占满父容器</li>
+                  <li>`width height`: 指定宽高</li>
+                </ol>
+              </td>
+              <td>❌</td>
+              <td>❌</td>
+            </tr>
+            <tr>
+              <td>shape</td>
+              <td className="text-left">
+                <ol>
+                  <li>内联布局</li>
+                  <li>行布局</li>
+                  <li>列布局</li>
+                </ol>
+              </td>
+              <td>✅</td>
+              <td>❌</td>
+              <td className="text-left">
+                <ol>
+                  <li>viewport: 占满父容器</li>
+                  <li>`width height`: 指定宽高</li>
                 </ol>
               </td>
               <td>❌</td>
@@ -706,75 +1722,6 @@ function App() {
               </td>
               <td>✅</td>
               <td>mask 设置遮罩</td>
-            </tr>
-            <tr>
-              <td>row</td>
-              <td className="text-left">
-                <ol>
-                  <li>不需设置属性，自带行布局</li>
-                </ol>
-              </td>
-              <td>✅</td>
-              <td>❌</td>
-              <td className="text-left">
-                <ol>
-                  <li>宽度，占满父容器</li>
-                  <li>
-                    高度，可以
-                    <ol>
-                      <li>使用内容高度</li>
-                      <li>fraction 设置占父容器比例</li>
-                      <li>height 属性设置高度</li>
-                    </ol>
-                  </li>
-                </ol>
-              </td>
-              <td>❌</td>
-              <td>❌</td>
-            </tr>
-            <tr>
-              <td>col</td>
-              <td className="text-left">
-                <ol>
-                  <li>不需设置属性，自带行布局</li>
-                </ol>
-              </td>
-              <td>✅</td>
-              <td>❌</td>
-              <td className="text-left">
-                <ol>
-                  <li>
-                    宽度，可以
-                    <ol>
-                      <li>使用内容宽度</li>
-                      <li>fraction 设置占父容器比例</li>
-                      <li>width 属性设置宽度</li>
-                    </ol>
-                  </li>
-                  <li>高度，占满父容器</li>
-                </ol>
-              </td>
-              <td>❌</td>
-              <td>❌</td>
-            </tr>
-            <tr>
-              <td>content</td>
-              <td className="text-left">
-                <ol>
-                  <li>行布局</li>
-                  <li>列布局</li>
-                </ol>
-              </td>
-              <td>❌</td>
-              <td>✅</td>
-              <td className="text-left">
-                <ol>
-                  <li>宽度，通过 width 指定或者由子元素宽度决定</li>
-                  <li>高度，通过 height 指定或者由子元素高度决定</li>
-                </ol>
-              </td>
-              <td>❌</td>
-              <td>❌</td>
             </tr>
             <tr>
               <td>float</td>
@@ -822,7 +1769,7 @@ function App() {
           </thead>
           <tbody>
             <tr>
-              <td rowSpan={3}>layout</td>
+              <td rowSpan={3}>layout-items</td>
               <td rowSpan={3}>父元素设置子元素布局类型</td>
               <td rowSpan={3}>
                 <d-text class="hljs-string">view</d-text> |{' '}

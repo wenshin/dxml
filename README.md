@@ -27,7 +27,13 @@ yarn install gdml
 
 see [docs](https://wenshin.github.io/projects/dxml/)
 
-1. 布局能力
+1. 布局容器
+   1. view: use, layout(default, row, col), align-items(justify, start, end, center), place-items, span(number, stretch)
+   2. layer: mask, z-index
+   3. float: position, z-index, use, layout, align-items
+   4. text: align-items, break-line(word,white-space), max-line, crop
+   5. component: name
+   6. token: name, value, type(number,string,condition,unit)
 2. media query，多尺寸适配（同比例放大）
 3. Design Token 支持
 4. UI 组件

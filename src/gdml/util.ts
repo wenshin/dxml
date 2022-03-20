@@ -35,12 +35,9 @@ export function insertStyleElement(id: string, content: string) {
   }
 }
 
-export function insertFractionStyle(fraction: string) {
-  const id = `d-fraction-${fraction}`;
-  insertStyleElement(
-    id,
-    `[fraction][fraction="${fraction}"] { flex-grow: ${fraction}; }`
-  );
+export function insertSpanStyle(span: string) {
+  const id = `d-span-${span}`;
+  insertStyleElement(id, `[span][span="${span}"] { flex-grow: ${span}; }`);
 }
 
 export function insertGapStyle(gap: string) {
