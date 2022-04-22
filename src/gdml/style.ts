@@ -4,10 +4,30 @@ import { Layer } from './layer';
 import { Text } from './text';
 import { Shape } from './shape';
 
+/**
+ * design length
+ *
+ * px(device pixel)
+ * 1dp = 1px * devicePixelRatio
+ * 1dl(design length) = 4dp
+ * 1pt(point) = 1/72 inches
+ */
+
 const style = `${View.tag}, ${Shape.tag}, ${Layer.tag}, ${Float.tag}, ${Text.tag} {
   position: relative;
-  flex: none;
   box-sizing: border-box;
+}
+
+${View.tag}, ${Shape.tag}, ${Layer.tag}, ${Float.tag} {
+  flex: none;
+}
+
+${View.tag}, ${Float.tag} {
+  overflow: auto;
+}
+
+${Shape.tag}, ${Layer.tag} {
+  overflow: visible;
 }
 
 ${Layer.tag},
@@ -18,56 +38,34 @@ ${View.tag} {
   align-items: center;
   justify-content: flex-start;
   align-content: flex-start;
+  flex-wrap: nowrap;
+  /* 默认使用子元素行布局 */
+  flex-direction: column;
 }
 
-${View.tag}[size="auto"], ${Shape.tag} {
-  position: relative;
-  display: inline-block;
-  box-sizing: border-box;
+${Layer.tag} > ${View.tag},
+${View.tag} > ${View.tag} {
   width: initial;
   height: initial;
 }
 
-${View.tag}[size="auto"][layout-items], ${Shape.tag}[layout-items] {
+[size="auto"], ${Shape.tag} {
   display: inline-flex;
-  flex-wrap: wrap;
 }
-${Shape.tag}[layout-items="col"],
-${View.tag}[size="auto"][layout-items="col"] {
+
+${Shape.tag}[layout-items="vertical"],
+[size="auto"][layout-items="vertical"] {
   max-width: 100%;
 }
-${Shape.tag}[layout-items="row"],
-${View.tag}[size="auto"][layout-items="row"] {
+${Shape.tag}[layout-items="horizontal"],
+[size="auto"][layout-items="horizontal"] {
   max-height: 100%;
-}
-
-[layout-items] > *,[place-items] > *,[align-items] > * {
-  width: initial;
-  height: initial;
-}
-
-[align-items="center"] {
-  align-items: center;
-}
-[align-items="start"] {
-  align-items: flex-start;
-}
-[align-items="end"] {
-  align-items: flex-end;
-}
-[layout-items="col"][align-items="justify"] > * {
-  height: 100%;
-}
-[layout-items="row"][align-items="justify"] > * {
-  width: 100%;
 }
 
 ${Layer.tag} {
   position: absolute;
   top: 0;
   left: 0;
-  box-sizing: border-box;
-  overflow: visible;
 }
 ${Layer.tag}[mask="none"] {
   pointer-events: none;
@@ -82,49 +80,48 @@ ${Layer.tag}[mask="black"] {
 
 [layout-items="inline"] {
   flex-wrap: wrap;
-  overflow: auto;
 }
 
-[layout-items="col"], [layout-items="row"] {
-  flex-wrap: nowrap;
+/*
+[layout-items] > ${View.tag} {
+  width: initial;
+  height: initial;
 }
-[layout-items="col"] {
+*/
+
+[layout-items="vertical"] {
   flex-direction: row;
 }
-[layout-items="col"] > [span] {
-  width: 1px;
-  min-width: 1px;
-  overflow: auto;
-  flex: 1;
-}
-[layout-items="col"] > [span="stretch"] {
-  overflow: auto;
-  flex: 1;
-}
-[layout-items="row"] {
-  flex-direction: column;
-}
-[layout-items="row"] > [span] {
-  height: 1px;
-  min-height: 1px;
-  overflow: auto;
-  flex: 1;
-}
-[layout-items="row"] > [span="stretch"] {
-  overflow: auto;
+[layout-items="vertical"] > [span="stretch"] {
   flex: 1;
 }
 
-[layout-items="col"][gap] > * {
+${View.tag} > [span] {
+  flex-basis: 1px;
+  flex: 1;
+}
+${View.tag} > [span="stretch"],
+[layout-items="horizontal"] > [span="stretch"] {
+  flex: 1;
+}
+
+${View.tag}[align-items="justify"] > ${View.tag},
+[layout-items="horizontal"][align-items="justify"] > ${View.tag} {
+  width: 100%;
+}
+
+[layout-items="vertical"][gap] > ${View.tag} {
   margin-bottom: 0;
 }
-[layout-items="row"][gap] > * {
-  margin-right: 0;
-}
-[layout-items="col"][gap] > *:last-child,
-[layout-items="row"][gap] > *:last-child {
+[gap] > *:last-child,
+[layout-items="vertical"][gap] > ${View.tag}:last-child,
+[layout-items="horizontal"][gap] > ${View.tag}:last-child {
   margin-right: 0;
   margin-bottom: 0;
+}
+[layout-items="vertical"][align-items="justify"] > ${View.tag} {
+  width: initial;
+  height: 100%;
 }
 
 [place-items] {
@@ -142,59 +139,68 @@ ${Layer.tag}[mask="black"] {
   align-items: flex-end;
   justify-content: flex-end;
 }
-[place-items="top"] {
+[layout-items="vertical"][place-items="top"] {
   align-items: flex-start;
   justify-content: center;
 }
-[place-items="bottom"] {
+[layout-items="vertical"][place-items="bottom"] {
   align-items: flex-end;
   justify-content: center;
 }
-[place-items="left"] {
+[layout-items="vertical"][place-items="left"] {
   align-items: center;
   justify-content: flex-start;
 }
-[place-items="left-bottom"] {
+[layout-items="vertical"][place-items="left-bottom"] {
   align-items: flex-end;
   justify-content: flex-start;
 }
-[place-items="right"] {
+[layout-items="vertical"][place-items="right"] {
   align-items: center;
   justify-content: flex-end;
 }
-[place-items="right-top"] {
+[layout-items="vertical"][place-items="right-top"] {
   align-items: flex-start;
   justify-content: flex-end;
 }
 
-[layout-items="row"][place-items="top"] {
+[place-items="top"] {
   align-items: center;
   justify-content: flex-start;
 }
-[layout-items="row"][place-items="bottom"] {
+[place-items="bottom"] {
   align-items: center;
   justify-content: flex-end;
 }
-[layout-items="row"][place-items="left"] {
+[place-items="left"] {
   align-items: flex-start;
   justify-content: center;
 }
-[layout-items="row"][place-items="left-bottom"] {
+[place-items="left-bottom"] {
   align-items: flex-start;
   justify-content: flex-end;
 }
-[layout-items="row"][place-items="right"] {
+[place-items="right"] {
   align-items: flex-end;
   justify-content: center;
 }
-[layout-items="row"][place-items="right-top"] {
+[place-items="right-top"] {
   align-items: flex-end;
   justify-content: flex-start;
+}
+
+[align-items="center"] {
+  align-items: center;
+}
+[align-items="start"] {
+  align-items: flex-start;
+}
+[align-items="end"] {
+  align-items: flex-end;
 }
 
 ${Float.tag} {
   position: absolute;
-  box-sizing: border-box;
   display: block;
   pointer-events: auto;
   /* default is left top */
@@ -335,7 +341,6 @@ ${Float.tag}[position="center"] {
 
 ${Text.tag} {
   display: inline-block;
-  box-sizing: border-box;
   overflow: visible;
 }
 ${Text.tag}::before, ${Text.tag}::after {

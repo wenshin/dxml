@@ -1,26 +1,26 @@
-# GDML
+# AML
 
-GDML(Graphic Design Markup Language) is designed for more effective to change design into code, even automatic.
+AML(Auto-Layout Markup Language) is designed for more effective to change design layout into code, even automatic.
 
 # Install For Web
 
 ```bash
-npm install gdml
-yarn install gdml
+npm install aml
+yarn install aml
 ```
 
 # Install For Android
 
 ```bash
-npm install gdml
-yarn install gdml
+npm install aml
+yarn install aml
 ```
 
 # Install For iOS Swift
 
 ```bash
-npm install gdml
-yarn install gdml
+npm install aml
+yarn install aml
 ```
 
 # Features
@@ -28,7 +28,9 @@ yarn install gdml
 see [docs](https://wenshin.github.io/projects/dxml/)
 
 1. 布局容器
-   1. view: use, layout(default, row, col), align-items(justify, start, end, center), place-items, span(number, stretch)
+   1. view: use, layout(row,col,inline,), align-items(justify, start, end, center), place-items, span(number, stretch)
+      1. 行内溢出滚动（待完成）
+      2. 行内溢出可见（待完成）
    2. layer: mask, z-index
    3. float: position, z-index, use, layout, align-items
    4. text: align-items, break-line(word,white-space), max-line, crop
@@ -36,9 +38,12 @@ see [docs](https://wenshin.github.io/projects/dxml/)
    6. token: name, value, type(number,string,condition,unit)
 2. media query，多尺寸适配（同比例放大）
 3. Design Token 支持
+   1. color
+   2. size unit
 4. UI 组件
-5. 无障碍
-6. 国际化
+5. 主题
+6. 无障碍
+7. 国际化
 
 # Release Notes
 

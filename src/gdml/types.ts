@@ -39,7 +39,7 @@ interface CommonStyleAttributes {
    * 设备像素 px；物理像素 pt；密度独立像素 dp；
    *
    * 1. style: solid | dash
-   * 2. size: 支持 px 和不带单位，web 平台 px 即 dp，不带单位则严格的 1 物理像素
+   * 2. size: 支持 px 和不带单位，web 平台 px 即 dp，不带单位则严格的 1 设备像素
    * 3. color: 颜色
    */
   stroke?: string;
@@ -68,10 +68,10 @@ export interface LayoutAtrributes extends CommonStyleAttributes {
    */
   'place-items'?: PositionType;
   /**
-   * 子元素布局类型，支持行内布局（row）、列内布局（col）、内连布局（inline）、网格布局（grid），
-   * 默认为内连布局，内连布局和行内布局的差别在于内连布局支持换行。
+   * 子元素布局类型，支持水平布局（horizontal）、垂直布局（vertical）、内联布局（inline）、网格布局（grid），
+   * 默认为行布局（vertical），内联布局和行布局的差别在于内联布局支持换行。
    */
-  'layout-items'?: 'row' | 'col' | 'inline' | 'grid';
+  'layout-items'?: 'vertical' | 'horizontal' | 'grid' | 'inline';
   /**
    * 1. 默认为，撑满整个父元素容器空间
    * 2. auto，由子元素尺寸决定
@@ -86,6 +86,12 @@ interface ViewAtrributes extends LayoutAtrributes {
    * 子元素之间的间隙
    */
   gap?: string;
+  /**
+   * 1. top|bottom|right|left
+   * 2. top|bottom right|left
+   * 2. top right bottom left
+   */
+  padding?: string;
   /**
    * 指向一个 component 标签的元素
    */

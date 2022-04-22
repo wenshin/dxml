@@ -1,31 +1,138 @@
 import React from 'react';
 import './App.css';
 import { Code } from './Code';
+import avatarSrc from './sarah-dayan.jpg';
 
 function App() {
   return (
     <div style={{ padding: 20 }}>
       <section className="text-center">
-        <h1>Graphic Design Markup Language (GDML) </h1>
-        <p>一种符合平面设计直觉的标记语言</p>
+        <h1>Auto-Layout Markup Language (AML) </h1>
+        <p>实现 Auto Layout 的布局标记语言</p>
       </section>
-      <h1>实例</h1>
+      <section>
+        <h2>
+          <d-text crop="2px">等比例行布局</d-text>
+        </h2>
+        <div className="bg-zinc-800 p-4 h-64" id="equal-row">
+          <d-view gap="12px">
+            <img
+              className="rounded object-cover w-12 h-12"
+              src={avatarSrc}
+              alt="Sarah Dayan"
+            />
+            <d-view class="rounded bg-zinc-600 px-2">
+              Sarah Dayan, Staff Engineer, Algolia
+            </d-view>
+            <d-view
+              class="rounded bg-zinc-600 p-2"
+              span="stretch"
+              place-items="left-top"
+            >
+              “Tailwind CSS is the only framework that I've seen scale on large
+              teams. It’s easy to customize, adapts to any design, and the build
+              size is tiny.”
+            </d-view>
+          </d-view>
+        </div>
+        <br />
+        <div className="case-container">
+          <d-view gap="12px" align-items="justify">
+            <d-view
+              class="bg-color"
+              layout-items="vertical"
+              place-items="left"
+              span="1"
+            >
+              <d-shape
+                type="ellipse"
+                size="16px 32px"
+                stroke="solid 1px #a6e22e"
+                place-items="center"
+              >
+                A
+              </d-shape>
+              <d-shape
+                size="16px"
+                stroke="solid 1px #a6e22e"
+                place-items="center"
+              >
+                A
+              </d-shape>
+            </d-view>
+            <d-view class="bg-color" span="1" place-items="left-top">
+              BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+            </d-view>
+            <d-view class="bg-color" span="1">
+              CC
+            </d-view>
+          </d-view>
+        </div>
+        <p className="case-desc">
+          1. 默认情况下<span className="hljs-string">d-view</span>
+          标签子元素都在一列内布局，从而形成行布局。
+        </p>
+        <p className="case-desc">
+          2. 设置<span className="hljs-tag">span="1"</span>
+          属性时，可以使得每个子元素高度等比例占据父元素高度。而不设置
+          <span className="hljs-tag">span</span>属性，默认使用内容高度。
+        </p>
+        <p className="case-desc">
+          3. 设置<span className="hljs-tag">align-items="justify"</span>属性时，
+          可以实现子元素宽度占满父元素宽度。
+        </p>
+        <p className="case-desc">
+          4. 设置<span className="hljs-tag">place-items</span>属性时，
+          可以把子元素放在指定的位置，默认为
+          <span className="hljs-tag">place-items="top"</span>。
+        </p>
+        <Code targetId="equal-row" />
+      </section>
+      <section>
+        <h2>
+          <d-text crop="2px">不同比例行布局</d-text>
+        </h2>
+        <div className="case-container" id="unequal-row">
+          <d-view layout-items="horizontal" gap="12px" align-items="justify">
+            <d-view class="bg-color" span="2" place-items="center">
+              <d-view place-items="center">
+                <d-text>A</d-text>
+                <d-text>A</d-text>
+              </d-view>
+            </d-view>
+            <d-view class="bg-color" span="1" place-items="left-top">
+              BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+              BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+              BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+            </d-view>
+            <d-view class="bg-color" span="2" place-items="center">
+              CC
+            </d-view>
+          </d-view>
+        </div>
+        <p className="case-desc">
+          默认情况下<span className="hljs-string">d-view</span>标签
+          子元素都在一列内布局，从而形成行布局。
+          <span className="hljs-tag">layout-items="horizontal"</span>
+        </p>
+        <Code targetId="unequal-row" />
+      </section>
       <section>
         <h2>
           <d-text crop="2px">等比例列布局</d-text>
         </h2>
         <div className="case-container" id="equal-col">
-          <d-view layout-items="col" gap="12px" align-items="justify">
+          <d-view layout-items="vertical" gap="12px" align-items="justify">
             <d-view
               class="bg-color"
               span="1"
-              layout-items="row"
+              layout-items="horizontal"
               place-items="center"
             >
               <d-text>A</d-text>
               <d-text>A</d-text>
             </d-view>
-            <d-view class="bg-color" span="1" place-items="center">
+            <d-view class="bg-color" span="1" place-items="left">
               BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
             </d-view>
             <d-view class="bg-color" span="1" place-items="center">
@@ -36,7 +143,7 @@ function App() {
         <p className="case-desc">
           1.<span className="hljs-string">d-view</span>
           标签默认占满父元素所有空间，当设置
-          <span className="hljs-tag">layout-items="col"</span>
+          <span className="hljs-tag">layout-items="vertical"</span>
           时，会让子元素都在一行内布局，从而形成列布局，同时会重置
           <span className="hljs-string">d-view</span>的宽高为内容宽高。
         </p>
@@ -57,11 +164,11 @@ function App() {
           <d-text crop="2px">不同比例列布局</d-text>
         </h2>
         <div className="case-container" id="unequal-col">
-          <d-view layout-items="col" gap="12px" align-items="justify">
+          <d-view layout-items="vertical" gap="12px" align-items="justify">
             <d-view
               class="bg-color"
               span="1"
-              layout-items="row"
+              layout-items="horizontal"
               place-items="center"
             >
               <d-text>AAAA</d-text>
@@ -83,81 +190,27 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2px">等比例行布局</d-text>
-        </h2>
-        <div className="case-container" id="equal-row">
-          <d-view layout-items="row" gap="12px" align-items="justify">
-            <d-view class="bg-color" span="1" place-items="left">
-              <d-shape
-                type="ellipse"
-                size="16px 32px"
-                stroke="solid 1px #a6e22e"
-                place-items="center"
-              >
-                A
-              </d-shape>
-              <d-shape
-                size="16px"
-                stroke="solid 1px #a6e22e"
-                place-items="center"
-              >
-                A
-              </d-shape>
-            </d-view>
-            <d-view class="bg-color" span="1">
-              BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-            </d-view>
-            <d-view class="bg-color" span="1" place-items="left-bottom">
-              CC
-            </d-view>
-          </d-view>
-        </div>
-        <p className="case-desc">
-          当设置<span className="hljs-string">d-view</span>标签
-          <span className="hljs-tag">layout-items="row"</span>
-          时，会让子元素都在一列内布局，从而形成行布局。
-        </p>
-        <Code targetId="equal-row" />
-      </section>
-      <section>
-        <h2>
-          <d-text crop="2px">不同比例行布局</d-text>
-        </h2>
-        <div className="case-container" id="unequal-row">
-          <d-view layout-items="row" gap="12px" align-items="justify">
-            <d-view class="bg-color" span="2" place-items="center">
-              <d-view place-items="center">
-                <d-text>A</d-text>
-                <d-text>A</d-text>
-              </d-view>
-            </d-view>
-            <d-view class="bg-color" span="1" place-items="center">
-              BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-              BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-              BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-            </d-view>
-            <d-view class="bg-color" span="2" place-items="center">
-              CC
-            </d-view>
-          </d-view>
-        </div>
-        <Code targetId="unequal-row" />
-      </section>
-      <section>
-        <h2>
           <d-text crop="2px">水平三明治布局</d-text>
         </h2>
-        <div className="case-container" id="hsandwich">
-          <d-view layout-items="col" gap="12px" align-items="justify">
-            <d-view class="bg-color" place-items="center">
-              AAA
+        <div className="border bg-zinc-800 p-4" id="hsandwich">
+          <d-view layout-items="vertical" gap="12px" align-items="justify">
+            <d-view>
+              <img
+                className="rounded-full object-cover h-12 w-12"
+                src={avatarSrc}
+                alt="Sarah Dayan"
+              />
             </d-view>
-            <d-view class="bg-color" span="stretch" place-items="center">
-              B
+            <d-view span="stretch" place-items="left">
+              <d-view class="font-medium text-lg">Sarah Dayan</d-view>
+              <d-view class="text-sm">Staff Engineer, Algolia</d-view>
+              <d-view class="text-xs">
+                Tailwind CSS is the only framework that I've seen scale on large
+                teams. It’s easy to customize, adapts to any design, and the
+                build size is tiny.
+              </d-view>
             </d-view>
-            <d-view class="bg-color" place-items="center">
-              C
-            </d-view>
+            <d-view place-items="center">✅</d-view>
           </d-view>
         </div>
         <Code targetId="hsandwich" />
@@ -167,7 +220,7 @@ function App() {
           <d-text crop="2px">垂直三明治布局</d-text>
         </h2>
         <div className="case-container" id="vsandwich">
-          <d-view layout-items="row" gap="12px" align-items="justify">
+          <d-view gap="12px" align-items="justify">
             <d-view class="bg-color" place-items="center">
               A
             </d-view>
@@ -186,14 +239,14 @@ function App() {
           <d-text crop="2px">圣杯布局</d-text>
         </h2>
         <div className="case-container" id="holy-grail">
-          <d-view layout-items="row" gap="10px" align-items="justify">
+          <d-view layout-items="horizontal" gap="10px" align-items="justify">
             <d-view class="bg-color" place-items="center">
               Header
             </d-view>
             <d-view
               span="stretch"
               gap="10px"
-              layout-items="col"
+              layout-items="vertical"
               align-items="justify"
             >
               <d-view class="bg-color" place-items="center">
@@ -218,10 +271,15 @@ function App() {
           <d-text crop="2px">列布局使用 place-items 设置子元素位置</d-text>
         </h2>
         <div className="case-container row-col-align-case" id="row-place-items">
-          <d-view layout-items="col" gap="12px" align-items="justify">
-            <d-view layout-items="row" align-items="justify" span="1" gap="8px">
+          <d-view layout-items="vertical" gap="12px" align-items="justify">
+            <d-view
+              layout-items="horizontal"
+              align-items="justify"
+              span="1"
+              gap="8px"
+            >
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 span="1"
                 class="bg-color"
                 place-items="left-top"
@@ -232,7 +290,7 @@ function App() {
                 </d-shape>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 span="1"
                 class="bg-color"
                 place-items="left"
@@ -243,7 +301,7 @@ function App() {
                 </d-shape>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 span="1"
                 class="bg-color"
                 place-items="left-bottom"
@@ -254,9 +312,14 @@ function App() {
                 </d-shape>
               </d-view>
             </d-view>
-            <d-view layout-items="row" align-items="justify" span="1" gap="8px">
+            <d-view
+              layout-items="horizontal"
+              align-items="justify"
+              span="1"
+              gap="8px"
+            >
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 span="1"
                 class="bg-color"
                 place-items="top"
@@ -267,7 +330,7 @@ function App() {
                 </d-shape>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 span="1"
                 class="bg-color"
                 place-items="center"
@@ -278,7 +341,7 @@ function App() {
                 </d-shape>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 span="1"
                 class="bg-color"
                 place-items="bottom"
@@ -289,9 +352,14 @@ function App() {
                 </d-shape>
               </d-view>
             </d-view>
-            <d-view layout-items="row" align-items="justify" span="1" gap="8px">
+            <d-view
+              layout-items="horizontal"
+              align-items="justify"
+              span="1"
+              gap="8px"
+            >
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 span="1"
                 class="bg-color"
                 place-items="right-top"
@@ -302,7 +370,7 @@ function App() {
                 </d-shape>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 span="1"
                 class="bg-color"
                 place-items="right"
@@ -313,7 +381,7 @@ function App() {
                 </d-shape>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 span="1"
                 class="bg-color"
                 place-items="right-bottom"
@@ -337,10 +405,15 @@ function App() {
           id="col-place-items"
           style={{ height: '300px' }}
         >
-          <d-view layout-items="row" gap="12px" align-items="justify">
-            <d-view layout-items="col" span="1" gap="8px" align-items="justify">
+          <d-view layout-items="horizontal" gap="12px" align-items="justify">
+            <d-view
+              layout-items="vertical"
+              span="1"
+              gap="8px"
+              align-items="justify"
+            >
               <d-view
-                layout-items="row"
+                layout-items="horizontal"
                 span="1"
                 class="bg-color"
                 place-items="left-top"
@@ -364,7 +437,7 @@ function App() {
                 </d-shape>
               </d-view>
               <d-view
-                layout-items="row"
+                layout-items="horizontal"
                 span="1"
                 class="bg-color"
                 place-items="top"
@@ -388,7 +461,7 @@ function App() {
                 </d-shape>
               </d-view>
               <d-view
-                layout-items="row"
+                layout-items="horizontal"
                 span="1"
                 class="bg-color"
                 place-items="right-top"
@@ -412,9 +485,14 @@ function App() {
                 </d-shape>
               </d-view>
             </d-view>
-            <d-view layout-items="col" span="1" gap="8px" align-items="justify">
+            <d-view
+              layout-items="vertical"
+              span="1"
+              gap="8px"
+              align-items="justify"
+            >
               <d-view
-                layout-items="row"
+                layout-items="horizontal"
                 span="1"
                 class="bg-color"
                 place-items="left"
@@ -438,7 +516,7 @@ function App() {
                 </d-shape>
               </d-view>
               <d-view
-                layout-items="row"
+                layout-items="horizontal"
                 span="1"
                 class="bg-color"
                 place-items="center"
@@ -462,7 +540,7 @@ function App() {
                 </d-shape>
               </d-view>
               <d-view
-                layout-items="row"
+                layout-items="horizontal"
                 span="1"
                 class="bg-color"
                 place-items="right"
@@ -486,9 +564,14 @@ function App() {
                 </d-shape>
               </d-view>
             </d-view>
-            <d-view layout-items="col" span="1" gap="8px" align-items="justify">
+            <d-view
+              layout-items="vertical"
+              span="1"
+              gap="8px"
+              align-items="justify"
+            >
               <d-view
-                layout-items="row"
+                layout-items="horizontal"
                 span="1"
                 class="bg-color"
                 place-items="left-bottom"
@@ -512,7 +595,7 @@ function App() {
                 </d-shape>
               </d-view>
               <d-view
-                layout-items="row"
+                layout-items="horizontal"
                 span="1"
                 class="bg-color"
                 place-items="bottom"
@@ -536,7 +619,7 @@ function App() {
                 </d-shape>
               </d-view>
               <d-view
-                layout-items="row"
+                layout-items="horizontal"
                 span="1"
                 class="bg-color"
                 place-items="right-bottom"
@@ -569,10 +652,15 @@ function App() {
           <d-text crop="2px">列布局使用 align-items 设置子元素对齐</d-text>
         </h2>
         <div className="case-container row-col-align-case" id="align-items-row">
-          <d-view layout-items="row" align-items="justify" gap="12px">
-            <d-view layout-items="col" align-items="justify" span="1" gap="8px">
+          <d-view layout-items="horizontal" align-items="justify" gap="12px">
+            <d-view
+              layout-items="vertical"
+              align-items="justify"
+              span="1"
+              gap="8px"
+            >
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 span="1"
                 align-items="justify"
                 gap="4px"
@@ -580,7 +668,7 @@ function App() {
                 <d-view
                   place-items="left-top"
                   align-items="start"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -596,7 +684,7 @@ function App() {
                 <d-view
                   place-items="left-top"
                   align-items="center"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -612,7 +700,7 @@ function App() {
                 <d-view
                   place-items="left-top"
                   align-items="end"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -627,7 +715,7 @@ function App() {
                 </d-view>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 align-items="justify"
                 span="1"
                 gap="4px"
@@ -635,7 +723,7 @@ function App() {
                 <d-view
                   place-items="top"
                   align-items="start"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -651,7 +739,7 @@ function App() {
                 <d-view
                   place-items="top"
                   align-items="center"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -667,7 +755,7 @@ function App() {
                 <d-view
                   place-items="top"
                   align-items="end"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -682,7 +770,7 @@ function App() {
                 </d-view>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 align-items="justify"
                 span="1"
                 gap="4px"
@@ -690,7 +778,7 @@ function App() {
                 <d-view
                   place-items="right-top"
                   align-items="start"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -706,7 +794,7 @@ function App() {
                 <d-view
                   place-items="right-top"
                   align-items="center"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -722,7 +810,7 @@ function App() {
                 <d-view
                   place-items="right-top"
                   align-items="end"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -737,9 +825,14 @@ function App() {
                 </d-view>
               </d-view>
             </d-view>
-            <d-view layout-items="col" align-items="justify" span="1" gap="8px">
+            <d-view
+              layout-items="vertical"
+              align-items="justify"
+              span="1"
+              gap="8px"
+            >
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 align-items="justify"
                 span="1"
                 gap="4px"
@@ -747,7 +840,7 @@ function App() {
                 <d-view
                   place-items="left"
                   align-items="start"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -763,7 +856,7 @@ function App() {
                 <d-view
                   place-items="left"
                   align-items="center"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -779,7 +872,7 @@ function App() {
                 <d-view
                   place-items="left"
                   align-items="end"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -794,7 +887,7 @@ function App() {
                 </d-view>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 span="1"
                 align-items="justify"
                 gap="4px"
@@ -802,7 +895,7 @@ function App() {
                 <d-view
                   place-items="center"
                   align-items="start"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -818,7 +911,7 @@ function App() {
                 <d-view
                   place-items="center"
                   align-items="center"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -834,7 +927,7 @@ function App() {
                 <d-view
                   place-items="center"
                   align-items="end"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -849,7 +942,7 @@ function App() {
                 </d-view>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 span="1"
                 align-items="justify"
                 gap="4px"
@@ -857,7 +950,7 @@ function App() {
                 <d-view
                   place-items="right"
                   align-items="start"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -873,7 +966,7 @@ function App() {
                 <d-view
                   place-items="right"
                   align-items="center"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -889,7 +982,7 @@ function App() {
                 <d-view
                   place-items="right"
                   align-items="end"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -904,15 +997,20 @@ function App() {
                 </d-view>
               </d-view>
             </d-view>
-            <d-view layout-items="col" align-items="justify" span="1" gap="8px">
+            <d-view
+              layout-items="vertical"
+              align-items="justify"
+              span="1"
+              gap="8px"
+            >
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 align-items="justify"
                 span="1"
                 gap="4px"
               >
                 <d-view
-                  layout-items="col"
+                  layout-items="vertical"
                   place-items="left-bottom"
                   align-items="start"
                   span="1"
@@ -930,7 +1028,7 @@ function App() {
                 <d-view
                   place-items="left-bottom"
                   align-items="center"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -944,7 +1042,7 @@ function App() {
                   ></d-shape>
                 </d-view>
                 <d-view
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   place-items="left-bottom"
                   align-items="end"
@@ -961,13 +1059,13 @@ function App() {
                 </d-view>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 align-items="justify"
                 span="1"
                 gap="4px"
               >
                 <d-view
-                  layout-items="col"
+                  layout-items="vertical"
                   place-items="bottom"
                   align-items="start"
                   span="1"
@@ -985,7 +1083,7 @@ function App() {
                 <d-view
                   place-items="bottom"
                   align-items="center"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -999,7 +1097,7 @@ function App() {
                   ></d-shape>
                 </d-view>
                 <d-view
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   place-items="bottom"
                   align-items="end"
@@ -1016,13 +1114,13 @@ function App() {
                 </d-view>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 align-items="justify"
                 span="1"
                 gap="4px"
               >
                 <d-view
-                  layout-items="col"
+                  layout-items="vertical"
                   place-items="right-bottom"
                   align-items="start"
                   span="1"
@@ -1040,7 +1138,7 @@ function App() {
                 <d-view
                   place-items="right-bottom"
                   align-items="center"
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   class="bg-color"
                 >
@@ -1054,7 +1152,7 @@ function App() {
                   ></d-shape>
                 </d-view>
                 <d-view
-                  layout-items="col"
+                  layout-items="vertical"
                   span="1"
                   place-items="right-bottom"
                   align-items="end"
@@ -1080,10 +1178,15 @@ function App() {
           <d-text crop="2px">行布局使用 align-items 设置子元素对齐</d-text>
         </h2>
         <div className="case-container row-col-align-case" id="align-items-col">
-          <d-view layout-items="row" align-items="justify" gap="12px">
-            <d-view layout-items="col" align-items="justify" span="1" gap="8px">
+          <d-view layout-items="horizontal" align-items="justify" gap="12px">
+            <d-view
+              layout-items="vertical"
+              align-items="justify"
+              span="1"
+              gap="8px"
+            >
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 span="1"
                 align-items="justify"
                 gap="4px"
@@ -1091,7 +1194,7 @@ function App() {
                 <d-view
                   place-items="left-top"
                   align-items="start"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1104,7 +1207,7 @@ function App() {
                 <d-view
                   place-items="left-top"
                   align-items="center"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1117,7 +1220,7 @@ function App() {
                 <d-view
                   place-items="left-top"
                   align-items="end"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1129,7 +1232,7 @@ function App() {
                 </d-view>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 align-items="justify"
                 span="1"
                 gap="4px"
@@ -1137,7 +1240,7 @@ function App() {
                 <d-view
                   place-items="top"
                   align-items="start"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1150,7 +1253,7 @@ function App() {
                 <d-view
                   place-items="top"
                   align-items="center"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1163,7 +1266,7 @@ function App() {
                 <d-view
                   place-items="top"
                   align-items="end"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1175,7 +1278,7 @@ function App() {
                 </d-view>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 align-items="justify"
                 span="1"
                 gap="4px"
@@ -1183,7 +1286,7 @@ function App() {
                 <d-view
                   place-items="right-top"
                   align-items="start"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1196,7 +1299,7 @@ function App() {
                 <d-view
                   place-items="right-top"
                   align-items="center"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1209,7 +1312,7 @@ function App() {
                 <d-view
                   place-items="right-top"
                   align-items="end"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1221,9 +1324,14 @@ function App() {
                 </d-view>
               </d-view>
             </d-view>
-            <d-view layout-items="col" align-items="justify" span="1" gap="8px">
+            <d-view
+              layout-items="vertical"
+              align-items="justify"
+              span="1"
+              gap="8px"
+            >
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 align-items="justify"
                 span="1"
                 gap="4px"
@@ -1231,7 +1339,7 @@ function App() {
                 <d-view
                   place-items="left"
                   align-items="start"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1244,7 +1352,7 @@ function App() {
                 <d-view
                   place-items="left"
                   align-items="center"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1257,7 +1365,7 @@ function App() {
                 <d-view
                   place-items="left"
                   align-items="end"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1269,7 +1377,7 @@ function App() {
                 </d-view>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 span="1"
                 align-items="justify"
                 gap="4px"
@@ -1277,7 +1385,7 @@ function App() {
                 <d-view
                   place-items="center"
                   align-items="start"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1290,7 +1398,7 @@ function App() {
                 <d-view
                   place-items="center"
                   align-items="center"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1303,7 +1411,7 @@ function App() {
                 <d-view
                   place-items="center"
                   align-items="end"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1315,7 +1423,7 @@ function App() {
                 </d-view>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 span="1"
                 align-items="justify"
                 gap="4px"
@@ -1323,7 +1431,7 @@ function App() {
                 <d-view
                   place-items="right"
                   align-items="start"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1336,7 +1444,7 @@ function App() {
                 <d-view
                   place-items="right"
                   align-items="center"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1349,7 +1457,7 @@ function App() {
                 <d-view
                   place-items="right"
                   align-items="end"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1361,15 +1469,20 @@ function App() {
                 </d-view>
               </d-view>
             </d-view>
-            <d-view layout-items="col" align-items="justify" span="1" gap="8px">
+            <d-view
+              layout-items="vertical"
+              align-items="justify"
+              span="1"
+              gap="8px"
+            >
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 align-items="justify"
                 span="1"
                 gap="4px"
               >
                 <d-view
-                  layout-items="row"
+                  layout-items="horizontal"
                   place-items="left-bottom"
                   align-items="start"
                   span="1"
@@ -1384,7 +1497,7 @@ function App() {
                 <d-view
                   place-items="left-bottom"
                   align-items="center"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1395,7 +1508,7 @@ function App() {
                   ></d-shape>
                 </d-view>
                 <d-view
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   place-items="left-bottom"
                   align-items="end"
@@ -1409,13 +1522,13 @@ function App() {
                 </d-view>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 align-items="justify"
                 span="1"
                 gap="4px"
               >
                 <d-view
-                  layout-items="row"
+                  layout-items="horizontal"
                   place-items="bottom"
                   align-items="start"
                   span="1"
@@ -1430,7 +1543,7 @@ function App() {
                 <d-view
                   place-items="bottom"
                   align-items="center"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1441,7 +1554,7 @@ function App() {
                   ></d-shape>
                 </d-view>
                 <d-view
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   place-items="bottom"
                   align-items="end"
@@ -1455,13 +1568,13 @@ function App() {
                 </d-view>
               </d-view>
               <d-view
-                layout-items="col"
+                layout-items="vertical"
                 align-items="justify"
                 span="1"
                 gap="4px"
               >
                 <d-view
-                  layout-items="row"
+                  layout-items="horizontal"
                   place-items="right-bottom"
                   align-items="start"
                   span="1"
@@ -1476,7 +1589,7 @@ function App() {
                 <d-view
                   place-items="right-bottom"
                   align-items="center"
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   class="bg-color"
                 >
@@ -1487,7 +1600,7 @@ function App() {
                   ></d-shape>
                 </d-view>
                 <d-view
-                  layout-items="row"
+                  layout-items="horizontal"
                   span="1"
                   place-items="right-bottom"
                   align-items="end"
@@ -1516,59 +1629,65 @@ function App() {
         >
           <d-view style={{ background: '#565656' }}>
             <d-float class="float-square" position="top"></d-float>
-            <d-float class="float-square" position="top-outside"></d-float>
+            {/* <d-float class="float-square" position="top-outside"></d-float> */}
             <d-float class="float-square" position="right-top"></d-float>
-            <d-float
-              class="float-square"
-              position="right-top-outside"
-            ></d-float>
-            <d-float
-              class="float-square"
-              position="right-top-corner-outside"
-            ></d-float>
-            <d-float
-              class="float-square"
-              position="top-right-outside"
-            ></d-float>
+            {/* <d-float
+                class="float-square"
+                position="right-top-outside"
+              ></d-float>
+              <d-float
+                class="float-square"
+                position="right-top-corner-outside"
+              ></d-float>
+              <d-float
+                class="float-square"
+                position="top-right-outside"
+              ></d-float> */}
             <d-float class="float-square" position="right"></d-float>
-            <d-float class="float-square" position="right-outside"></d-float>
+            {/* <d-float class="float-square" position="right-outside"></d-float> */}
             <d-float class="float-square" position="right-bottom"></d-float>
-            <d-float
-              class="float-square"
-              position="bottom-right-outside"
-            ></d-float>
-            <d-float
-              class="float-square"
-              position="right-bottom-outside"
-            ></d-float>
-            <d-float
-              class="float-square"
-              position="right-bottom-corner-outside"
-            ></d-float>
+            {/* <d-float
+                class="float-square"
+                position="bottom-right-outside"
+              ></d-float>
+              <d-float
+                class="float-square"
+                position="right-bottom-outside"
+              ></d-float>
+              <d-float
+                class="float-square"
+                position="right-bottom-corner-outside"
+              ></d-float> */}
             <d-float class="float-square" position="bottom"></d-float>
-            <d-float class="float-square" position="bottom-outside"></d-float>
+            {/* <d-float class="float-square" position="bottom-outside"></d-float> */}
             <d-float class="float-square" position="left-bottom"></d-float>
-            <d-float
-              class="float-square"
-              position="left-bottom-outside"
-            ></d-float>
-            <d-float
-              class="float-square"
-              position="left-bottom-corner-outside"
-            ></d-float>
-            <d-float
-              class="float-square"
-              position="bottom-left-outside"
-            ></d-float>
+            {/* <d-float
+                class="float-square"
+                position="left-bottom-outside"
+              ></d-float>
+              <d-float
+                class="float-square"
+                position="left-bottom-corner-outside"
+              ></d-float>
+              <d-float
+                class="float-square"
+                position="bottom-left-outside"
+              ></d-float> */}
             <d-float class="float-square" position="left"></d-float>
-            <d-float class="float-square" position="left-outside"></d-float>
+            {/* <d-float class="float-square" position="left-outside"></d-float> */}
             <d-float class="float-square" position="left-top"></d-float>
-            <d-float class="float-square" position="top-left-outside"></d-float>
-            <d-float class="float-square" position="left-top-outside"></d-float>
-            <d-float
-              class="float-square"
-              position="left-top-corner-outside"
-            ></d-float>
+            {/* <d-float
+                class="float-square"
+                position="top-left-outside"
+              ></d-float>
+              <d-float
+                class="float-square"
+                position="left-top-outside"
+              ></d-float>
+              <d-float
+                class="float-square"
+                position="left-top-corner-outside"
+              ></d-float> */}
             <d-float class="float-square" position="center"></d-float>
           </d-view>
         </div>
@@ -1576,7 +1695,7 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2px">内连元素布局</d-text>
+          <d-text crop="2px">内联元素布局</d-text>
         </h2>
         <div className="case-container" id="inline">
           <d-view layout-items="inline" gap="12px 16px">
@@ -1585,7 +1704,7 @@ function App() {
                 <d-view
                   key={idx}
                   class="inline-elem1"
-                  layout-items="col"
+                  layout-items="vertical"
                   gap="8px"
                   align-items="center"
                 >
@@ -1615,7 +1734,7 @@ function App() {
           <d-text crop="2px">自动修正文本 line height 导致的边距问题</d-text>
         </h2>
         <div id="text">
-          <d-view layout-items="inline" gap="12px">
+          <d-view gap="12px">
             <d-text crop="1px">
               DXML 设计了更适合设计稿直接转布局代码的一套标签
             </d-text>

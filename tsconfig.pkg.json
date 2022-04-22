@@ -5,7 +5,5 @@
     "declaration": true,
     "outDir": "dist"
   },
-  "include": [
-    "src/dxml"
-  ]
+  "include": ["src/gdml"]
 }

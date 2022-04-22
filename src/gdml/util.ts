@@ -45,7 +45,9 @@ export function insertGapStyle(gap: string) {
   const id = `d-gap-${rowGap}-${colGap || rowGap}`;
   insertStyleElement(
     id,
-    `[gap="${gap}"] > * { margin-right: ${rowGap}; margin-bottom: ${
+    `[gap="${gap}"] > * { margin-bottom: ${rowGap}; }
+    [layout-items="vertical"][gap="${gap}"] > * { margin-right: ${rowGap}; }
+    [layout-items="inline"][gap="${gap}"] > * { margin-right: ${rowGap}; margin-bottom: ${
       colGap || rowGap
     }; }`
   );
