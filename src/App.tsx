@@ -7,15 +7,15 @@ function App() {
   return (
     <div style={{ padding: 20 }}>
       <section className="text-center">
-        <h1>Auto-Layout Markup Language (AML) </h1>
-        <p>实现 Auto Layout 的布局标记语言</p>
+        <h1>Graphic Design Markup Language (GDML) </h1>
+        <p>平面设计标记语言</p>
       </section>
       <section>
         <h2>
-          <d-text crop="2px">等比例行布局</d-text>
+          <d-text crop="2">等比例行布局</d-text>
         </h2>
         <div className="bg-zinc-800 p-4 h-64" id="equal-row">
-          <d-view gap="12px">
+          <d-view gap="12">
             <img
               className="rounded object-cover w-12 h-12"
               src={avatarSrc}
@@ -37,7 +37,7 @@ function App() {
         </div>
         <br />
         <div className="case-container">
-          <d-view gap="12px" align-items="justify">
+          <d-view gap="12" align-items="justify">
             <d-view
               class="bg-color"
               layout-items="vertical"
@@ -46,17 +46,13 @@ function App() {
             >
               <d-shape
                 type="ellipse"
-                size="16px 32px"
-                stroke="solid 1px #a6e22e"
+                size="16 32"
+                stroke="solid 1 #a6e22e"
                 place-items="center"
               >
                 A
               </d-shape>
-              <d-shape
-                size="16px"
-                stroke="solid 1px #a6e22e"
-                place-items="center"
-              >
+              <d-shape size="16" stroke="solid 1 #a6e22e" place-items="center">
                 A
               </d-shape>
             </d-view>
@@ -90,10 +86,10 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2px">不同比例行布局</d-text>
+          <d-text crop="2">不同比例行布局</d-text>
         </h2>
         <div className="case-container" id="unequal-row">
-          <d-view layout-items="horizontal" gap="12px" align-items="justify">
+          <d-view layout-items="horizontal" gap="12" align-items="justify">
             <d-view class="bg-color" span="2" place-items="center">
               <d-view place-items="center">
                 <d-text>A</d-text>
@@ -119,10 +115,10 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2px">等比例列布局</d-text>
+          <d-text crop="2">等比例列布局</d-text>
         </h2>
         <div className="case-container" id="equal-col">
-          <d-view layout-items="vertical" gap="12px" align-items="justify">
+          <d-view layout-items="vertical" gap="12" align-items="justify">
             <d-view
               class="bg-color"
               span="1"
@@ -161,10 +157,10 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2px">不同比例列布局</d-text>
+          <d-text crop="2">不同比例列布局</d-text>
         </h2>
         <div className="case-container" id="unequal-col">
-          <d-view layout-items="vertical" gap="12px" align-items="justify">
+          <d-view layout-items="vertical" gap="12" align-items="justify">
             <d-view
               class="bg-color"
               span="1"
@@ -190,10 +186,10 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2px">水平三明治布局</d-text>
+          <d-text crop="2">水平三明治布局</d-text>
         </h2>
         <div className="border bg-zinc-800 p-4" id="hsandwich">
-          <d-view layout-items="vertical" gap="12px" align-items="justify">
+          <d-view layout-items="vertical" gap="12" align-items="justify">
             <d-view>
               <img
                 className="rounded-full object-cover h-12 w-12"
@@ -217,10 +213,10 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2px">垂直三明治布局</d-text>
+          <d-text crop="2">垂直三明治布局</d-text>
         </h2>
         <div className="case-container" id="vsandwich">
-          <d-view gap="12px" align-items="justify">
+          <d-view gap="12" align-items="justify">
             <d-view class="bg-color" place-items="center">
               A
             </d-view>
@@ -236,16 +232,16 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2px">圣杯布局</d-text>
+          <d-text crop="2">圣杯布局</d-text>
         </h2>
         <div className="case-container" id="holy-grail">
-          <d-view layout-items="horizontal" gap="10px" align-items="justify">
+          <d-view layout-items="horizontal" gap="10" align-items="justify">
             <d-view class="bg-color" place-items="center">
               Header
             </d-view>
             <d-view
               span="stretch"
-              gap="10px"
+              gap="10"
               layout-items="vertical"
               align-items="justify"
             >
@@ -268,15 +264,15 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2px">列布局使用 place-items 设置子元素位置</d-text>
+          <d-text crop="2">列布局使用 place-items 设置子元素位置</d-text>
         </h2>
         <div className="case-container row-col-align-case" id="row-place-items">
-          <d-view layout-items="vertical" gap="12px" align-items="justify">
+          <d-view layout-items="vertical" gap="12" align-items="justify">
             <d-view
               layout-items="horizontal"
               align-items="justify"
               span="1"
-              gap="8px"
+              gap="8"
             >
               <d-view
                 layout-items="vertical"
@@ -284,8 +280,8 @@ function App() {
                 class="bg-color"
                 place-items="left-top"
               >
-                <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
-                <d-shape stroke="solid 1px #a6e22e" place-items="center">
+                <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
+                <d-shape stroke="solid 1 #a6e22e" place-items="center">
                   left-top
                 </d-shape>
               </d-view>
@@ -295,8 +291,8 @@ function App() {
                 class="bg-color"
                 place-items="left"
               >
-                <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
-                <d-shape stroke="solid 1px #a6e22e" place-items="center">
+                <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
+                <d-shape stroke="solid 1 #a6e22e" place-items="center">
                   left
                 </d-shape>
               </d-view>
@@ -306,8 +302,8 @@ function App() {
                 class="bg-color"
                 place-items="left-bottom"
               >
-                <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
-                <d-shape stroke="solid 1px #a6e22e" place-items="center">
+                <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
+                <d-shape stroke="solid 1 #a6e22e" place-items="center">
                   left-bottom
                 </d-shape>
               </d-view>
@@ -316,7 +312,7 @@ function App() {
               layout-items="horizontal"
               align-items="justify"
               span="1"
-              gap="8px"
+              gap="8"
             >
               <d-view
                 layout-items="vertical"
@@ -324,8 +320,8 @@ function App() {
                 class="bg-color"
                 place-items="top"
               >
-                <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
-                <d-shape stroke="solid 1px #a6e22e" place-items="center">
+                <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
+                <d-shape stroke="solid 1 #a6e22e" place-items="center">
                   top
                 </d-shape>
               </d-view>
@@ -335,8 +331,8 @@ function App() {
                 class="bg-color"
                 place-items="center"
               >
-                <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
-                <d-shape stroke="solid 1px #a6e22e" place-items="center">
+                <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
+                <d-shape stroke="solid 1 #a6e22e" place-items="center">
                   center
                 </d-shape>
               </d-view>
@@ -346,8 +342,8 @@ function App() {
                 class="bg-color"
                 place-items="bottom"
               >
-                <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
-                <d-shape stroke="solid 1px #a6e22e" place-items="center">
+                <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
+                <d-shape stroke="solid 1 #a6e22e" place-items="center">
                   bottom
                 </d-shape>
               </d-view>
@@ -356,7 +352,7 @@ function App() {
               layout-items="horizontal"
               align-items="justify"
               span="1"
-              gap="8px"
+              gap="8"
             >
               <d-view
                 layout-items="vertical"
@@ -364,8 +360,8 @@ function App() {
                 class="bg-color"
                 place-items="right-top"
               >
-                <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
-                <d-shape stroke="solid 1px #a6e22e" place-items="center">
+                <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
+                <d-shape stroke="solid 1 #a6e22e" place-items="center">
                   right-top
                 </d-shape>
               </d-view>
@@ -375,8 +371,8 @@ function App() {
                 class="bg-color"
                 place-items="right"
               >
-                <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
-                <d-shape stroke="solid 1px #a6e22e" place-items="center">
+                <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
+                <d-shape stroke="solid 1 #a6e22e" place-items="center">
                   right
                 </d-shape>
               </d-view>
@@ -386,8 +382,8 @@ function App() {
                 class="bg-color"
                 place-items="right-bottom"
               >
-                <d-shape stroke="solid 1px #ffe22e" size="12px 30px"></d-shape>
-                <d-shape stroke="solid 1px #a6e22e" place-items="center">
+                <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
+                <d-shape stroke="solid 1 #a6e22e" place-items="center">
                   right-bottom
                 </d-shape>
               </d-view>
@@ -398,18 +394,18 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2px">行布局使用 place-items 设置子元素位置</d-text>
+          <d-text crop="2">行布局使用 place-items 设置子元素位置</d-text>
         </h2>
         <div
           className="case-container row-col-align-case"
           id="col-place-items"
           style={{ height: '300px' }}
         >
-          <d-view layout-items="horizontal" gap="12px" align-items="justify">
+          <d-view layout-items="horizontal" gap="12" align-items="justify">
             <d-view
               layout-items="vertical"
               span="1"
-              gap="8px"
+              gap="8"
               align-items="justify"
             >
               <d-view
@@ -420,18 +416,18 @@ function App() {
               >
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
-                  size="24px"
+                  stroke="solid 1 #a6e22e"
+                  size="24"
                   fill="#a6e22e30"
                   place-items="center"
                 >
                   A
                 </d-shape>
                 <d-shape
+                  class="p-2 px-0.5 py-1"
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
+                  stroke="solid 1 #a6e22e"
                   place-items="center"
-                  style={{ padding: '2px 4px' }}
                 >
                   left-top
                 </d-shape>
@@ -444,8 +440,8 @@ function App() {
               >
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
-                  size="24px"
+                  stroke="solid 1 #a6e22e"
+                  size="24"
                   fill="#a6e22e30"
                   place-items="center"
                 >
@@ -453,7 +449,7 @@ function App() {
                 </d-shape>
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
+                  stroke="solid 1 #a6e22e"
                   place-items="center"
                   style={{ padding: '2px 4px' }}
                 >
@@ -468,8 +464,8 @@ function App() {
               >
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
-                  size="24px"
+                  stroke="solid 1 #a6e22e"
+                  size="24"
                   fill="#a6e22e30"
                   place-items="center"
                 >
@@ -477,7 +473,7 @@ function App() {
                 </d-shape>
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
+                  stroke="solid 1 #a6e22e"
                   place-items="center"
                   style={{ padding: '2px 4px' }}
                 >
@@ -488,7 +484,7 @@ function App() {
             <d-view
               layout-items="vertical"
               span="1"
-              gap="8px"
+              gap="8"
               align-items="justify"
             >
               <d-view
@@ -499,8 +495,8 @@ function App() {
               >
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
-                  size="24px"
+                  stroke="solid 1 #a6e22e"
+                  size="24"
                   fill="#a6e22e30"
                   place-items="center"
                 >
@@ -508,7 +504,7 @@ function App() {
                 </d-shape>
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
+                  stroke="solid 1 #a6e22e"
                   place-items="center"
                   style={{ padding: '2px 4px' }}
                 >
@@ -523,8 +519,8 @@ function App() {
               >
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
-                  size="24px"
+                  stroke="solid 1 #a6e22e"
+                  size="24"
                   fill="#a6e22e30"
                   place-items="center"
                 >
@@ -532,7 +528,7 @@ function App() {
                 </d-shape>
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
+                  stroke="solid 1 #a6e22e"
                   place-items="center"
                   style={{ padding: '2px 4px' }}
                 >
@@ -547,8 +543,8 @@ function App() {
               >
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
-                  size="24px"
+                  stroke="solid 1 #a6e22e"
+                  size="24"
                   fill="#a6e22e30"
                   place-items="center"
                 >
@@ -556,7 +552,7 @@ function App() {
                 </d-shape>
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
+                  stroke="solid 1 #a6e22e"
                   place-items="center"
                   style={{ padding: '2px 4px' }}
                 >
@@ -567,7 +563,7 @@ function App() {
             <d-view
               layout-items="vertical"
               span="1"
-              gap="8px"
+              gap="8"
               align-items="justify"
             >
               <d-view
@@ -578,8 +574,8 @@ function App() {
               >
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
-                  size="24px"
+                  stroke="solid 1 #a6e22e"
+                  size="24"
                   fill="#a6e22e30"
                   place-items="center"
                 >
@@ -587,7 +583,7 @@ function App() {
                 </d-shape>
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
+                  stroke="solid 1 #a6e22e"
                   place-items="center"
                   style={{ padding: '2px 4px' }}
                 >
@@ -602,8 +598,8 @@ function App() {
               >
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
-                  size="24px"
+                  stroke="solid 1 #a6e22e"
+                  size="24"
                   fill="#a6e22e30"
                   place-items="center"
                 >
@@ -611,7 +607,7 @@ function App() {
                 </d-shape>
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
+                  stroke="solid 1 #a6e22e"
                   place-items="center"
                   style={{ padding: '2px 4px' }}
                 >
@@ -626,8 +622,8 @@ function App() {
               >
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
-                  size="24px"
+                  stroke="solid 1 #a6e22e"
+                  size="24"
                   fill="#a6e22e30"
                   place-items="center"
                 >
@@ -635,7 +631,7 @@ function App() {
                 </d-shape>
                 <d-shape
                   type="ellipse"
-                  stroke="solid 1px #a6e22e"
+                  stroke="solid 1 #a6e22e"
                   place-items="center"
                   style={{ padding: '2px 4px' }}
                 >
@@ -649,21 +645,21 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2px">列布局使用 align-items 设置子元素对齐</d-text>
+          <d-text crop="2">列布局使用 align-items 设置子元素对齐</d-text>
         </h2>
         <div className="case-container row-col-align-case" id="align-items-row">
-          <d-view layout-items="horizontal" align-items="justify" gap="12px">
+          <d-view layout-items="horizontal" align-items="justify" gap="12">
             <d-view
               layout-items="vertical"
               align-items="justify"
               span="1"
-              gap="8px"
+              gap="8"
             >
               <d-view
                 layout-items="vertical"
                 span="1"
                 align-items="justify"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   place-items="left-top"
@@ -672,14 +668,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="left-top"
@@ -688,14 +678,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="left-top"
@@ -704,21 +688,15 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
               <d-view
                 layout-items="vertical"
                 align-items="justify"
                 span="1"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   place-items="top"
@@ -727,14 +705,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="top"
@@ -743,14 +715,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="top"
@@ -759,21 +725,15 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
               <d-view
                 layout-items="vertical"
                 align-items="justify"
                 span="1"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   place-items="right-top"
@@ -782,14 +742,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="right-top"
@@ -798,14 +752,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="right-top"
@@ -814,14 +762,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
             </d-view>
@@ -829,13 +771,13 @@ function App() {
               layout-items="vertical"
               align-items="justify"
               span="1"
-              gap="8px"
+              gap="8"
             >
               <d-view
                 layout-items="vertical"
                 align-items="justify"
                 span="1"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   place-items="left"
@@ -844,14 +786,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="left"
@@ -860,14 +796,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="left"
@@ -876,21 +806,15 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
               <d-view
                 layout-items="vertical"
                 span="1"
                 align-items="justify"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   place-items="center"
@@ -899,14 +823,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="center"
@@ -915,14 +833,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="center"
@@ -931,21 +843,15 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
               <d-view
                 layout-items="vertical"
                 span="1"
                 align-items="justify"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   place-items="right"
@@ -954,14 +860,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="right"
@@ -970,14 +870,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="right"
@@ -986,14 +880,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
             </d-view>
@@ -1001,13 +889,13 @@ function App() {
               layout-items="vertical"
               align-items="justify"
               span="1"
-              gap="8px"
+              gap="8"
             >
               <d-view
                 layout-items="vertical"
                 align-items="justify"
                 span="1"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   layout-items="vertical"
@@ -1016,14 +904,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="left-bottom"
@@ -1032,14 +914,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   layout-items="vertical"
@@ -1048,21 +924,15 @@ function App() {
                   align-items="end"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
               <d-view
                 layout-items="vertical"
                 align-items="justify"
                 span="1"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   layout-items="vertical"
@@ -1071,14 +941,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="bottom"
@@ -1087,14 +951,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   layout-items="vertical"
@@ -1103,21 +961,15 @@ function App() {
                   align-items="end"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
               <d-view
                 layout-items="vertical"
                 align-items="justify"
                 span="1"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   layout-items="vertical"
@@ -1126,14 +978,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="right-bottom"
@@ -1142,14 +988,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   layout-items="vertical"
@@ -1158,14 +998,8 @@ function App() {
                   align-items="end"
                   class="bg-color"
                 >
-                  <d-shape
-                    size="12px 24px"
-                    stroke="solid 1px #a6e22e"
-                  ></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12 24" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
             </d-view>
@@ -1175,21 +1009,21 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2px">行布局使用 align-items 设置子元素对齐</d-text>
+          <d-text crop="2">行布局使用 align-items 设置子元素对齐</d-text>
         </h2>
         <div className="case-container row-col-align-case" id="align-items-col">
-          <d-view layout-items="horizontal" align-items="justify" gap="12px">
+          <d-view layout-items="horizontal" align-items="justify" gap="12">
             <d-view
               layout-items="vertical"
               align-items="justify"
               span="1"
-              gap="8px"
+              gap="8"
             >
               <d-view
                 layout-items="vertical"
                 span="1"
                 align-items="justify"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   place-items="left-top"
@@ -1198,11 +1032,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="left-top"
@@ -1211,11 +1042,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="left-top"
@@ -1224,18 +1052,15 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
               <d-view
                 layout-items="vertical"
                 align-items="justify"
                 span="1"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   place-items="top"
@@ -1244,11 +1069,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="top"
@@ -1257,11 +1079,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="top"
@@ -1270,18 +1089,15 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
               <d-view
                 layout-items="vertical"
                 align-items="justify"
                 span="1"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   place-items="right-top"
@@ -1290,11 +1106,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="right-top"
@@ -1303,11 +1116,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="right-top"
@@ -1316,11 +1126,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
             </d-view>
@@ -1328,13 +1135,13 @@ function App() {
               layout-items="vertical"
               align-items="justify"
               span="1"
-              gap="8px"
+              gap="8"
             >
               <d-view
                 layout-items="vertical"
                 align-items="justify"
                 span="1"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   place-items="left"
@@ -1343,11 +1150,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="left"
@@ -1356,11 +1160,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="left"
@@ -1369,18 +1170,15 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
               <d-view
                 layout-items="vertical"
                 span="1"
                 align-items="justify"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   place-items="center"
@@ -1389,11 +1187,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="center"
@@ -1402,11 +1197,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="center"
@@ -1415,18 +1207,15 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
               <d-view
                 layout-items="vertical"
                 span="1"
                 align-items="justify"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   place-items="right"
@@ -1435,11 +1224,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="right"
@@ -1448,11 +1234,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="right"
@@ -1461,11 +1244,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
             </d-view>
@@ -1473,13 +1253,13 @@ function App() {
               layout-items="vertical"
               align-items="justify"
               span="1"
-              gap="8px"
+              gap="8"
             >
               <d-view
                 layout-items="vertical"
                 align-items="justify"
                 span="1"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   layout-items="horizontal"
@@ -1488,11 +1268,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="left-bottom"
@@ -1501,11 +1278,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   layout-items="horizontal"
@@ -1514,18 +1288,15 @@ function App() {
                   align-items="end"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
               <d-view
                 layout-items="vertical"
                 align-items="justify"
                 span="1"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   layout-items="horizontal"
@@ -1534,11 +1305,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="bottom"
@@ -1547,11 +1315,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   layout-items="horizontal"
@@ -1560,18 +1325,15 @@ function App() {
                   align-items="end"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
               <d-view
                 layout-items="vertical"
                 align-items="justify"
                 span="1"
-                gap="4px"
+                gap="4"
               >
                 <d-view
                   layout-items="horizontal"
@@ -1580,11 +1342,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   place-items="right-bottom"
@@ -1593,11 +1352,8 @@ function App() {
                   span="1"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
                 <d-view
                   layout-items="horizontal"
@@ -1606,11 +1362,8 @@ function App() {
                   align-items="end"
                   class="bg-color"
                 >
-                  <d-shape size="12px" stroke="solid 1px #a6e22e"></d-shape>
-                  <d-shape
-                    size="24px 12px"
-                    stroke="solid 1px #ffe22e"
-                  ></d-shape>
+                  <d-shape size="12" stroke="solid 1 #a6e22e"></d-shape>
+                  <d-shape size="24 12" stroke="solid 1 #ffe22e"></d-shape>
                 </d-view>
               </d-view>
             </d-view>
@@ -1620,7 +1373,7 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2px">浮动元素定位</d-text>
+          <d-text crop="2">浮动元素定位</d-text>
         </h2>
         <div
           className="case-container"
@@ -1695,31 +1448,31 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2px">内联元素布局</d-text>
+          <d-text crop="2">内联元素布局</d-text>
         </h2>
         <div className="case-container" id="inline">
-          <d-view layout-items="inline" gap="12px 16px">
+          <d-view layout-items="inline" gap="12px 16">
             {new Array(20).fill('').map((_, idx) => {
               return (
                 <d-view
                   key={idx}
                   class="inline-elem1"
                   layout-items="vertical"
-                  gap="8px"
+                  gap="8"
                   align-items="center"
                 >
                   <d-shape
                     type="ellipse"
-                    size="24px"
-                    stroke="solid 1px #a6e22e"
+                    size="24"
+                    stroke="solid 1 #a6e22e"
                     place-items="center"
                   >
                     W
                   </d-shape>
                   <d-text>Wenshin</d-text>
                   <d-shape
-                    size="12px"
-                    stroke="solid 1px #a6e22e"
+                    size="12"
+                    stroke="solid 1 #a6e22e"
                     place-items="center"
                   ></d-shape>
                 </d-view>
@@ -1731,14 +1484,14 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2px">自动修正文本 line height 导致的边距问题</d-text>
+          <d-text crop="2">自动修正文本 line height 导致的边距问题</d-text>
         </h2>
         <div id="text">
-          <d-view gap="12px">
-            <d-text crop="1px">
+          <d-view gap="12">
+            <d-text crop="1">
               DXML 设计了更适合设计稿直接转布局代码的一套标签
             </d-text>
-            <d-text crop="1px">
+            <d-text crop="1">
               DXML Design for a better layout markable language from design to
               developer
             </d-text>
@@ -1757,7 +1510,7 @@ function App() {
         </p>
       </section>
       <h1>
-        <d-text crop="2px">标签特性</d-text>
+        <d-text crop="2">标签特性</d-text>
       </h1>
       <div className="table-container">
         <table>
@@ -1873,7 +1626,7 @@ function App() {
         </table>
       </div>
       <h1>
-        <d-text crop="2px">标签属性</d-text>
+        <d-text crop="2">标签属性</d-text>
       </h1>
       <div className="table-container">
         <table>

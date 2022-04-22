@@ -1,6 +1,45 @@
-# AML
+# GDML
 
-AML(Auto-Layout Markup Language) is designed for more effective to change design layout into code, even automatic.
+GDML(Graphic Design Markup Language) is designed for more effective to change graphic design into code, even automatic.
+
+# Plan
+
+1. Step1: Developer is easy to change design to code
+   1. auto layout markup
+2. Step2: Transform new design to code automatically
+3. Step3: Transform design changges to code automatically (hard work)
+
+# Feature
+
+1. 设计角度
+   1. Tokens（颜色、长度）
+   2. Theme Tokens（主题的 Tokens）
+   3. Animation
+   4. 图形元素
+      1. Vector graphics（svg、font）
+      2. bitmap（jpeg、png、gif、webp）
+      3. video
+   5. layout
+      1. auto layout
+         1. stack
+         2. grid
+         3. inline
+         4. text
+      2. absolute layout
+      3. floating layer
+   6. 组件
+2. 客户端开发角度
+   1. 前端
+      1. css + html
+      2. tailwindcss + html：把 css 语法抽象为 class name 缩写
+      3. JSX + css
+      4. Vue + css
+   2. Android
+      1. LinearLayout
+      2. Flexbox
+   3. iOS
+      1. SwiftUI Stack
+      2. Flexbox
 
 # Install For Web
 
@@ -42,8 +81,6 @@ see [docs](https://wenshin.github.io/projects/dxml/)
    2. size unit
 4. UI 组件
 5. 主题
-6. 无障碍
-7. 国际化
 
 # Release Notes
 

@@ -45,11 +45,11 @@ export function insertGapStyle(gap: string) {
   const id = `d-gap-${rowGap}-${colGap || rowGap}`;
   insertStyleElement(
     id,
-    `[gap="${gap}"] > * { margin-bottom: ${rowGap}; }
-    [layout-items="vertical"][gap="${gap}"] > * { margin-right: ${rowGap}; }
-    [layout-items="inline"][gap="${gap}"] > * { margin-right: ${rowGap}; margin-bottom: ${
+    `[gap="${gap}"] > * { margin-bottom: ${rowGap}px; }
+    [layout-items="vertical"][gap="${gap}"] > * { margin-right: ${rowGap}px; }
+    [layout-items="inline"][gap="${gap}"] > * { margin-right: ${rowGap}px; margin-bottom: ${
       colGap || rowGap
-    }; }`
+    }px; }`
   );
 }
 
@@ -57,6 +57,6 @@ export function insertCropStyle(crop: string) {
   const id = `d-text-crop-${crop}`;
   insertStyleElement(
     id,
-    `[crop="${crop}"]::before, [crop="${crop}"]::after { margin-top: -${crop}; }`
+    `[crop="${crop}"]::before, [crop="${crop}"]::after { margin-top: -${crop}px; }`
   );
 }

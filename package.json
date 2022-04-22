@@ -1,5 +1,5 @@
 {
-  "name": "dxml",
+  "name": "gdml",
   "version": "0.1.6",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

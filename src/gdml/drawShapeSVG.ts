@@ -199,7 +199,7 @@ function parseStroke(stroke?: string) {
   };
 }
 
-function createDimensionObj(num: number, unit = '') {
+function createDimensionObj(num: number, unit = 'px') {
   return {
     dprValue: num * window.devicePixelRatio,
     value: num,
