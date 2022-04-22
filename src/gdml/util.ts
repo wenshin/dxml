@@ -46,7 +46,7 @@ export function insertGapStyle(gap: string) {
   insertStyleElement(
     id,
     `[gap="${gap}"] > * { margin-bottom: ${rowGap}px; }
-    [layout-items="vertical"][gap="${gap}"] > * { margin-right: ${rowGap}px; }
+    [layout-items="horizontal"][gap="${gap}"] > * { margin-right: ${rowGap}px; }
     [layout-items="inline"][gap="${gap}"] > * { margin-right: ${rowGap}px; margin-bottom: ${
       colGap || rowGap
     }px; }`

@@ -138,8 +138,13 @@ export function drawRetangle(elem: HTMLElement, shapeAttrs: ShapeAttributes) {
     elem.style.width = size.width.css;
     elem.style.height = size.height.css;
   }
-  elem.style.border = shapeAttrs.stroke || '';
-  elem.style.background = shapeAttrs.fill || '';
+  if (shapeAttrs.stroke) {
+    const stroke = parseStroke(shapeAttrs.stroke);
+    elem.style.border = `${stroke.type} ${stroke.size.css} ${stroke.color}`;
+  }
+  if (shapeAttrs.fill) {
+    elem.style.background = shapeAttrs.fill;
+  }
 }
 
 function getSVGFile(svg: string) {
@@ -195,15 +200,17 @@ function parseStroke(stroke?: string) {
   return {
     size: sizeObj,
     color,
+    type,
     pattern: linePattern,
   };
 }
 
-function createDimensionObj(num: number, unit = 'px') {
+function createDimensionObj(num: number, unit: string) {
+  const newUnit = unit || 'px';
   return {
     dprValue: num * window.devicePixelRatio,
     value: num,
-    unit,
-    css: `${num}px`,
+    unit: newUnit,
+    css: `${num}${newUnit}`,
   };
 }

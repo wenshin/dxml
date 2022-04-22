@@ -39,7 +39,7 @@ interface CommonStyleAttributes {
    * 设备像素 px；物理像素 pt；密度独立像素 dp；
    *
    * 1. style: solid | dash
-   * 2. size: 支持 px 和不带单位，web 平台 px 即 dp，不带单位则严格的 1 设备像素
+   * 2. size: 不带单位，不带单位则默认是 px，同 Android 和 iOS 的 dp 单位
    * 3. color: 颜色
    */
   stroke?: string;

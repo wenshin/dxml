@@ -53,12 +53,12 @@ ${View.tag} > ${View.tag} {
   display: inline-flex;
 }
 
-${Shape.tag}[layout-items="vertical"],
-[size="auto"][layout-items="vertical"] {
-  max-width: 100%;
-}
 ${Shape.tag}[layout-items="horizontal"],
 [size="auto"][layout-items="horizontal"] {
+  max-width: 100%;
+}
+${Shape.tag}[layout-items="vertical"],
+[size="auto"][layout-items="vertical"] {
   max-height: 100%;
 }
 
@@ -89,10 +89,10 @@ ${Layer.tag}[mask="black"] {
 }
 */
 
-[layout-items="vertical"] {
+[layout-items="horizontal"] {
   flex-direction: row;
 }
-[layout-items="vertical"] > [span="stretch"] {
+[layout-items="horizontal"] > [span="stretch"] {
   flex: 1;
 }
 
@@ -101,25 +101,25 @@ ${View.tag} > [span] {
   flex: 1;
 }
 ${View.tag} > [span="stretch"],
-[layout-items="horizontal"] > [span="stretch"] {
+[layout-items="vertical"] > [span="stretch"] {
   flex: 1;
 }
 
 ${View.tag}[align-items="justify"] > ${View.tag},
-[layout-items="horizontal"][align-items="justify"] > ${View.tag} {
+[layout-items="vertical"][align-items="justify"] > ${View.tag} {
   width: 100%;
 }
 
-[layout-items="vertical"][gap] > ${View.tag} {
+[layout-items="horizontal"][gap] > ${View.tag} {
   margin-bottom: 0;
 }
 [gap] > *:last-child,
-[layout-items="vertical"][gap] > ${View.tag}:last-child,
-[layout-items="horizontal"][gap] > ${View.tag}:last-child {
+[layout-items="horizontal"][gap] > ${View.tag}:last-child,
+[layout-items="vertical"][gap] > ${View.tag}:last-child {
   margin-right: 0;
   margin-bottom: 0;
 }
-[layout-items="vertical"][align-items="justify"] > ${View.tag} {
+[layout-items="horizontal"][align-items="justify"] > ${View.tag} {
   width: initial;
   height: 100%;
 }
@@ -139,27 +139,27 @@ ${View.tag}[align-items="justify"] > ${View.tag},
   align-items: flex-end;
   justify-content: flex-end;
 }
-[layout-items="vertical"][place-items="top"] {
+[layout-items="horizontal"][place-items="top"] {
   align-items: flex-start;
   justify-content: center;
 }
-[layout-items="vertical"][place-items="bottom"] {
+[layout-items="horizontal"][place-items="bottom"] {
   align-items: flex-end;
   justify-content: center;
 }
-[layout-items="vertical"][place-items="left"] {
+[layout-items="horizontal"][place-items="left"] {
   align-items: center;
   justify-content: flex-start;
 }
-[layout-items="vertical"][place-items="left-bottom"] {
+[layout-items="horizontal"][place-items="left-bottom"] {
   align-items: flex-end;
   justify-content: flex-start;
 }
-[layout-items="vertical"][place-items="right"] {
+[layout-items="horizontal"][place-items="right"] {
   align-items: center;
   justify-content: flex-end;
 }
-[layout-items="vertical"][place-items="right-top"] {
+[layout-items="horizontal"][place-items="right-top"] {
   align-items: flex-start;
   justify-content: flex-end;
 }
