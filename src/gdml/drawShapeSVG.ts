@@ -1,4 +1,5 @@
 import { ShapeAttributes } from '.';
+import { insertSizeStyle } from './util';
 
 interface CSSDimensionAttr {
   dprValue: number;
@@ -133,11 +134,6 @@ function drawEllipse(svg: SVGElement, attrs: ParsedAttrs): string {
 }
 
 export function drawRetangle(elem: HTMLElement, shapeAttrs: ShapeAttributes) {
-  if (shapeAttrs.size) {
-    const size = parseSize(shapeAttrs.size);
-    elem.style.width = size.width.css;
-    elem.style.height = size.height.css;
-  }
   if (shapeAttrs.stroke) {
     const stroke = parseStroke(shapeAttrs.stroke);
     elem.style.border = `${stroke.type} ${stroke.size.css} ${stroke.color}`;

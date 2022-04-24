@@ -1,5 +1,10 @@
 import { AlignItemsType, LayoutAtrributes, PositionType } from '.';
-import { insertGapStyle, insertPaddingStyle, insertSpanStyle } from './util';
+import {
+  insertGapStyle,
+  insertPaddingStyle,
+  insertSpanStyle,
+  insertSizeStyle,
+} from './util';
 
 const ALIGN_ITEMS_CONFIG = {
   horizontal: [
@@ -45,6 +50,10 @@ export class View extends HTMLElement {
     const padding = this.getAttribute('padding');
     if (padding) {
       insertPaddingStyle(padding);
+    }
+    const size = this.getAttribute('size');
+    if (size) {
+      insertSizeStyle(size);
     }
     const layout = this.getAttribute(
       'layout-items'

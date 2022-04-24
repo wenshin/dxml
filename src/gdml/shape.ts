@@ -1,5 +1,6 @@
 import { ShapeAttributes } from '.';
 import { drawRetangle, drawShapeSVG } from './drawShapeSVG';
+import { insertSizeStyle } from './util';
 
 /**
  * 由内容决定尺寸的元素，如 text、image。即 inline 元素，默认为 inline-block 类型。
@@ -22,6 +23,9 @@ export class Shape extends HTMLElement {
   draw() {
     const type = this.getAttribute('type') as ShapeAttributes['type'] | null;
     const size = this.getAttribute('size') || undefined;
+    if (size) {
+      insertSizeStyle(size);
+    }
     if (type) {
       const drawObj = drawShapeSVG(this, {
         type,
@@ -32,8 +36,6 @@ export class Shape extends HTMLElement {
         shadow: this.getAttribute('shadow') || '',
       });
       if (drawObj) {
-        this.style.width = drawObj.width.css;
-        this.style.height = drawObj.height.css;
         this.style.background = `url(${drawObj?.dataUrl}) center/contain no-repeat`;
       }
     } else {

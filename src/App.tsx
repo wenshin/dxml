@@ -14,27 +14,31 @@ function App() {
         <h2>
           <d-text crop="2">等比例垂直布局</d-text>
         </h2>
-        <div className="bg-zinc-800 h-64" id="equal-row">
-          <d-view gap="12" padding="20">
-            <img
-              className="rounded object-cover w-12 h-12"
-              src={avatarSrc}
-              alt="Sarah Dayan"
-            />
-            <d-view class="rounded bg-zinc-600 px-2">
-              Sarah Dayan, Staff Engineer, Algolia
-            </d-view>
-            <d-view
-              class="rounded bg-zinc-600 p-2"
-              span="stretch"
-              place-items="left-top"
-            >
-              “Tailwind CSS is the only framework that I've seen scale on large
-              teams. It’s easy to customize, adapts to any design, and the build
-              size is tiny.”
-            </d-view>
+        <d-view
+          id="equal-row"
+          class="bg-zinc-800 rounded-lg"
+          size="auto 256"
+          gap="12"
+          padding="20"
+        >
+          <img
+            className="rounded object-cover w-12 h-12"
+            src={avatarSrc}
+            alt="Sarah Dayan"
+          />
+          <d-view class="rounded bg-zinc-600 px-2">
+            Sarah Dayan, Staff Engineer, Algolia
           </d-view>
-        </div>
+          <d-view
+            class="rounded bg-zinc-600 p-2"
+            span="stretch"
+            place-items="left-top"
+          >
+            “Tailwind CSS is the only framework that I've seen scale on large
+            teams. It’s easy to customize, adapts to any design, and the build
+            size is tiny.”
+          </d-view>
+        </d-view>
         <br />
         <div className="case-container">
           <d-view gap="12" align-items="justify">

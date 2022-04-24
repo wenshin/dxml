@@ -14,7 +14,7 @@ export type PositionType =
   | 'left-top'
   | 'center';
 
-export type FloadPositionType =
+export type FloatPositionType =
   | PositionType
   | 'top-outside'
   | 'right-top-outside'
@@ -73,10 +73,10 @@ export interface LayoutAtrributes extends CommonStyleAttributes {
    */
   'layout-items'?: 'vertical' | 'horizontal' | 'grid' | 'inline';
   /**
-   * 1. 默认为，撑满整个父元素容器空间
-   * 2. auto，由子元素尺寸决定
-   * 3. width: width equal to height, if shape is polygon, it means equilateral sides;
-   * 4. width height
+   * 1. 默认: 由子元素尺寸决定宽高
+   * 2. 设置`width[ height]`:
+   *    1. 可设置的值为数字（注意不带长度单位）和 auto，auto 表示使用默认值；
+   *    2. 如果 height 值不提供，则默认 width 和 height 相同。
    */
   size?: 'auto' | string;
 }
@@ -93,13 +93,13 @@ interface ViewAtrributes extends LayoutAtrributes {
    */
   padding?: string;
   /**
-   * 指向一个 component 标签的元素
-   */
-  use?: string;
-  /**
    * 设置元素和兄弟元素的比例 stretch | 1 | 2 | 3，默认按照内容长度展开，不缩小也不放大
    */
   span?: 'stretch' | string;
+  /**
+   * 指向一个 component 标签的元素，暂时未实现
+   */
+  use?: string;
 }
 
 interface LayerAttributes {
@@ -149,7 +149,7 @@ declare global {
             /**
              * float 元素在父元素的位置
              */
-            position?: FloadPositionType;
+            position?: FloatPositionType;
           },
         HTMLElement
       >; // Normal web component

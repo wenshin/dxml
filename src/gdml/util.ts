@@ -75,6 +75,18 @@ export function insertPaddingStyle(padding: string) {
   );
 }
 
+export function insertSizeStyle(size: string) {
+  const [width, height] = size.split(' ');
+  const id = `d-size-${size.replaceAll(' ', '_')}`;
+  insertStyleElement(
+    id,
+    `[size="${size}"] {
+      ${width !== 'auto' ? `width: ${width}px!important;` : ''}
+      ${height !== 'auto' ? `height: ${height || width}px!important;` : ''}
+    }`
+  );
+}
+
 export function insertCropStyle(crop: string) {
   const id = `d-text-crop-${crop}`;
   insertStyleElement(
