@@ -1,5 +1,5 @@
 import { AlignItemsType, LayoutAtrributes, PositionType } from '.';
-import { insertGapStyle, insertSpanStyle } from './util';
+import { insertGapStyle, insertPaddingStyle, insertSpanStyle } from './util';
 
 const ALIGN_ITEMS_CONFIG = {
   col: [
@@ -41,6 +41,10 @@ export class View extends HTMLElement {
     const gap = this.getAttribute('gap');
     if (gap) {
       insertGapStyle(gap);
+    }
+    const padding = this.getAttribute('padding');
+    if (padding) {
+      insertPaddingStyle(padding);
     }
     const layout = this.getAttribute(
       'layout-items'

@@ -42,7 +42,7 @@ export function insertSpanStyle(span: string) {
 
 export function insertGapStyle(gap: string) {
   const [rowGap, colGap] = gap.split(' ');
-  const id = `d-gap-${rowGap}-${colGap || rowGap}`;
+  const id = `d-gap-${gap.replaceAll(' ', '_')}`;
   insertStyleElement(
     id,
     `[gap="${gap}"] > * { margin-bottom: ${rowGap}px; }
@@ -50,6 +50,17 @@ export function insertGapStyle(gap: string) {
     [layout-items="inline"][gap="${gap}"] > * { margin-right: ${rowGap}px; margin-bottom: ${
       colGap || rowGap
     }px; }`
+  );
+}
+
+export function insertPaddingStyle(padding: string) {
+  const values = padding.split(' ');
+  const id = `d-padding-${padding.replaceAll(' ', '_')}`;
+  insertStyleElement(
+    id,
+    `[padding="${padding}"] { padding: ${values
+      .map((v) => v + 'px')
+      .join(' ')}; }`
   );
 }
 

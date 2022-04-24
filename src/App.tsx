@@ -12,10 +12,10 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2">等比例行布局</d-text>
+          <d-text crop="2">等比例垂直布局</d-text>
         </h2>
-        <div className="bg-zinc-800 p-4 h-64" id="equal-row">
-          <d-view gap="12">
+        <div className="bg-zinc-800 h-64" id="equal-row">
+          <d-view gap="12" padding="20">
             <img
               className="rounded object-cover w-12 h-12"
               src={avatarSrc}
@@ -86,7 +86,7 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2">不同比例行布局</d-text>
+          <d-text crop="2">不同比例垂直布局</d-text>
         </h2>
         <div className="case-container" id="unequal-row">
           <d-view layout-items="vertical" gap="12" align-items="justify">
@@ -108,23 +108,18 @@ function App() {
         </div>
         <p className="case-desc">
           默认情况下<span className="hljs-string">d-view</span>标签
-          子元素都在一列内布局，从而形成行布局。
+          子元素都在一列内布局，从而形成垂直方向布局。
           <span className="hljs-tag">layout-items="vertical"</span>
         </p>
         <Code targetId="unequal-row" />
       </section>
       <section>
         <h2>
-          <d-text crop="2">等比例列布局</d-text>
+          <d-text crop="2">等比例水平布局</d-text>
         </h2>
         <div className="case-container" id="equal-col">
           <d-view layout-items="horizontal" gap="12" align-items="justify">
-            <d-view
-              class="bg-color"
-              span="1"
-              layout-items="vertical"
-              place-items="center"
-            >
+            <d-view class="bg-color" span="1" place-items="center">
               <d-text>A</d-text>
               <d-text>A</d-text>
             </d-view>
@@ -157,7 +152,7 @@ function App() {
       </section>
       <section>
         <h2>
-          <d-text crop="2">不同比例列布局</d-text>
+          <d-text crop="2">不同比例水平布局</d-text>
         </h2>
         <div className="case-container" id="unequal-col">
           <d-view layout-items="horizontal" gap="12" align-items="justify">
