@@ -1446,7 +1446,7 @@ function App() {
           <d-text crop="2">内联元素布局</d-text>
         </h2>
         <div className="case-container" id="inline">
-          <d-view layout-items="inline" gap="12px 16">
+          <d-view layout-items="inline" gap="12 16">
             {new Array(20).fill('').map((_, idx) => {
               return (
                 <d-view

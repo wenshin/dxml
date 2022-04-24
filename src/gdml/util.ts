@@ -45,11 +45,22 @@ export function insertGapStyle(gap: string) {
   const id = `d-gap-${gap.replaceAll(' ', '_')}`;
   insertStyleElement(
     id,
-    `[gap="${gap}"] > * { margin-bottom: ${rowGap}px; }
-    [layout-items="horizontal"][gap="${gap}"] > * { margin-right: ${rowGap}px; }
-    [layout-items="inline"][gap="${gap}"] > * { margin-right: ${rowGap}px; margin-bottom: ${
-      colGap || rowGap
-    }px; }`
+    `[gap="${gap}"] > * {
+      margin-bottom: ${rowGap}px;
+      margin-right: 0;
+    }
+    [gap="${gap}"] > *:last-child { margin-bottom: 0; }
+
+    [layout-items="horizontal"][gap="${gap}"] > * {
+      margin-right: ${rowGap}px;
+      margin-bottom: 0;
+    }
+    [layout-items="horizontal"][gap="${gap}"] > *:last-child { margin-right: 0; }
+
+    [layout-items="inline"][gap="${gap}"] > * {
+      margin-right: ${rowGap}px;
+      margin-bottom: ${colGap || rowGap}px;
+    }`
   );
 }
 

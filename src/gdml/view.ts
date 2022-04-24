@@ -2,7 +2,7 @@ import { AlignItemsType, LayoutAtrributes, PositionType } from '.';
 import { insertGapStyle, insertPaddingStyle, insertSpanStyle } from './util';
 
 const ALIGN_ITEMS_CONFIG = {
-  col: [
+  horizontal: [
     ['left-top', 'start'],
     ['right-top', 'start'],
     ['top', 'start'],
@@ -13,7 +13,7 @@ const ALIGN_ITEMS_CONFIG = {
     ['bottom', 'end'],
     ['right-bottom', 'end'],
   ],
-  row: [
+  vertical: [
     ['left-top', 'start'],
     ['right-top', 'end'],
     ['top', 'center'],

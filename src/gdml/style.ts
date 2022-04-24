@@ -110,18 +110,19 @@ ${View.tag}[align-items="justify"] > ${View.tag},
   width: 100%;
 }
 
-[layout-items="horizontal"][gap] > ${View.tag} {
-  margin-bottom: 0;
-}
-[gap] > *:last-child,
-[layout-items="horizontal"][gap] > ${View.tag}:last-child,
-[layout-items="vertical"][gap] > ${View.tag}:last-child {
-  margin-right: 0;
-  margin-bottom: 0;
-}
 [layout-items="horizontal"][align-items="justify"] > ${View.tag} {
   width: initial;
   height: 100%;
+}
+
+[align-items="center"] {
+  align-items: center;
+}
+[align-items="start"] {
+  align-items: flex-start;
+}
+[align-items="end"] {
+  align-items: flex-end;
 }
 
 [place-items] {
@@ -187,16 +188,6 @@ ${View.tag}[align-items="justify"] > ${View.tag},
 [place-items="right-top"] {
   align-items: flex-end;
   justify-content: flex-start;
-}
-
-[align-items="center"] {
-  align-items: center;
-}
-[align-items="start"] {
-  align-items: flex-start;
-}
-[align-items="end"] {
-  align-items: flex-end;
 }
 
 ${Float.tag} {
