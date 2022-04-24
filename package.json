@@ -1,6 +1,6 @@
 {
   "name": "gdml",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/index.js",
@@ -36,7 +36,7 @@
     "build": "react-scripts build",
     "postbuild": "react-snap",
     "build-pkg": "tsc -p ./tsconfig.pkg.json",
-    "prepublish": "git tag -d 0.3.0 2>/dev/null || true && git tag 0.3.0 && npm run build-pkg",
+    "prepublish": "git tag -d 0.3.1 2>/dev/null || true && git tag 0.3.1 && npm run build-pkg",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install"
