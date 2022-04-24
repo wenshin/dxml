@@ -262,7 +262,12 @@ function App() {
           <d-text crop="2">列布局使用 place-items 设置子元素位置</d-text>
         </h2>
         <div className="case-container row-col-align-case" id="row-place-items">
-          <d-view layout-items="horizontal" gap="12" align-items="justify">
+          <d-view
+            class="text-xs"
+            layout-items="horizontal"
+            gap="12"
+            align-items="justify"
+          >
             <d-view
               layout-items="vertical"
               align-items="justify"
@@ -272,33 +277,45 @@ function App() {
               <d-view
                 layout-items="horizontal"
                 span="1"
-                class="bg-color"
+                class="p-1 bg-zinc-700 rounded"
                 place-items="left-top"
               >
                 <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
-                <d-shape stroke="solid 1 #a6e22e" place-items="center">
+                <d-shape
+                  class="px-1"
+                  stroke="solid 1 #a6e22e"
+                  place-items="center"
+                >
                   left-top
                 </d-shape>
               </d-view>
               <d-view
                 layout-items="horizontal"
                 span="1"
-                class="bg-color"
+                class="p-1 bg-zinc-700 rounded"
                 place-items="left"
               >
                 <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
-                <d-shape stroke="solid 1 #a6e22e" place-items="center">
+                <d-shape
+                  class="px-1"
+                  stroke="solid 1 #a6e22e"
+                  place-items="center"
+                >
                   left
                 </d-shape>
               </d-view>
               <d-view
                 layout-items="horizontal"
                 span="1"
-                class="bg-color"
+                class="p-1 bg-zinc-700 rounded"
                 place-items="left-bottom"
               >
                 <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
-                <d-shape stroke="solid 1 #a6e22e" place-items="center">
+                <d-shape
+                  class="px-1"
+                  stroke="solid 1 #a6e22e"
+                  place-items="center"
+                >
                   left-bottom
                 </d-shape>
               </d-view>
@@ -312,33 +329,45 @@ function App() {
               <d-view
                 layout-items="horizontal"
                 span="1"
-                class="bg-color"
+                class="p-1 bg-zinc-700 rounded"
                 place-items="top"
               >
                 <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
-                <d-shape stroke="solid 1 #a6e22e" place-items="center">
+                <d-shape
+                  class="px-1"
+                  stroke="solid 1 #a6e22e"
+                  place-items="center"
+                >
                   top
                 </d-shape>
               </d-view>
               <d-view
                 layout-items="horizontal"
                 span="1"
-                class="bg-color"
+                class="p-1 bg-zinc-700 rounded"
                 place-items="center"
               >
                 <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
-                <d-shape stroke="solid 1 #a6e22e" place-items="center">
+                <d-shape
+                  class="px-1"
+                  stroke="solid 1 #a6e22e"
+                  place-items="center"
+                >
                   center
                 </d-shape>
               </d-view>
               <d-view
                 layout-items="horizontal"
                 span="1"
-                class="bg-color"
+                class="p-1 bg-zinc-700 rounded"
                 place-items="bottom"
               >
                 <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
-                <d-shape stroke="solid 1 #a6e22e" place-items="center">
+                <d-shape
+                  class="px-1"
+                  stroke="solid 1 #a6e22e"
+                  place-items="center"
+                >
                   bottom
                 </d-shape>
               </d-view>
@@ -352,33 +381,45 @@ function App() {
               <d-view
                 layout-items="horizontal"
                 span="1"
-                class="bg-color"
+                class="p-1 bg-zinc-700 rounded"
                 place-items="right-top"
               >
                 <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
-                <d-shape stroke="solid 1 #a6e22e" place-items="center">
+                <d-shape
+                  class="px-1"
+                  stroke="solid 1 #a6e22e"
+                  place-items="center"
+                >
                   right-top
                 </d-shape>
               </d-view>
               <d-view
                 layout-items="horizontal"
                 span="1"
-                class="bg-color"
+                class="p-1 bg-zinc-700 rounded"
                 place-items="right"
               >
                 <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
-                <d-shape stroke="solid 1 #a6e22e" place-items="center">
+                <d-shape
+                  class="px-1"
+                  stroke="solid 1 #a6e22e"
+                  place-items="center"
+                >
                   right
                 </d-shape>
               </d-view>
               <d-view
                 layout-items="horizontal"
                 span="1"
-                class="bg-color"
+                class="p-1 bg-zinc-700 rounded"
                 place-items="right-bottom"
               >
                 <d-shape stroke="solid 1 #ffe22e" size="12 30"></d-shape>
-                <d-shape stroke="solid 1 #a6e22e" place-items="center">
+                <d-shape
+                  class="px-1"
+                  stroke="solid 1 #a6e22e"
+                  place-items="center"
+                >
                   right-bottom
                 </d-shape>
               </d-view>
@@ -392,7 +433,7 @@ function App() {
           <d-text crop="2">行布局使用 place-items 设置子元素位置</d-text>
         </h2>
         <div
-          className="case-container row-col-align-case"
+          className="case-container row-col-align-case text-xs"
           id="col-place-items"
           style={{ height: '300px' }}
         >
@@ -419,8 +460,8 @@ function App() {
                   A
                 </d-shape>
                 <d-shape
-                  class="p-2 px-0.5 py-1"
                   type="ellipse"
+                  class="px-1"
                   stroke="solid 1 #a6e22e"
                   place-items="center"
                 >
@@ -443,10 +484,10 @@ function App() {
                   A
                 </d-shape>
                 <d-shape
+                  class="px-1"
                   type="ellipse"
                   stroke="solid 1 #a6e22e"
                   place-items="center"
-                  style={{ padding: '2px 4px' }}
                 >
                   top
                 </d-shape>
@@ -467,10 +508,10 @@ function App() {
                   A
                 </d-shape>
                 <d-shape
+                  class="px-1"
                   type="ellipse"
                   stroke="solid 1 #a6e22e"
                   place-items="center"
-                  style={{ padding: '2px 4px' }}
                 >
                   right-top
                 </d-shape>
@@ -498,10 +539,10 @@ function App() {
                   A
                 </d-shape>
                 <d-shape
+                  class="px-1"
                   type="ellipse"
                   stroke="solid 1 #a6e22e"
                   place-items="center"
-                  style={{ padding: '2px 4px' }}
                 >
                   left
                 </d-shape>
@@ -522,10 +563,10 @@ function App() {
                   A
                 </d-shape>
                 <d-shape
+                  class="px-1"
                   type="ellipse"
                   stroke="solid 1 #a6e22e"
                   place-items="center"
-                  style={{ padding: '2px 4px' }}
                 >
                   center
                 </d-shape>
@@ -546,10 +587,10 @@ function App() {
                   A
                 </d-shape>
                 <d-shape
+                  class="px-1"
                   type="ellipse"
                   stroke="solid 1 #a6e22e"
                   place-items="center"
-                  style={{ padding: '2px 4px' }}
                 >
                   right
                 </d-shape>
@@ -577,10 +618,10 @@ function App() {
                   A
                 </d-shape>
                 <d-shape
+                  class="px-1"
                   type="ellipse"
                   stroke="solid 1 #a6e22e"
                   place-items="center"
-                  style={{ padding: '2px 4px' }}
                 >
                   left-bottom
                 </d-shape>
@@ -601,10 +642,10 @@ function App() {
                   A
                 </d-shape>
                 <d-shape
+                  class="px-1"
                   type="ellipse"
                   stroke="solid 1 #a6e22e"
                   place-items="center"
-                  style={{ padding: '2px 4px' }}
                 >
                   bottom
                 </d-shape>
@@ -625,10 +666,10 @@ function App() {
                   A
                 </d-shape>
                 <d-shape
+                  class="px-1"
                   type="ellipse"
                   stroke="solid 1 #a6e22e"
                   place-items="center"
-                  style={{ padding: '2px 4px' }}
                 >
                   right-bottom
                 </d-shape>

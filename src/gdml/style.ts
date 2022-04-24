@@ -80,6 +80,7 @@ ${Layer.tag}[mask="black"] {
 
 [layout-items="inline"] {
   flex-wrap: wrap;
+  flex-direction: row;
 }
 
 /*
