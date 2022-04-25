@@ -106,12 +106,12 @@ ${View.tag} > [span="stretch"],
   flex: 1;
 }
 
-${View.tag}[align-items="justify"] > ${View.tag},
-[layout-items="vertical"][align-items="justify"] > ${View.tag} {
+${View.tag}[align-items="justify"] > *,
+[layout-items="vertical"][align-items="justify"] > * {
   width: 100%;
 }
 
-[layout-items="horizontal"][align-items="justify"] > ${View.tag} {
+[layout-items="horizontal"][align-items="justify"] > * {
   width: initial;
   height: 100%;
 }
