@@ -64,7 +64,12 @@ export class View extends HTMLElement {
       ALIGN_ITEMS_CONFIG[layout as keyof typeof ALIGN_ITEMS_CONFIG];
     if (!alignConfig) return;
     for (const conf of alignConfig) {
-      if (placeItems === conf[0] && alignItems && alignItems !== conf[1]) {
+      if (
+        placeItems === conf[0] &&
+        alignItems &&
+        alignItems !== conf[1] &&
+        alignItems !== 'justify'
+      ) {
         const view = document.createElement(View.tag);
         view.setAttribute('align-items', alignItems);
         if (layout) {
